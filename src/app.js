@@ -13,15 +13,6 @@ import bodyParser from 'body-parser';
 import auth from './middleware/auth';
 
 
-/* mongoose.connect('mongodb+srv://mitrsewa:kqO9SbktMRYZZ117@cluster0.mau8k.mongodb.net/mitrsewa?retryWrites=true&w=majority', 
-{
-    useNewUrlParser: true, 
-    useUnifiedTopology: true, 
-    useCreateIndex:true
-})
-.then(()=>console.log('connected to live database'))
-.catch(error=>console.log('error occured',error))
- */
 mongoose.connect('mongodb://localhost:27017/mitrsewa',
 {
   useNewUrlParser:true,
