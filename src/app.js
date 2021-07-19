@@ -12,13 +12,25 @@ import mongoStore from 'connect-mongo';
 import bodyParser from 'body-parser';
 import auth from './middleware/auth';
 
-// mongoose.connect("mongodb+srv://dataadmin:dataadmin@cluster0.8wldd.mongodb.net/myFirstDatabase", {
-//   useNewUrlParser: true,
-// 	useUnifiedTopology: true,
-// 	useCreateIndex: true,
-// 	useFindAndModify: false
-// });
-mongoose.connect('mongodb+srv://mitrsewa:kqO9SbktMRYZZ117@cluster0.mau8k.mongodb.net/mitrsewa?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true});
+
+/* mongoose.connect('mongodb+srv://mitrsewa:kqO9SbktMRYZZ117@cluster0.mau8k.mongodb.net/mitrsewa?retryWrites=true&w=majority', 
+{
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    useCreateIndex:true
+})
+.then(()=>console.log('connected to live database'))
+.catch(error=>console.log('error occured',error))
+ */
+mongoose.connect('mongodb://localhost:27017/mitrsewa',
+{
+  useNewUrlParser:true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: true
+})  
+.then(()=>console.log('connected to local database'))
+.catch(error=>console.log('error occured',error))
 
 import rootRouter from './routes';
 
