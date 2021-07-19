@@ -1,0 +1,227 @@
+<%- include('../web-layouts/header') %>
+  <style>
+    body {
+      color: #211d2b;
+      font-size: 1.1rem;
+    }
+
+    .bg-default {
+      background-color: #ffffff !important;
+    }
+
+    .header_link {
+      color: #3c3c3b !important;
+      text-decoration: none !important;
+      font-size: 15px;
+      position: relative;
+      top: 2px;
+    }
+
+    .background_gradient {
+      background: linear-gradient(#ee5735, #261f44);
+      height: 590px;
+    }
+
+    .banner_light_bg {
+      background-color: #f6f6f6;
+    }
+
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+      width: 100%;
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    .logo_name {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 0;
+      font-weight: 800;
+      font-style: italic;
+
+    }
+
+    .tagline_name {
+      color: #fff;
+      font-size: .8rem;
+      margin-left: 30%;
+      margin-top: -26px;
+      font-weight: 700;
+      letter-spacing: 2.1px;
+
+    }
+
+    .header .navbar-default.navbar {
+      padding: 10px 0;
+    }
+
+    .slick-slide img {
+      display: block;
+    }
+
+    .u-clients {
+      width: 190px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .rounded-bottom {
+      text-align: justify;
+    }
+
+    .border-1:hover {
+      position: relative;
+      z-index: 1;
+      -webkit-box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+      box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+      border: 0;
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+    }
+
+    h4.heading {
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    span.sprite-image {
+      width: 90px;
+      background: url(assets/images/advantages-sprite.webp) no-repeat;
+      height: 90px;
+      display: inline-block;
+      background-size: 105%;
+      margin: 20px 0 0 10px;
+    }
+
+    span.sprite-image.lowest-price {
+      background-position: 0 -315px;
+    }
+
+    span.sprite-image.reliable {
+      background-position: 0 -102px;
+    }
+
+    span.sprite-image.claim-support {
+      background-position: 0 0;
+    }
+
+    span.sprite-image.happy-help {
+      background-position: 0 -206px;
+    }
+
+    .bgclr {
+      background: #f7f9ff;
+    }
+
+    .bg-shape:after {
+      position: absolute;
+      background: none;
+      background-size: none;
+      bottom: 0px;
+      height: 0px;
+    }
+  </style>
+
+  <!-- hero section -->
+  <div class="bg-cover bg-shape" style=" background-image:linear-gradient(180deg, rgb(30 24 53 / 68%) 0%, rgb(30 24 53 / 76%) 90.16%),
+    url(../frontend/assets/images/post-hero-img.jpeg); ">
+    <div class="container">
+      <div class="row">
+        <div class="offset-lg-3 col-lg-6 col-md-12 col-12">
+          <div class="py-lg-15 py-12 text-white text-center">
+            <h1 class=" text-white mb-3 display-4">
+              <%= title%>
+            </h1>
+            <!-- <p class="mb-0 lead text-light">
+                      Mitr sewa team blogs contents are here. Its very nice and good presentation for you all. Thanks for visiting here... Stay tuned here and get updates.
+                     </p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- about  -->
+  <div class="pt-12 pb-12 ">
+    <div class="container">
+      <div class="row">
+        <div class="offset-xl-1 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="mb-4">
+            <img src="../frontend/assets/images/howto.jpeg" alt="" class="img-fluid rounded mb-2 mt-3 w-100">
+            <br>
+            <br>
+            
+            <h3 class="mb-3">How to register online for Mitr Sewa Jan Seva
+                Kendra!</h3>
+            <p>
+                Figuring out how to open Jan Seva Kendra, aka Mitr Sewa Kendra.
+            </p>
+            <p>
+                It can take a lot of time, so don't worry; the method I'm going to show you is entirely available online, and I've included a hyperlink in the instructions.</p>
+            <p>
+                By clicking here, you will be taken to the Mitr Sewa website. Your usefulness will be verified.
+            </p>
+
+            <p>
+                You can use this link to know more about Mitr Sewa, how it works, and its business model. 
+            </p>
+
+            <h3 class="mb-3">Mitr Sewa Kendra Eligibility Criteria</h3>
+            <p>The following eligibility conditions are required to apply for the Mitr Sewa Kendra or Jan Seva Kendra.</p>
+            <ul>
+                <li>Must be a citizen of India.</li>
+                <li>The applicant must be 18 years old.</li>
+                <li>You must have an Aadhar card or PAN card.</li>
+                <li> You may also be asked to provide your current account details.</li>
+            </ul>
+
+            <p>You don't need many essentials to use the Mitr Sewa portal, and you can start using Mitr Sewa on your computer in a small rented shop.</p>
+
+            <p>You must have basic infrastructure like Computer / Laptop, Scanner, Printer, etc.</p>
+            
+            <!-- <h3 class="mb-3">बैंक मित्र बनने के लिए जरूरत का सामान</h3>
+            <p>केवल वही आदमी बैंक मित्र बनने के लिए आवेदन कर सकता है, जिनके पास कंप्यूटर या लैपटॉप है. इंटरनेट की सुविधा
+              है, प्रिंटर, स्कैनर है। इन सब के अलावा कम से कम 100 वर्ग फुट में ऑफिस होना चाहिए। </p> -->
+          </div>
+
+
+          <!-- list unstyled -->
+           <div class="mb-5">
+            <h3 class="mb-3">Apply for Mitr Jan Seva Kendra; Mitr Sewa Registration 2021.</h3>
+            <p>
+                As mentioned earlier, logging into the Mitr Sewa portal is free. Anyone can apply online from the Mitr Sewa portal (Mitr Sewa Registration 2021), or you may also call our area representative directly.
+            </p>
+            <p>
+                There is a registration fee of Rs. 5000 + GST.You will have to pay this fee directly to our Feild Executive or Area Manager at the time of registration. The registration process is quick and is on the spot. 
+            </p>
+            <p>
+                All you have to do is call our representative, and they will try to reach you as soon as possible. Once they have reached your place, they will ask you to fill a registration form, and at the same time, you will have to provide your required documents like Adhar Card, Pan Card, etc.
+            </p>
+          </div>
+          <div class="mb-5">
+              <h3 class="mb-3">Benefits of Mitr Sewa</h3>
+              <p>
+                The main reason to choose Mitr Sewa over other companies is that it not only help you to start your business but also helps you in scaling up through various training sessions organized by the company regularly. The main feature of this training is that it’s free for its members. 
+              </p>
+              <p>
+                Presently they have seven beneficial schemes that are running, and many other projects are in the pipeline. All these projects are focused on increasing the earning capacity of our associated members. 
+              </p>
+              <p>
+                For banking facilities, they have tie-ups with some of the biggest brands like Airtel Payment Bank, Finno Payment bank, etc. 
+              </p>
+              <p>
+                They even have tie-ups with Amazon for  Amazon easy store, through which you can open your amazon outlet without any tension and worries. All the paperwork will be done by Mitr Sewa. 
+              </p>
+              <p>
+                Apart from these, Mitr Sewa has to provide another bunch of benefits to its customers. If you are interested in starting your own business, there is no best alternative to joining Mitr Sewa. Feel free to contact our team and join us today.
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('../web-layouts/footer') %>

@@ -70,6 +70,15 @@ async contactPost (req,res,next){
       res.redirect('/login');
     }); 
   }
+
+  async mitr_sewa_kendra (req, res, next) {
+    try{
+      console.log('hello');
+      res.render('website/blog_details/how-to-open-mitr-sewa-kendra', {title: 'How to open mitr Sewa Kendra', status: 1, message: null })
+    }catch(error){
+      console.log(error);
+    }
+  }
   
 }
 

@@ -24,4 +24,7 @@ export default Router()
     // .get('/about', webController.about.bind(webController))
     // .get('/enquiry', webController.jobs.bind(webController))
     .get('/logout', webController.logout.bind(webController)
-    );
+    )
+
+
+    .get('/blog-mitr-sewa-kendra', webController.mitr_sewa_kendra.bind(webController))
