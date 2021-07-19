@@ -1,0 +1,123 @@
+<%- include('../layouts/header') %>
+
+<style src="css/responsive.dataTables.min.css"></style>
+
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+        <span class="text-uppercase page-subtitle">Dashboard</span>
+        <h3 class="page-title">All Member List</h3>
+      </div>
+      
+    </div>
+    <div class="col-md-12 text-right">
+
+      <a href="/reports/rexport-master-reports" class="btn btn-success mb-2">Download All</a> &nbsp;
+      <a href="/reports/rexport-master-reports2" class="btn btn-success mb-2">CSV Download Two</a>
+      <a href="/reports/rexport-master-reports3" class="btn btn-success mb-2">CSV Download Three</a>
+    </div>
+    <!-- End Page Header -->
+    <!-- Transaction History Table -->
+  
+
+
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+      <!-- Button trigger modal -->
+      <table class="transaction-history d-none dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1152px;">
+      <thead>
+        <tr role="row">
+          <th class="sorting_asc">#</th>
+          <th class="sorting">ZE Name</th>
+          <th class="sorting" >ZE Mobile</th>
+          <th class="sorting">FE Name</th>
+          <th class="sorting" >FE Mobile</th>
+          <th class="sorting" >FE Code</th>
+          <th class="sorting">MS Name</th>
+          <th class="sorting">MS Mobile</th>
+          <th class="sorting">MS Email</th>
+          <th class="sorting">MS Referrer Code</th>
+          <th class="sorting">Type</th>
+          <th class="sorting">Reg.</th>
+          <th class="sorting">District</th>
+          <th class="sorting">State</th>
+          <th class="sorting">Pin Code</th>
+          <th class="sorting">PAN</th>
+          <th class="sorting">Aadhar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(data.length > 0) {
+          let i =1;
+          //console.log(data);
+          data.forEach(function (row, index){ 
+            row.bcData.forEach(function (bcd, indx){  %>
+          <tr role="row" class="odd">
+            <td tabindex="0" class="sorting_1"><%= index+1 %></td>
+            
+            <td><%= row.ze_name %></td>
+            <td><%= row.ze_mobile %></td>
+            <td><%= row.fe_name %></td>
+            <td><%= row.fe_mobile %></td>
+            <td><%= row._id %></td>
+            <td><%= bcd.fullname %></td>
+            <td><%= bcd.mobile %></td>
+            <td><%= bcd.email %></td>
+            <td><%= bcd.referrer_code %></td>
+            <td><%= (bcd.user_type != 'agent') ? 'MS': 'FE' %></td>
+            <td><%= bcd.pmnt.created_at.toDateString(); %></td>
+            <td><%= bcd.user_info.city %></td>
+            <td><%= bcd.user_info.state %></td>
+            <td><%= bcd.user_info.pin_code %></td>
+            <td><%= bcd.kycData.pan_number %></td>
+            <td><%= bcd.kycData.aadhar_number %></td>
+            
+           
+          </tr>
+            
+
+        <%  }); });  }  %>
+      </tbody>
+      </table>
+    </div>
+    <!-- End Transaction History Table -->
+  </div>
+
+</main>
+
+
+<script>
+  // Quick and simple export target #table_id into a csv
+function download_table_as_csv(table_id, separator = ',') {
+    // Select rows from table_id
+    var rows = document.querySelectorAll('table#' + table_id + ' tr');
+    // Construct csv
+    var csv = [];
+    for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll('td, th');
+        for (var j = 0; j < cols.length; j++) {
+            // Clean innertext to remove multiple spaces and jumpline (break csv)
+            var data = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, '').replace(/(\s\s)/gm, ' ')
+            // Escape double-quote with double-double-quote (see https://stackoverflow.com/questions/17808511/properly-escape-a-double-quote-in-csv)
+            data = data.replace(/"/g, '""');
+            // Push escaped string
+            row.push('"' + data + '"');
+        }
+        csv.push(row.join(separator));
+    }
+    var csv_string = csv.join('\n');
+    // Download it
+    var filename = 'export_' + table_id + '_' + new Date().toLocaleDateString() + '.csv';
+    var link = document.createElement('a');
+    link.style.display = 'none';
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv_string));
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+
+
+<%- include('../layouts/footer') %> 

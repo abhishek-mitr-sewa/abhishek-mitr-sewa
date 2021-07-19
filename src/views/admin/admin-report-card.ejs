@@ -1,0 +1,155 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<%- include('./main') %>
+    <style>
+      .tr-bcColor-red{
+        background-color: #fae7ee;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .td-min-orange{
+        background-color:#fdf5e6; 
+      }
+      .tr-min-orange{
+        background-color:#fdf5e6; 
+      }
+      .tr-bcColor-green{
+        background-color: #e7f7f0;
+      
+      }
+      .lo-stats .card-body {
+        min-height: 33rem;
+      }
+
+      .container-fluid-model {
+        position: absolute;
+        height: 21%;
+        min-width: 30rem;
+        padding-right: 1px;
+        padding-left: 1px;
+      }
+      .arrow-red{
+        font-size: 18px !important;
+        color: red;
+      }
+      .arrow-green{
+        font-size: 18px !important;
+        color:green;
+      }
+      .div-bg-color{
+        background-color: rgba(86, 61, 124, .15);
+        /* border: 1px solid rgba(86, 61, 124, .2); */
+      }
+      .text-middle{
+        align-self: center;
+      }
+      .list-group-small .list-group-item {padding: .625rem .1rem;}
+      .plr-0{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+      .btn-group-sm>.btn, .btn-sm {
+        padding: .3286rem .575rem;
+        font-size: .5875rem;
+      }
+    </style>
+    <div class="main-content-container container-fluid px-4">
+      <!-- Page Header -->
+      <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-6 text-center text-sm-left mb-0">
+          <span class="text-uppercase page-subtitle">Dashboard</span>
+          <h3 class="page-title">Report Overview </h3>
+        </div>
+      </div>
+      <!-- ----------  FOR COMPANY ADMIN STATS CODE START HERE ----------------- -->
+     
+      <div class="row">
+        
+        <div class="col col-lg-12 col-md-12 col-sm-12 mb-4">
+          <div class="card card-small h-100">
+            <div class="card-header border-bottom d-flex">
+              <div class="btn-group btn-group-sm">
+
+                <ul class="navbar-nav flex-row ml-4">
+                  
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-nowrap px-3 page-title" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= state %></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-small" style="display: none;">
+                      <a href="/admin/admin-report-cards/ANDHRA PRADESH" class="dropdown-item"> ANDHRA PRADESH </a>
+                      <a href="/admin/admin-report-cards/ARUNACHAL PRADESH" class="dropdown-item"> ARUNACHAL PRADESH </a>
+                      <a href="/admin/admin-report-cards/ASSAM" class="dropdown-item"> ASSAM </a>
+                      <a href="/admin/admin-report-cards/CHANDIGARH"  class="dropdown-item"> CHANDIGARH </a>
+                      <a href="/admin/admin-report-cards/CHHATTISGARH" class="dropdown-item"> CHHATTISGARH </a>
+                      <a href="/admin/admin-report-cards/DELHI" class="dropdown-item"> DELHI </a>
+                      <a href="/admin/admin-report-cards/GUJARAT" class="dropdown-item"> GUJARAT </a>
+                      <a href="/admin/admin-report-cards/HARYANA" class="dropdown-item">HARYANA </a>
+                      <a href="/admin/admin-report-cards/HIMACHAL PRADESH"  class="dropdown-item"> HIMACHAL PRADESH </a>
+                      <a href="/admin/admin-report-cards/JHARKHAND" class="dropdown-item"> JHARKHAND </a>
+                      <a href="/admin/admin-report-cards/KARNATAKA" class="dropdown-item"> KARNATAKA </a>
+                      <a href="/admin/admin-report-cards/KERALA" class="dropdown-item"> KERALA </a>
+                      <a href="/admin/admin-report-cards/MADHYA PRADESH" class="dropdown-item"> MADHYA PRADESH </a>
+                      <a href="/admin/admin-report-cards/MAHARASHTRA" class="dropdown-item"> MAHARASHTRA </a>
+                      <a href="/admin/admin-report-cards/MANIPUR" class="dropdown-item"> MANIPUR </a>
+                      <a href="/admin/admin-report-cards/ODISHA" class="dropdown-item"> ODISHA </a>
+                      <a href="/admin/admin-report-cards/PUNJAB" class="dropdown-item"> PUNJAB </a>
+                      <a href="/admin/admin-report-cards/RAJASTHAN"  class="dropdown-item"> RAJASTHAN </a>
+                      <a href="/admin/admin-report-cards/TRIPURA" class="dropdown-item"> TRIPURA </a>
+                      <a href="/admin/admin-report-cards/TAMIL NADU" class="dropdown-item"> TAMIL NADU </a>
+                      <a href="/admin/admin-report-cards/UTTAR PRADESH"  class="dropdown-item"> UTTAR PRADESH </a>
+                      <a href="/admin/admin-report-cards/UTTARAKHAND" class="dropdown-item"> UTTARAKHAND </a>
+                      <a href="/admin/admin-report-cards/WEST BENGAL" class="dropdown-item"> WEST BENGAL </a>
+                    </div>
+                  </li>
+                </ul>
+                
+              </div>
+              <!-- <div class="block-handle"></div> -->
+            </div>
+            <div class="card-body pt-0">
+              <div class="row border-bottom py-2 bg-light">
+                <div class="col-12 col-sm-12 col-lg-12 d-flex mb-2 mb-sm-0 ml-0">
+                  <div class="btn-group btn-group-sm btn-group-toggle d-flex my-auto mx-auto mx-sm-0">
+                    <label class="col-2 align-items-center justify-content-center text-center"> Month</label>
+                    <label class="col-2 align-items-center justify-content-center text-center"> YDA FE </label>
+                    <label class="col-2 align-items-center justify-content-center text-center"> MTD FE </label>
+                    <label class="col-2 align-items-center justify-content-center text-center">Total FE </label>
+                    <label class="col-2 align-items-center justify-content-center text-center"> YDA MS </label>
+                    <label class="col-2 align-items-center justify-content-center text-center"> MTD MS </label>
+                    <label class="col-2 align-items-center justify-content-center text-center">Total MS </label>
+                    <label class="col-3 align-items-center justify-content-center text-center">Grand Total (FE+MS)</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row card-header col-md-12 border-bottom" >
+                <div class="col-md-12 col-lg-12 plr-0">
+                  <ul class="list-group list-group-flush">
+                    <%- liData %>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+
+
+    </div>
+  </main>
+        
+
+
+
+     
+
+
+
+  <!-- <i class="material-icons arrow-red">arrow_downward</i> -->
+
+                        <!-- <i class="material-icons arrow-green">arrow_upward </i> -->
+
+
+
+
+<%- include('../layouts/footer') %>        

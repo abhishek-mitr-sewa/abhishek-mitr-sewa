@@ -1,0 +1,266 @@
+<%- include('./web-layouts/header') %>
+    <style>
+      .bg-default {
+          background-color: #ffffff!important;
+      }
+      .header_link {
+          color: #3c3c3b!important;
+          text-decoration: none!important;
+          font-size: 15px;
+          position: relative;
+          top: 2px;
+      }
+      .background_gradient {
+          background: linear-gradient(#ee5735,#261f44);
+          height: 590px;
+      }
+      .banner_light_bg {
+          background-color: #f6f6f6;
+      }
+      .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
+      }
+      .logo_name {
+          color: #fff;
+          font-size: 2rem;
+          margin-bottom: 0;
+          font-weight: 800;
+          font-style: italic;
+          
+      }
+      .tagline_name {
+          color: #fff;
+          font-size: .8rem;
+          margin-left: 30%;
+          margin-top: -26px;
+          font-weight: 700;
+          letter-spacing: 2.1px;
+          
+      }
+      .header .navbar-default.navbar {
+          padding: 10px 0;
+      }
+      .slick-slide img {
+          display: block;
+      }
+
+      .u-clients {
+          width: 190px;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      .rounded-bottom {
+        text-align: justify;
+      }
+      .border-1:hover {
+        position: relative;
+        z-index: 1;
+        -webkit-box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+        box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+        border: 0;
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+      }
+      h4.heading {
+          font-weight: 800;
+          font-size: 20px;
+      }
+      span.sprite-image {
+          width: 90px;
+          background: url(assets/images/advantages-sprite.webp) no-repeat;
+          height: 90px;
+          display: inline-block;
+          background-size: 105%;
+          margin: 20px 0 0 10px;
+      }
+      span.sprite-image.lowest-price {
+          background-position: 0 -315px;
+      }
+      span.sprite-image.reliable {
+          background-position: 0 -102px;
+      }
+      span.sprite-image.claim-support {
+          background-position: 0 0;
+      }
+      span.sprite-image.happy-help {
+          background-position: 0 -206px;
+      }
+      .bgclr{background: #f7f9ff;}
+      .bg-shape:after {
+    position: absolute;
+    background: none;
+    background-size: none;
+    bottom: 0px;
+    height: 0px;
+    }
+    </style>
+
+
+    <!-- hero section -->
+    <div class="bg-cover bg-shape" style=" background-image:linear-gradient(180deg, rgb(30 24 53 / 68%) 0%, rgb(30 24 53 / 76%) 90.16%),
+    url(../frontend/assets/images/team-hero-img.jpeg); ">
+     <div class="container">
+         <div class="row">
+             <div class="offset-lg-3 col-lg-6 col-md-12 col-12">
+                 <div class="py-lg-15 py-12 text-white text-center">
+                     <h1 class=" text-white mb-3 display-4">
+                         Meet The Team
+                     </h1>
+                     <p class="mb-0 lead text-light">
+                      The Mitr Sewa Team comprises of people from different walks of life who have all come together with their multiple experiences to work towards one mission.
+                     </p>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+
+    <!-- about  -->
+   
+    <div class="pt-lg-12 pb-lg-3 py-6">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-12">
+                  <div class="mb-4">
+                      <h2>Leadership</h2>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                  <div class="mb-4">
+                      <img src="../frontend/assets/images/team/prem_singh.jpg" alt="" class="img-fluid w-100 mb-3 rounded-lg ">
+
+                      <h4 class="mb-0">
+                          Prem Singh Azad
+                      </h4>
+                      <span class="font-14">Founder</span>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                  <div class="mb-4">
+                      <img src="../frontend/assets/images/team/nageshwar_rao.jpg" alt="" class="img-fluid w-100 mb-3 rounded-lg ">
+
+                      <h4 class="mb-0">
+                        SVLN Nageswara Rao
+                      </h4>
+                      <span class="font-14">Independent Director / Adviser</span>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                  <div class="mb-4">
+                      <img src="../frontend/assets/images/team/anand_krishna.jpg" alt="Anand Krishna" class="img-fluid w-100 mb-3 rounded-lg ">
+
+                      <h4 class="mb-0">
+                        Anand Krishna
+                      </h4>
+                      <span class="font-14">Independent Director / Adviser</span>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-12">
+                <div class="mb-4">
+                    <img src="../frontend/assets/images/team/ashu_mohan.jpg" alt="Ashu Mohan Chowdhary" class="img-fluid w-100 mb-3 rounded-lg ">
+
+                    <h4 class="mb-0">
+                      Ashu Mohan Chowdhary
+                    </h4>
+                    <span class="font-14">Independent Director / Adviser</span>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="mb-4">
+                    <img src="../frontend/assets/images/team/ram_babu_prasad.jpg" alt="Ram Babu Prasad" class="img-fluid w-100 mb-3 rounded-lg ">
+
+                    <h4 class="mb-0">
+                      Ram Babu Prasad
+                    </h4>
+                    <span class="font-14">Independent Director / Adviser</span>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="mb-4">
+                    <img src="../frontend/assets/images/team/renu_singh.jpg" alt="Renu Singh" class="img-fluid w-100 mb-3 rounded-lg ">
+
+                    <h4 class="mb-0">
+                      Renu Singh
+                    </h4>
+                    <span class="font-14">Independent Director / Adviser</span>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12">
+              <div class="mb-4">
+                  <img src="../frontend/assets/images/team/shashidhar.jpeg" alt="Shashidhar" class="img-fluid w-100 mb-3 rounded-lg ">
+
+                  <h4 class="mb-0">
+                    Shashidhar
+                  </h4>
+                  <span class="font-14">ShareHolder/Adviser</span>
+              </div>
+          </div>
+            
+          </div>
+      </div>
+    </div>
+    <div class="py-6">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-12">
+                  <div class="mb-4">
+                      <h2>Marketing Team & Technology Design</h2>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-12">
+                  <div class="mb-4">
+                      <img src="../frontend/assets/images/team/harikrishna.jpg" alt="Hari Krishna" class="img-fluid w-100 mb-3 rounded-lg ">
+
+                      <h4 class="mb-0">
+                        Hari Krishna
+                      </h4>
+                      <span class="font-14">AVP Head Insurance & Administration</span>
+                  </div>
+              </div>
+              
+              <!-- <div class="col-lg-3 col-md-3 col-12">
+                  <div class="mb-4">
+                      <img src="../frontend/assets/images/team/ashu1.jpg" alt="" class="img-fluid w-100 mb-3 rounded-lg ">
+
+                      <h4 class="mb-0">
+                        Ashutosh Pal
+                      </h4>
+                      <span class="font-14">AVP Technology</span>
+                  </div>
+              </div> -->
+          </div>
+      </div>
+  <hr>
+    <div class="container">
+        <div class="row">
+            <h3>Leadership</h3>
+            <p>Our fast-forwarding leadership comprises highly experienced executives from diverse backgrounds, including banking, corporate professionals, social workers, and technology. We are working towards the mission to promote sustainable living to the people by providing them opportunities, a roadmap, and guidance. </p>
+            <p class="h4">Prem Singh Azad</p>
+            <p>As MSPL, CMD, he is an expert in Banking, financial inclusion, marketing, publicity, business process re-engineering and development. He has a vast experience of 38 years in the banking sector and had played an essential role in setting up 6000 fixed point Allahabad Bank Mitr Kiosk. These kiosks were integrated with real-time online transactions and have generated around 16000+crore deposit base. He also holds experience in handling 13000 banking outlets comprising 23 different banks as CEO of a leading Fintech Company.</p>
+             <p>Mr. Singh holds a MBA (Banking & Finance) degree and has done various professional courses like Certified Associate of Indian Institute of Banker, Risk Management, Financial Advising, Cyber Security etc.
+            </p>
+            <p class="h4">SVLN Nageswara Rao</p>
+            <p>As a chief IT officer, Mr. Rao is responsible for creating technology-based innovative solutions and strategies to promote this mission. Before joining Mitr Sewa, he worked as Ex-General Manager of IT and Innovation at a public sector bank, where he helped the organization into a technology-driven solution provider.</p>
+            <p>Mr. Rao brings with him over 39 years of banking experience (IT Background) in various capacities such as branch banking, core banking, technology and innovation team head, etc., </p>
+            <p class="h4">Anand Krishna</p>
+            <p>Being the cybersecurity expert, Mr. Krishna’s duties are to ensure that the software developed is safe and secure and industry standards. He is also responsible for the organization’s information and data security. It is his job to make the board understand various potential security problems associated with any business move. </p>
+            <p>He also brings with him over 38 years of experience in the same field. Before joining Mitr Sewa, he worked as Ex-DGM in a Public Sector Bank. In addition, he holds a postgraduate degree in economics from the prestigious  CAIIB, ISACA (USA). </p>
+            <p class="h4">Ashu Mohan Chowdhary</p>
+            <p>Mr. Ashu Chowdhary leads the planning and strategy development activities. He is responsible for creating various schemes and for their proper execution so that people get maximum benefits from them. He has been a prominent banker with more than 37 years of an illustrious career. He is an Agriculture Graduate, MBA in Marketing, LLB, CAIIB, PGD in Rural Management & Welfare Administration.</p>
+            <p class="h4">Ram Babu Prasad</p>
+            <p>Mr. Ram Babu Prasad is responsible for overall human resource development, including acquiring the latest talent, leadership development, and organization cultural development. Apart from this, it is his responsibility to organize various training and skill development sessions for employees. He had served as Ex Cheif Manager in a reputed public sector bank for 38 years and has experience in Banking, Human Resources, Training, and Education.
+            </p>
+            <p class="h4">Renu Singh</p>
+            <p>Being a prominent women activist, Renu Singh has taken up issues related to women and human rights. She is a noted believer in gender equality. At Mitr Sewa, she is responsible for creating activities that empower women and various rural development activities. She is a postgraduate and has passion for women empowerment, rural development, and social service.</p>
+            <p class="h4">Hari Krishna</p>
+            <p>A postgraduate with MBA- Marketing, having vast 25+ years of experience in the insurance and financial industry. He has been closely associated with the financial inclusion of the most backward rural population through insurance and financial products.</p>
+            
+        </div>
+    </div>
+
+</div>
+
+
+  <%- include('./web-layouts/footer') %>

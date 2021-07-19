@@ -1,0 +1,142 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<style src="css/responsive.dataTables.min.css"></style>
+<%- include('./main') %>
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+        <span class="text-uppercase page-subtitle">List</span>
+        <h3 class="page-title">Zonal Excutive List</h3>
+      </div>
+      
+    </div>
+    <div class="col-md-12 text-right"> <a class="btn btn-success mb-2" href="/admin/downloadZE">Download ZE CSV</a></div>
+    <%
+    if(messages && messages.message) {
+  %>
+    <div class="alert alert-info">
+      <%=messages.message %>
+    </div>
+      
+  <%
+    }
+  %>
+    <!-- End Page Header -->
+    <!-- Transaction History Table -->
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+      <!-- Button trigger modal -->
+      <table class="transaction-history d-none dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1152px;">
+      <thead>
+        <tr role="row">
+          <th class="sorting_asc">#</th>
+          <th class="sorting">Full Name</th>
+          <th class="sorting" >Mobile</th>
+          <th class="sorting" >District</th>
+          <th class="sorting">State</th>
+          <th class="sorting">Referrer Code</th>
+          <th class="sorting">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%  
+        if(data.length > 0) {
+          let i=1;
+          data.forEach(function (row){ %>
+
+          <tr role="row" class="odd">
+            <td tabindex="0" class="sorting_1"><%= i; %></td>
+              <td><%= row.fullname %></td>
+              <td><%= row.mobile %></td>
+              <td><%= row.email %></td>
+              <td><%= row.city %></td>
+              <td><%= row.state %></td>
+              <td><%= row.ze_referrer_code %></td>
+            <td>
+              <div class="btn-group d-table ml-auto" role="group" aria-label="Basic example">
+                <a href="/admin/zefelist/<%= row._id;%>">
+                  <button type="button" class="btn btn-white">View FE</small></button>
+                </a>
+                <a href="/admin/downloadzefe/<%= row._id;%>">
+                  <button type="button" class="btn btn-white">Download FE</small></button>
+                </a>
+                <% if(usrType == 'admin') { %>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del<%= row.f_name+'_'+row.mobile %>">
+                  <i class="material-icons">delete</i>
+                </button>
+                <% } %>
+              </div>
+            </td>
+          
+          </tr>
+          <!-- ----------------------------- END --------------------   -->       
+           <!-- Modal Delete Member type-->
+           <div class="modal fade" id="del<%= row.f_name+'_'+row.mobile %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Delete Zonel Excutive</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                
+                  <div class="modal-body">
+                    <span class="text-sm">Please enter 
+                      <label class="text-warning">delete</label> in the text box for delete the member.</span>
+                    <div class="form-row mt-3">
+                      <div class="form-group col-md-11">
+                        <input type="text" class="form-control col-sm-5 conf_val_<%= row.mobile; %>" name="conf_val" placeholder="Enter delete text." maxlength="6">
+                        <span class="text-danger conf_error_<%= row.mobile; %>"></span>
+                    </div>
+                    </div>
+                   
+                  </div>
+    
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary delsubmoit" alt="<%= row.mobile; %>" name="<%= row._id; %>" value="Delete">
+                  </div>
+              </div>
+  
+            </div>
+          </div>  
+        <% i++; }); }  %>
+      </tbody>
+    </table>
+  </div>
+    <!-- End Transaction History Table -->
+  </div>
+
+</main>
+<script>
+  $(document).ready(function() {
+    $(".delsubmoit").click(function (e) {
+      e.preventDefault();
+      var mobile = $(this).attr('alt');
+      var confText = $(".conf_val_"+mobile).val();
+      if(confText != 'delete'){
+        $(".conf_error_"+mobile).html('Please enter correct text.');
+      }else{
+        var idd= $(this).attr('name');
+     
+        var data = {'_id': idd};
+          $.post({
+              traditional: true,
+              url: '/admin/deleteZe',
+              contentType: 'application/json',
+              data: JSON.stringify(data),
+              dataType: 'json',
+              success: function(response){ 
+                if(response){
+                  location.reload();
+                }
+              }
+          });
+      }
+    });
+  });
+  
+  </script>
+
+<%- include('../layouts/footer') %> 

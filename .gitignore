@@ -1,0 +1,12 @@
+.idea
+.vscode
+package-lock.json
+.env
+.DS_Store
+**/.DS_Store
+node_modules
+src-old
+dist/*
+public/upload/*/*
+src/views-old/*/*
+!**/.gitkeep

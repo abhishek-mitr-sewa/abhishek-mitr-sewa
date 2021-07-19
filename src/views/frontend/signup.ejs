@@ -1,0 +1,308 @@
+<%- include('../layouts/header') %>
+
+ <style>
+   .mt-10{margin-top: 10rem!important;}
+   .invalid-feedback{display: block;}
+   @media (max-width: 768px) {
+       .card-post__image  {
+            display:none;
+   }
+   .mt-2, .mt-4{margin-top: .0rem!important;}
+   .mt-10 { margin-top: 3rem!important; }
+
+
+ }
+#resend{
+  cursor: pointer;
+}
+ </style>
+  <div class="col-lg-8 col-md-8 mx-auto mt-10">
+    <div class="card card-small card-post card-post--aside card-post--1">
+      <div class="card-post__image" style="background-image: url('../images/content-management/6.jp.svg'); width: 400px;">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text-center">
+          <a class="text-fiord-blue" href="#">Create New Account</a>
+        </h5>
+        <%
+        if(status == 0){   %>
+            <div class="alert alert-danger text-white">
+                <button type="button" class="close ml-auto" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true" class="text-white">×</span> </button>
+                <h5 class="text-white"> Alert</h5> 
+                <ul>
+                    <% Object.values(message).forEach(function(error){ %>
+                          <li><%= error.msg %></li>
+                    <% }); %>
+                </ul>
+               
+            </div>
+            <%  } %>
+        <form name="frmreg" action="/members/create-user" method="POST">
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter email" required="">
+            <div class="invalid-feedback" id="invalidemail"></div>
+          </div>
+          <!-- <div class="form-group">
+            <label for="">Mobile</label>
+            <input type="text" id="mobile" onkeypress="return isNumber(event);"  class="form-control col-md-9" name="mobile" placeholder="Enter mobile" required="" maxlength="10" value="<%= otp.mobile %>" <%= ((otp.verfied)? 'readonly' : '') %>>
+            
+            <div class="invalid-feedback" id="invalidmobile"></div>
+          </div> -->
+
+
+          <div class="form-row">
+            <div class="form-group col-md-10">
+              <label for="">Mobile</label>
+              <input type="text" onkeypress="return isNumber(event);"  class="form-control" id="mobileValue" name="mobile" placeholder="Enter mobile" required="" maxlength="10" >
+            
+            <div class="invalid-feedback" id="invalidmobile"></div>
+            </div>
+            <div class="form-group col-md-2 mt-2">
+              <input type="button" class="btn btn-success mt-4" id="mobile" value="Send OTP">
+            </div>
+          </div>
+
+
+          <div class="form-group" id="otpDiv">
+            <div class="form-row">
+              <div class="form-group mr-1">
+                <strong>OTP:</strong>
+              </div>
+              <input type="text" value="<%= otp.otp %>" class="form-control col-md-3" name="otpVal" id="otpVal" maxlength="6" onkeypress="return isNumber(event);">
+              <input type="button" class="btn btn-success col-md-2 ml-2" id="verify" value="Verify">
+              <div class="invalid-feedback ml-5" id="invalidotp"></div>
+            </div>
+            <div class="mt-2 ml-4">
+              <span class="mobile-text">Don't receive the code? </span>
+              <span class="font-weight-bold text-danger cursor" id="resend"> Resend</span>
+            </div>
+    
+          </div>
+
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required="">
+          </div>
+          
+          <div class="form-group">
+            <label for="">Referred Code</label>
+            <input type="text" class="form-control" id="referl_code" name="referl_code" placeholder="Enter Referred Code" maxlength="12" required>
+            <div class="invalid-feedback text-left" id="invalidreferal"></div>
+          </div>
+
+          <div class="form-group mb-3 d-table">
+            <div class="custom-control custom-checkbox mb-1 text-left">
+              <input type="checkbox" checked disabled class="custom-control-input" id="formsAgreeField">
+              <label class="custom-control-label" for="formsAgreeField">I agree with your <a href="javascript:void(0);">Privacy Policy</a>.</label>
+            </div>
+          </div>
+          
+          <input type="submit" class="btn col-md-6 btn-pill btn-accent d-table mx-auto" value="Create Account">
+        </form>
+      </div>
+    </div>
+    <div class="auth-form__meta d-flex mt-3">
+      <a href="/admin/resetpass">Forgot your password?</a>
+      <a class="ml-auto" href="/login">Sign In?</a>
+    </div>
+  </div>
+
+
+<script>
+  var isEmailValid = false;
+  var isMobileNumberValid = false;
+  var isOtpVerified = false;
+  var isPasswordValid = false;
+  var isRefferedCodeValid = false;
+
+  $("#otpDiv").hide();
+  //$("#mobile").attr('disabled','disabled');
+  //$('input[type="submit"]').attr('disabled','disabled');
+
+  $('input[name="password"]').on('keyup', function() {
+      if($('input[name="password"]').val() != "") {
+          isPasswordValid = true;
+          validateFields();
+      } 
+  });
+
+  function validateFields () {
+    isPasswordValid = $('input[name="password"]').val() != "" ? true : false;
+    if(isEmailValid && isMobileNumberValid && isOtpVerified && isPasswordValid && isRefferedCodeValid) {
+      $('input[type="submit"]').attr('disabled',false);
+    } else {
+      $('input[type="submit"]').attr('disabled','disabled');
+    }
+
+    if(isOtpVerified) {
+      $("#mobile").prop('disabled', 'disabled');
+    }
+  }
+  $("#email").blur(function () {
+ 
+    var txt = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (!txt.test($(this).val())) {
+      $('#invalidemail').show();
+        $('#invalidemail').html('Please enter a valid Email ID.');
+        isEmailValid = false;
+    } else {
+      isEmailValid = true;
+      $('#invalidemail').html('');
+    }
+    validateFields();
+  });
+  
+  $("#mobileValue").on('keyup', function () {
+    var mmobileno = $(this).val();
+    if(mmobileno.length !== 10){
+      isMobileNumberValid = false;
+     
+    }else{
+      isMobileNumberValid = true;
+      $("#mobile").removeAttr('disabled');
+    }
+    validateFields();
+  });
+
+  $("#mobile").on('click', function(e){
+      e.preventDefault();
+      var mobile = $('#mobileValue').val();
+      
+      if(mobile.length == 10){ // check mobile number is 10 digit.
+        $(this).removeClass('is-invalid');
+        $(this).removeClass('btn-success');
+        $(this).addClass('btn-danger');
+        $("#invalidmobile").hide();
+        $(this).val('Sent');
+        var data = { 'mobile' : mobile };
+        $.post({
+            traditional: true,
+            url: '/members/createOTP',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function(response){ 
+              //alert(response);
+              if(response){
+                $("#otpDiv").show();
+                $("#mobile").attr('disabled','disabled');
+                isMobileNumberValid = true;
+              }else{
+                $("#otpDiv").hide();
+                $("#mobile").removeAttr('disabled');
+                isMobileNumberValid = false;
+              }
+              validateFields();
+            }
+        });
+      }else{
+        $("#otpDiv").hide();
+        $("#invalidmobile").show();
+        $("#invalidmobile").html("Please enter valid mobile.")
+        $(this).addClass('is-invalid');
+      }
+
+      
+  });
+
+  $("#verify").click(function () { // click on verify for verify OTP
+    var otpVal = $("#otpVal").val();
+    if(otpVal.length == 6){
+   
+      $("#invalidotp").hide();
+      var data = {'otp':otpVal, mobile: $("#mobileValue").val()};
+        $.post({
+            traditional: true,
+            url: '/members/otpverify',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function(response){ 
+              if(response){
+                $('#mobileValue').attr('readonly', true);
+                $("#otpDiv").hide();
+                isOtpVerified = true;
+                $("#invalidotp").html("");
+                $("#invalidotp").hide();
+              }else{
+                isOtpVerified = false;
+                $('#mobileValue').attr('readonly', false);
+                $("#otpVal").addClass('is-invalid');
+                $("#invalidotp").show();
+                $("#invalidotp").html("Please enter Correct OTP.");
+              }
+              validateFields();
+            }
+        });
+      
+    }else{
+      $("#otpVal").addClass('is-invalid');
+      $("#invalidotp").show();
+      $("#invalidotp").html("Please enter Correct OTP.");
+    }
+  });
+  
+  
+  $("#resend").click(function () {
+    var data = { 'mobile' : $("#mobileValue").val()};
+        $.post({
+            traditional: true,
+            url: '/members/createOTP',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function(response){ 
+              if(response){
+                $("#resendmsg").html('OTP has been send on your mobile.');
+              }else{
+                $("#resendmsg").html("Don't receive the code?");
+              }
+              validateFields();
+            }
+        });
+      
+  });
+
+  $("#referl_code").blur( function () {
+    if($(this).val().length !=12){
+      $("#invalidreferal").html("Please enter valid 12 digit code.");
+      $('input[type="submit"]').attr('disabled','disabled');
+    }else{
+      $.post({
+          traditional: true,
+          url: '/members/checkValidReferal',
+          contentType: 'application/json',
+          data: JSON.stringify({'referredcode': $(this).val()}),
+          dataType: 'json',
+          success: function(response){ 
+            if(response){
+              $("#invalidreferal").html('');
+              isRefferedCodeValid = true;
+            }else{
+              $('input[type="submit"]').attr('disabled','disabled');
+              $("#invalidreferal").html("Please Enter valid Referal Code.");
+              isRefferedCodeValid = false;
+            }
+            validateFields();
+          }
+        });
+    }
+  });
+  
+  function isNumber(e){
+    e = e || window.event;
+    var charCode = e.which ? e.which : e.keyCode;
+    return /\d/.test(String.fromCharCode(charCode));
+}
+  
+  function IsEmail(email) {
+    var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if(!regex.test(email)) {
+      return false;
+    }else{
+      return true;
+    }
+  }
+</script>
+<%- include('../layouts/footer') %> 

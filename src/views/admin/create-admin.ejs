@@ -1,0 +1,184 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<%- include('./main') %>
+    <div class="main-content-container container-fluid px-4">
+      <!-- Page Header -->
+      <div class="page-header row no-gutters py-3 mb-3 border-bottom">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+          <span class="text-uppercase page-subtitle">Overview</span>
+          <h3 class="page-title">Create</h3>
+        </div>
+      </div>
+      <!-- End Page Header -->
+     
+      <div class="row">
+        <div class="col-lg-10 mb-1">
+          <div class="card card-small">
+            <div class="card-header border-bottom">
+              <h6 class="m-0">Create Admin</h6>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item p-3">
+                  <div class="col">
+                    <form name="frm" method="POST" action="">
+                      <div class="form-row">
+            
+                        <div class="form-group col-md-4">
+                          <label for="">First name</label>
+                          <input type="text" class="form-control" id="" placeholder="First name" value="" required="">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="">Middle name</label>
+                          <input type="text" class="form-control" id="" placeholder="Middle name" value="" required="">
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="">Last name</label>
+                          <input type="text" class="form-control" id="" placeholder="Last name" required="">
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="feEmailAddress">Email</label>
+                          <input type="text" class="form-control" id="" placeholder="Email" value="hello@mail.com"> 
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="fePassword">Mobile</label>
+                          <input type="text" class="form-control" id="" placeholder="+91 979 5232 334" disabled> 
+                        </div>
+                      </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-10">
+                          <label>Password</label>
+                          <input type="password" class="form-control" placeholder="Enter Password">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="">State</label>
+                        <select id="" class="form-control">
+                            <option selected="">Choose State</option>
+                            <option>Up</option>
+                            <option>Bihar</option>
+                        </select>
+                    </div>
+                      <div class="form-group col-md-6">
+                          <label for="">City</label>
+                          <select id="" class="form-control">
+                              <option selected="">Choose City</option>
+                              <option>Lucknow</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                          <label for="">Admin Type</label>
+                          <select id="" class="form-control">
+                          <option selected="">Choose Type</option>
+                          <option>Zonal Head</option>
+                          </select>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="">Status</label>
+                          <select id="" class="form-control">
+                            <option selected="">Active</option>
+                            <option>Inactive</option>
+                          </select>
+                      </div>
+                    </div>
+                    <hr>
+
+                    <div class="card-header border-bottom">
+                      <h6 class="m-0">Admin Roles</h6>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item p-0 px-3 pt-3">
+                        <div class="row">
+                          <div class="col-sm-12 col-md-4 mb-3">
+                            <!-- Checkboxes -->
+                            <strong class="text-muted d-block mb-2">Checkboxes</strong>
+                            <fieldset>
+                              <div class="custom-control custom-checkbox mb-1">
+                                <input type="checkbox" class="custom-control-input" id="formsAgreeField">
+                                <label class="custom-control-label" for="">hello</label>
+                              </div>
+                              <div class="custom-control custom-checkbox mb-1">
+                                <input type="checkbox" class="custom-control-input" checked="">
+                                <label class="custom-control-label" for="formsCheckboxChecked">Checked</label>
+                              </div>
+                              <div class="custom-control custom-checkbox mb-1">
+                                <input type="checkbox" class="custom-control-input" id="formsCheckboxDisabled" disabled="">
+                                <label class="custom-control-label" for="formsCheckboxDisabled">Disabled</label>
+                              </div>
+                              <div class="custom-control custom-checkbox mb-1">
+                                <input type="checkbox" class="custom-control-input" id="formsCheckboxDisabledChecked" disabled="" checked="">
+                                <label class="custom-control-label" for="formsCheckboxDisabledChecked">Disabled Checked</label>
+                              </div>
+                            </fieldset>
+                            <!-- / Checkboxes -->
+                          </div>
+                          <div class="col-sm-12 col-md-4 mb-3">
+                            <!-- Radios -->
+                            <strong class="text-muted d-block mb-2">Radio Buttons</strong>
+                            <fieldset>
+                              <div class="custom-control custom-radio mb-1">
+                                <input type="radio" id="formsRadioDefault" name="formsRadioDefault" class="custom-control-input">
+                                <label class="custom-control-label" for="formsRadioDefault">Default</label>
+                              </div>
+                              <div class="custom-control custom-radio mb-1">
+                                <input type="radio" id="formsRadioChecked" name="formsRadioChecked" class="custom-control-input" checked="">
+                                <label class="custom-control-label" for="formsRadioChecked">Checked</label>
+                              </div>
+                              <div class="custom-control custom-radio mb-1">
+                                <input type="radio" id="formsRadioDisabled" name="formsRadioDisabled" class="custom-control-input" disabled="">
+                                <label class="custom-control-label" for="formsRadioDisabled">Disabled</label>
+                              </div>
+                              <div class="custom-control custom-radio mb-1">
+                                <input type="radio" id="formsRadioDisabledChecked" name="formsRadioDisabledChecked" class="custom-control-input" disabled="" checked="">
+                                <label class="custom-control-label" for="formsRadioDisabledChecked">Disabled Checked</label>
+                              </div>
+                            </fieldset>
+                            <!-- / Radios -->
+                          </div>
+                          <div class="col-sm-12 col-md-4 mb-3">
+                            <!-- Toggles -->
+                            <fieldset>
+                              <strong class="text-muted d-block mb-2">Toggle Switches</strong>
+                              <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                                <input type="checkbox" id="customToggle1" name="customToggle1" class="custom-control-input">
+                                <label class="custom-control-label" for="customToggle1">Default</label>
+                              </div>
+                              <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                                <input type="checkbox" id="customToggle2" name="customToggle2" class="custom-control-input" checked="checked">
+                                <label class="custom-control-label" for="customToggle2">Checked</label>
+                              </div>
+                              <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                                <input type="checkbox" id="customToggle3" name="customToggle3" class="custom-control-input" disabled="disabled">
+                                <label class="custom-control-label" for="customToggle3">Disabled</label>
+                              </div>
+                              <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+                                <input type="checkbox" id="customToggle4" name="customToggle4" class="custom-control-input" checked="checked" disabled="disabled">
+                                <label class="custom-control-label" for="customToggle4">Disabled Checked</label>
+                              </div>
+                            </fieldset>
+                            <!-- / Toggles -->
+                          </div>
+                        </div>
+                      </li>
+                      
+                    </ul>
+                    <hr>
+                    <div class="col-md-11 text-right mt-2">
+                        <button type="submit" class="mb-3 btn btn-primary"><i class="material-icons">file_copy</i> Create</button>
+                    </div> 
+                     
+                    </form>
+                  </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+        
+<%- include('../layouts/footer') %>        

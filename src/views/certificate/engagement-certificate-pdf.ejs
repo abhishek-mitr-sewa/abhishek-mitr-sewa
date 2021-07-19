@@ -1,0 +1,62 @@
+<center>
+  <style>
+      .signature,
+      .title {
+          float: left;
+          border-top: 1px solid #000;
+          width: 200px;
+          text-align: center;
+      }
+
+      .inline-svg {
+          /* Doesn't work at all in IE */
+
+          border: 10px solid white;
+          border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><defs><linearGradient id='redgradient'><stop offset='0' stop-color='%23FFC14D'/><stop offset='0.362' stop-color='%23FF4834'/><stop offset='1' stop-color='%233B0300'/></linearGradient></defs><g id='Layer_1'><path d='M0,0 L50,0 L50,50 L0,50 L0,0 z' fill='url(%23redgradient)' width='100%' height='100%'/></g></svg>") 10% stretch;
+      }
+
+      /* styling for Pen, unrelated to border-image */
+
+      * {
+          box-sizing: border-box;
+      }
+  </style>
+
+  <div class="inline-svg" style="width:800px; height:860px; padding:20px; text-align:center;">
+      <div style="width:750px; height:810px; padding:20px; text-align:center; border: 5px solid #787878">
+          <div><img src="mitr_sewa.svg" height="90" width="300"></div><br>
+          <div> <span style="font-size:40px; font-weight:bold; color: #681411;">Certificate of Engagement </span>
+          </div>
+          <br><br>
+          <span style="font-size:25px"><i>This is to certify that services of Mr/Mrs/Km</i></span>
+          <br><br>
+          <span style="font-size:30px"><b>
+                  <%= (userdetail.f_name+' '+ userdetail.m_name+' '+userdetail.l_name)%></b></span><br/><br/>
+         <span style="font-size:25px"><i>has been engaged as “Mitr Sewak” on self-employment basis under banner of fixed
+          point <b>Mitr Sewa Kendra</b>.</i></span> 
+          <div style="text-align:left; font-size:18px;margin-top: 10%;">
+            <span style="text-align:left;">Best Of Luck!</span>
+          </div>
+          
+          <div style="text-align:left; font-size:18px;margin-top: 15%;line-height: 1.5;">
+            <span>Name: <%= (userdetail.f_name+' '+ userdetail.m_name+' '+userdetail.l_name)%></span> <br/>
+            <span>Father/Spouse Name: <%= userdetail.relative_name %></span> <br/>
+            <span>PAN No: <%= userkyc.pan_number%></span> <br/>
+            <span>Address: <%= (userdetail.house_number+' '+ userdetail.street+' '+ userdetail.village_locality +' '+userdetail.post_office + userdetail.state)%> </span><br><span><%= userdetail.city %></span>
+          </div>
+          <div style="font-size:18px;margin-top: -25%;margin-left: 60%;text-align: left; line-height: 1.5;">
+            <span>For Mitr Sewa Pvt. Ltd.</span><br/><br/> <br/>
+            <span>Authorised Signatory</span><br/>
+            
+            <span>Registered Office: Indra Nagar, Lucknow, India.</span>
+            <br/>
+            <span>Website: <a href="https://mitrsewa.in">mitrsewa.in</a></span>
+            <br/>
+            <span>CIN: U52399UP2021PTC140614</span>
+
+          </div>
+          <br/>
+ 
+        </div>
+  </div>
+</center>

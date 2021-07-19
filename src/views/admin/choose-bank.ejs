@@ -1,0 +1,284 @@
+<%- include('../layouts/header') %>
+<%- include('../'+leftMenuType) %>
+<style>
+  .dev_added{background-color: #91fcb60f;}
+</style>
+  <div class="main-content-container container-fluid px-4">
+    <div class="row">
+      <div class="col-lg-10 mx-auto mt-4">
+        <!-- Edit User Details Card -->
+        <div class="card card-small edit-user-details mb-4">
+          
+          <div class="card-body p-0">
+            <div class="border-bottom clearfix d-flex">
+            
+            </div>
+            <!-- <form action="#" class="py-4" action="/members/choose-bank" method="POST" name="frm" enctype="multipart/form-data"> -->
+              
+              <div class="form-row form-group mx-4">
+                <label for="">Choose Bank</label>
+                <select name="bank_name" class="form-control">
+                  <option>Allahabad Bank</option>
+                  <option>Axis Bank</option>
+                  <option>SBI Bank</option>
+                </select>
+              </div>
+              <div class="col-md-12">
+                <div class="user-teams mb-4">
+                  <div class="card-header border-bottom">
+                    <h6 class="m-0">Devices</h6>
+                    <a href="javascript:void(0);" class="text-right">
+                      <span class="text-right showclick">show</span>
+                    </a> 
+                  </div>
+                  <div class="card-body p-0 deviceMainDiv" style="min-height: 20.95rem;display: none;">
+                    <div class="container-fluid">
+                      <div class="row px-3 classactive_1">
+                        <div class="col-md-5 user-teams__info pl-3 mb-1">
+                          <h6 class="m-0 1_deviceName">Device One name here</h6>
+                          <span class="text-light">This is the device which is very useful for our all works and its really less proce avaliable to the market. Dont miss. </span>
+                        </div>
+                        <div class="col-md-2 text-center mb-1">
+                          <label for="">Quantity</label>
+                          <input type="text" value="1" class="form-control col-md-6 text-center 1_quantity">
+                        </div>
+                        <div class="col-md-2 text-center mb-1">
+                          <label for="">Amount <small>(in Rs.)</small></label>
+                          <h6 class="1_amount">2860.00</h6>
+                        </div>
+
+                        
+                        <div class="col-md-3 text-right mb-1">
+                          <input class="btn btn-success col-md-6 addBtnClk" alt="1" type="button" value="Add">
+                        </div>
+                      </div>
+                      <div class="row px-3 classactive_2">
+                        <div class="col-md-5 user-teams__info pl-3 mb-1">
+                          <h6 class="m-0 2_deviceName">Device Two name here</h6>
+                          <span class="text-light">This is the device which is very useful for our all works and its really less proce avaliable to the market. Dont miss. </span>
+                        </div>
+                        <div class="col-md-2 text-center mb-1">
+                          <label for="">Quantity</label>
+                          <input type="text" value="1" class="form-control col-md-6 text-center 2_quantity">
+                        </div>
+                        <div class="col-md-2 text-center mb-1">
+                          <label for="">Amount <small>(in Rs.)</small></label>
+                          <h6 class="2_amount">2250.00</h6>
+                        </div>
+
+                        
+                        <div class="col-md-3 text-right mb-1">
+                          <input class="btn btn-success col-md-6 addBtnClk" alt="2"  type="button" value="Add">
+                        </div>
+                      </div>
+                      <div class="row px-3 classactive_3">
+                        <div class="col-md-5 user-teams__info pl-3 mb-1">
+                          <h6 class="m-0 3_deviceName">Device Three name here</h6>
+                          <span class="text-light">This is the device which is very useful for our all works and its really less proce avaliable to the market. Dont miss. </span>
+                        </div>
+                        <div class="col-md-2 text-center mb-1">
+                          <label for="">Quantity</label>
+                          <input type="text" value="1" class="form-control col-md-6 text-center 3_quantity">
+                        </div>
+                        <div class="col-md-2 text-center mb-1">
+                          <label for="">Amount <small>(in Rs.)</small></label>
+                          <h6 class="3_amount">2110.00</h6>
+                        </div>
+
+                        
+                        <div class="col-md-3 text-right mb-1">
+                          <input class="btn btn-success col-md-6 addBtnClk" alt="3"  type="button" value="Add">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h5 class="ml-3">One Time Activation Fee</h5>
+                  </div>
+                  <hr>
+                  <div class="col-md-6 col-sm-6 ml-3 text-left">
+                    <span class="stats-small__label text-uppercase">Description</span>
+                    <div class="text-semibold text-fiord-blue">One time registration free.</div>
+                    
+                  </div>
+                  <div class="col-md-5 col-sm-5 ml-3 text-right">
+                    <span class="stats-small__label text-uppercase">Amount (in RS.)</span>
+                    <h6 cclass="text-semibold text-fiord-blue">2299.00</h6>
+                  </div>
+                  <div class="col-md-6 col-sm-6 ml-3 text-left">
+                    <span class="text-semibold text-fiord-blue">18% on the total cost</span>
+                    <span class="stats-small__label text-uppercase">(GST)</span>
+                  </div>
+                  <div class="col-md-5 col-sm-5 ml-3 text-right">
+                    <h6 class="text-semibold text-fiord-blue gstCost"></h6>
+                  </div>
+                  
+                  <div id="deviceIteamAdd" class="col-md-12"></div>
+                  
+                </div>
+                <hr>
+                <div class="row col-md-12">
+                  <div class="col-md-6 col-sm-6 text-left">
+                    <h5 class="text-semibold text-fiord-blue">Total</h5>
+                  </div>
+                  <div class="col-md-5 col-sm-5 ml-3 text-right">
+                    <h5 class="text-semibold text-fiord-blue text-right grandTotalAmount">00.00</h5>
+                  </div>
+                </div>
+                
+              </div>
+
+              <hr>
+              <div class="col-md-11 text-right mt-3">
+                <button type="submit" class="mb-3 btn btn-primary" id="payment"><i class="material-icons">file_copy</i> Pay Now</button>
+            </div> 
+            <!-- </form> -->
+          </div>
+         
+        </div>
+        <!-- End Edit User Details Card -->
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    $(document).ready(function () {
+      $(".deviceMainDiv").hide();
+      
+      $(".showclick").click(function () {
+        if($(this).text() === 'show'){
+          $(".deviceMainDiv").show('slow');
+          $(this).text('hide');
+        }else{
+          $(".deviceMainDiv").hide();
+          $(this).text('show');
+        }
+        
+        
+        
+      });
+
+
+
+      var totalRegFee = 2299.00;
+      var gst = 18;
+      var gstCost = (parseFloat(totalRegFee) * parseInt(gst)) /100; 
+      $(".gstCost").html(gstCost);
+      $(".grandTotalAmount").text(parseFloat(totalRegFee) + parseFloat(gstCost));
+
+      var actualDeviceAmount = {"1_amount" : 2860, "2_amount" : 2250, "3_amount" : 2110,}
+      var totaladdedDeviceAmnt  =0;
+      $(".addBtnClk").click(function () {
+        var productID = $(this).attr("alt");
+        var deviceName = $('.'+productID+'_deviceName').text();
+        var deviceAmount = parseFloat($('.'+productID+'_amount').text()); // initial amount
+        var deviceQuantity = parseInt($('.'+productID+'_quantity').val()); // initial quantity
+        var totalAmount = parseFloat(deviceAmount * deviceQuantity)+'.00'; 
+        if($(this).val() === 'Add'){
+          if(deviceQuantity > 0){
+            $(this).removeClass('btn-success');
+            $(this).addClass('btn-danger');
+            $(this).val('Remove');
+            $('.'+productID+'_quantity').attr('readonly', true);
+            $('.'+productID+'_amount').text(totalAmount);
+            $('.classactive_'+productID).addClass('dev_added');
+            //addeddDeviveAmount[productID+'_amount'] = totalAmount;
+            var htmlContent = '<div class="col-md-6 col-sm-6 ml-3 text-left" id="'+productID+'_one"><span class="text-semibold text-fiord-blue">'+deviceName+'</span><span class="stats-small__label text-uppercase">('+deviceQuantity+')</span></div><div id="'+productID+'_one-one" class="col-md-5 col-sm-5 ml-3 text-right"><h6 cclass="text-semibold text-fiord-blue">'+totalAmount+'</h6></div>';
+
+            $("#deviceIteamAdd").append(htmlContent);
+            totaladdedDeviceAmnt = parseFloat(totaladdedDeviceAmnt)+ parseFloat(totalAmount);
+
+            var data = {'quantity':deviceQuantity, 'device_id': productID};
+            $.post({
+                traditional: true,
+                url: '/members/addDeviceTemp',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function(response){ 
+                  if(response){
+                    //alert(response);
+                  }
+                }
+            });
+
+          }else{
+            // if try to add 0 item on add click.
+            //alert(deviceAmount);
+          }
+        }else{
+          // click on remove button ----
+          $(this).addClass('btn-success');
+          $(this).removeClass('btn-danger');
+          $(this).val('Add');
+          $('.'+productID+'_quantity').val('1');
+          $('.'+productID+'_quantity').attr('readonly', false);
+          $('.classactive_'+productID).removeClass('dev_added');
+          for (var key in actualDeviceAmount) {
+            if(productID+'_amount' === key){
+              var value = actualDeviceAmount[key];
+              $('.'+productID+'_amount').text(value+'.00');
+            }
+          }
+
+          $('#'+productID+'_one').remove();
+          $('#'+productID+'_one-one').remove();
+          totaladdedDeviceAmnt = parseFloat(totaladdedDeviceAmnt)- parseFloat(totalAmount);
+
+          var data = {'device_id': productID};
+          $.post({
+              traditional: true,
+              url: '/members/remDeviceTemp',
+              contentType: 'application/json',
+              data: JSON.stringify(data),
+              dataType: 'json',
+              success: function(response){ 
+                if(response){
+                  //alert('rem-'+response);
+                }
+              }
+          });
+            }
+        
+          grandTotalAmount = parseFloat(totaladdedDeviceAmnt)+ parseFloat(totalRegFee) + parseFloat(gstCost);
+          $(".grandTotalAmount").text(grandTotalAmount);
+        //alert(grandTotalAmount);
+
+
+
+
+
+
+
+      });
+      
+      $('#payment').click(function (e) {
+        var data = {'data':''};
+        e.preventDefault();
+        $.post({
+            traditional: true,
+            url: '/members/makePayment',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function(response){ 
+              if(response){
+                alert(response);
+              }
+            }
+        });
+
+      });
+        
+
+    });
+
+  </script>
+
+ <%- include('../layouts/footer') %> 

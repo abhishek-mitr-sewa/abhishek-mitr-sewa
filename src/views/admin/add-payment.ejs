@@ -1,0 +1,100 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<%- include('./main') %>
+<div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-3 mb-3 border-bottom">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Overview</span>
+        <h3 class="page-title">Create</h3>
+      </div>
+    </div>
+    <!-- End Page Header -->
+   
+    <div class="row">
+      <div class="col-lg-10 mb-1">
+        <div class="card card-small">
+          <div class="card-header border-bottom">
+            <h6 class="m-0">Create Payment</h6>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item p-3">
+                <div class="col">
+                  <% 
+                  if(messages && messages.error) {
+                %>
+                    <div class="alert alert-danger"><%=messages.error %></div>
+                <%
+                  }
+                %>
+
+                <% 
+                if(messages && messages.success) {
+              %>
+                  <div class="alert alert-danger"><%=messages.success %></div>
+              <%
+                }
+              %>
+                  <form name="frm" method="POST" action="">
+                    <div class="form-row">
+                     
+                      <div class="form-group col-md-4">
+                        <label for="">User Mobile</label>
+                        <input type="text" name="mobile" id="" class="form-control" required>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="">Total Amount</label>
+                        <input type="text" name="total_amount" class="form-control" id="" value="" required="">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="">Actual Amount</label>
+                        <input type="text" name="actualAmount" class="form-control" placeholder="Without GST" required="">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="">Devivce Amount</label>
+                        <input type="text" class="form-control" id=""  required="">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="">Gst Cost</label>
+                        <input type="text" class="form-control" name="gstCost" id="" value="" required="">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="">Payment Mode</label>
+                        <input type="text" name="payment_mode" class="form-control" id="" value="" required="">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="">Transcation Id</label>
+                        <input type="text" class="form-control" name="transcation_id" id=""  required="">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="">Full Name</label>
+                        <input type="text" class="form-control" name="full_name" id="" value="" required="">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="">Transcation date</label>
+                        <input type="date" name="trans_date" class="form-control" id="" value="" required="">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="">Transcation Time</label>
+                        <input type="time" class="form-control" name="trans_time" id=""  required="">
+                      </div>
+                    </div>
+                  <div class="col-md-12 text-right mt-2">
+                      <button type="submit" class="mb-3 btn btn-primary"><i class="material-icons">file_copy</i> Create</button>
+                  </div> 
+                   
+                  </form>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+      
+<%- include('../layouts/footer') %>        

@@ -1,0 +1,77 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<style src="css/responsive.dataTables.min.css"></style>
+<%- include('./main') %>
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+        <h3 class="page-title">Payments List</h3>
+      </div>
+      
+    </div>
+    <%
+      if(messages && messages.message) {
+    %>
+      <div class="alert alert-success">
+        <%=messages.message %>
+      </div>
+        
+    <%
+      }
+    %>
+    <!-- End Page Header -->
+    <!-- Transaction History Table -->
+    <a href="/admin/succespaymentcsv" class="btn btn-success mb-2">Download Success Payment CSV</a>
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+      <!-- Button trigger modal -->
+      
+      <table class="transaction-history d-none dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1152px;">
+      <thead>
+        <tr role="row">
+          <th class="sorting_asc">#</th>
+          <th class="sorting">Full Name</th>
+          <th class="sorting">Mobile</th>
+          <th class="sorting">Payment Mode</th>
+          <th class="sorting">Total Amount</th>
+          <th class="sorting">Transcation Date</th>
+          <th class="sorting">TransactionId</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%  
+        payments.forEach((payment, index) => {
+          %>
+          <tr>
+            <td><%=(index+1) %></td>
+            <td><%=(payment.full_name) %></td>
+            <td><%=(payment.mobile) %></td>
+            <td><%=(payment.payment_mode) %></td>
+            <td><%=(payment.total_amount) %></td>
+            <td><%= payment.created_at.toDateString(); %></td>
+            <td><%=(payment.transcation_id) %></td>
+          </tr>
+        <%
+        })
+         %>
+      </tbody>
+    </table>
+  </div>
+    <!-- End Transaction History Table -->
+  </div>
+
+</main>
+<script>
+$(document).ready(function() {
+  $(".delsubmoit").click(function (e) {
+    e.preventDefault();
+    var mobile = $(this).attr('alt');
+    var confText = $(".conf_val_"+mobile).val();
+    if(confText != 'delete'){
+      $(".conf_error_"+mobile).html('Please enter correct text.');
+    }
+  });
+});
+
+</script>
+<%- include('../layouts/footer') %> 

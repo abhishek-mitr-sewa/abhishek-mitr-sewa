@@ -1,0 +1,215 @@
+
+<%- include('./web-layouts/header') %>
+  <style>
+    .bg-default {
+      background-color: #ffffff !important;
+    }
+
+    .header_link {
+      color: #3c3c3b !important;
+      text-decoration: none !important;
+      font-size: 15px;
+      position: relative;
+      top: 2px;
+    }
+
+    .background_gradient {
+      background: linear-gradient(#ee5735, #261f44);
+      height: 590px;
+    }
+
+    .banner_light_bg {
+      background-color: #f6f6f6;
+    }
+
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+      width: 100%;
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    .logo_name {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 0;
+      font-weight: 800;
+      font-style: italic;
+
+    }
+
+    .tagline_name {
+      color: #fff;
+      font-size: .8rem;
+      margin-left: 30%;
+      margin-top: -26px;
+      font-weight: 700;
+      letter-spacing: 2.1px;
+
+    }
+
+    .header .navbar-default.navbar {
+      padding: 10px 0;
+    }
+
+    .slick-slide img {
+      display: block;
+    }
+
+    .u-clients {
+      width: 190px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .rounded-bottom {
+      text-align: justify;
+    }
+
+    .border-1:hover {
+      position: relative;
+      z-index: 1;
+      -webkit-box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+      box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+      border: 0;
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+    }
+
+    h4.heading {
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    span.sprite-image {
+      width: 90px;
+      background: url(assets/images/advantages-sprite.webp) no-repeat;
+      height: 90px;
+      display: inline-block;
+      background-size: 105%;
+      margin: 20px 0 0 10px;
+    }
+
+    span.sprite-image.lowest-price {
+      background-position: 0 -315px;
+    }
+
+    span.sprite-image.reliable {
+      background-position: 0 -102px;
+    }
+
+    span.sprite-image.claim-support {
+      background-position: 0 0;
+    }
+
+    span.sprite-image.happy-help {
+      background-position: 0 -206px;
+    }
+
+    .bgclr {
+      background: #f7f9ff;
+    }
+
+    .bg-shape:after {
+      position: absolute;
+      background: none;
+      background-size: none;
+      bottom: 0px;
+      height: 0px;
+    }
+  </style>
+
+
+  <!-- hero section -->
+  <div class="bg-cover bg-shape" style=" background-image:linear-gradient(180deg, rgb(30 24 53 / 68%) 0%, rgb(30 24 53 / 76%) 90.16%),
+    url(../frontend/assets/images/team-hero-img.jpeg); ">
+    <div class="container">
+      <div class="row">
+        <div class="offset-lg-3 col-lg-6 col-md-12 col-12">
+          <div class="py-lg-15 py-12 text-white text-center">
+            <h1 class=" text-white mb-3 display-4">
+              Mitr Sewa Blogs
+            </h1>
+            <p class="mb-0 lead text-light">
+              Mitr sewa team blogs contents are here. Its very nice and good presentation for you all. Thanks for
+              visiting here... Stay tuned here and get updates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- about  -->
+  <div class="pt-12 pb-12">
+    <div class="container">
+      <!-- navbar scroll -->
+
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+          <div class="mb-8">
+            <!-- post classic block -->
+            <div class="mb-4">
+              <a href="blog_details/bank_mitr_kaise_bnayen_details.html">
+                <div class="img-zoom">
+                  <img src="../frontend/assets/images/post-thumb-img-1.jpeg" alt="" class="img-fluid rounded">
+                </div>
+              </a>
+            </div>
+            <div>
+              <!-- <a href="#!" class="text-info mb-3 font-14 d-inline-block font-weight-semi-bold ">Business Coaching</a> -->
+              <a href="/blog-details">
+                <h3 class="mb-3">
+                  बैंक मित्र बनकर कमाएं पैसा
+                </h3>
+              </a>
+              <div class="mb-3">
+                <div class="font-14">
+                  <span class="mr-2">May 28, 2021</span>
+                  <span>Posted by <a href="#!">MitrSewa Team</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- post classic block -->
+        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+        <!-- pagination -->
+        <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-8">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item mr-2 active">
+                <a class="page-link rounded" href="#!">1</a>
+              </li>
+              <li class="page-item mr-2">
+                <a class="page-link rounded" href="#!">2</a>
+              </li>
+              <li class="page-item mr-2">
+                <a class="page-link rounded" href="#!">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link rounded" href="#!">4</a>
+              </li>
+            </ul>
+          </nav>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+  <%- include('./web-layouts/footer') %>

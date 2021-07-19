@@ -1,0 +1,273 @@
+<%- include('../web-layouts/header') %>
+  <style>
+    body {
+      color: #211d2b;
+      font-size: 1.1rem;
+    }
+
+    .bg-default {
+      background-color: #ffffff !important;
+    }
+
+    .header_link {
+      color: #3c3c3b !important;
+      text-decoration: none !important;
+      font-size: 15px;
+      position: relative;
+      top: 2px;
+    }
+
+    .background_gradient {
+      background: linear-gradient(#ee5735, #261f44);
+      height: 590px;
+    }
+
+    .banner_light_bg {
+      background-color: #f6f6f6;
+    }
+
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+      width: 100%;
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    .logo_name {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 0;
+      font-weight: 800;
+      font-style: italic;
+
+    }
+
+    .tagline_name {
+      color: #fff;
+      font-size: .8rem;
+      margin-left: 30%;
+      margin-top: -26px;
+      font-weight: 700;
+      letter-spacing: 2.1px;
+
+    }
+
+    .header .navbar-default.navbar {
+      padding: 10px 0;
+    }
+
+    .slick-slide img {
+      display: block;
+    }
+
+    .u-clients {
+      width: 190px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .rounded-bottom {
+      text-align: justify;
+    }
+
+    .border-1:hover {
+      position: relative;
+      z-index: 1;
+      -webkit-box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+      box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+      border: 0;
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+    }
+
+    h4.heading {
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    span.sprite-image {
+      width: 90px;
+      background: url(assets/images/advantages-sprite.webp) no-repeat;
+      height: 90px;
+      display: inline-block;
+      background-size: 105%;
+      margin: 20px 0 0 10px;
+    }
+
+    span.sprite-image.lowest-price {
+      background-position: 0 -315px;
+    }
+
+    span.sprite-image.reliable {
+      background-position: 0 -102px;
+    }
+
+    span.sprite-image.claim-support {
+      background-position: 0 0;
+    }
+
+    span.sprite-image.happy-help {
+      background-position: 0 -206px;
+    }
+
+    .bgclr {
+      background: #f7f9ff;
+    }
+
+    .bg-shape:after {
+      position: absolute;
+      background: none;
+      background-size: none;
+      bottom: 0px;
+      height: 0px;
+    }
+  </style>
+
+  <!-- hero section -->
+  <div class="bg-cover bg-shape" style=" background-image:linear-gradient(180deg, rgb(30 24 53 / 68%) 0%, rgb(30 24 53 / 76%) 90.16%),
+    url(../frontend/assets/images/post-hero-img.jpeg); ">
+    <div class="container">
+      <div class="row">
+        <div class="offset-lg-3 col-lg-6 col-md-12 col-12">
+          <div class="py-lg-15 py-12 text-white text-center">
+            <h1 class=" text-white mb-3 display-4">
+              बैंक मित्र बनकर कमाएं पैसा
+            </h1>
+            <!-- <p class="mb-0 lead text-light">
+                      Mitr sewa team blogs contents are here. Its very nice and good presentation for you all. Thanks for visiting here... Stay tuned here and get updates.
+                     </p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- about  -->
+  <div class="pt-12 pb-12 ">
+    <div class="container">
+      <div class="row">
+        <div class="offset-xl-1 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="mb-4">
+            <p>
+              भारत सरकार ने हमारे देश के कई शहरों, जिलों और गांवों में ग्राहक सेवा केंद्र या बैंक मित्र बनने को लेकर
+              आवेदन मांगे हैं। इसलिए जो लोग किसी प्रकार के कार्य की खोज में हैं वो बैंक मित्र बनने के लिए आवेदन कर सकते
+              हैं और बैंक मित्र बन हर महीने पैसे कमा सकते हैं। सरकारी बैंक न केवल बैंक‍िंग सर्विस (Banking Service)
+              मुहैया कराते हैं, बल्क‍ि आम आदमी को अपने साथ जोड़कर काम करके कमाई का मौका भी देते हैं। आप भी किसी सरकारी
+              बैंक (Government Bank) के साथ जुड़कर कमाई करना चाहते हैं , तो आप बैंक मित्र बन सकते हैं. देश का सबसे बड़ा
+              सरकारी बैंक भारतीय स्टेट बैंक समय-समय पर बैंक मित्र (Bank Mitra) के लिए आवेदन मांगता है।
+            </p>
+
+            <h3 class="mb-3">कौन होते हैं बैंक मित्र</h3>
+            <p>जो व्यक्ति बैंक खाते खुलवाने, बीमा करवाने, पैसे जमा करवाने समेत अन्य बैंक के कामों में अन्य लोगों की मदद
+              करते हैं उन्हें बैंक मित्र कहा जाता है। बैंक मित्र बनने के लिए आपको सरकार के साथ जुड़कर काम करना होगा।
+            </p>
+
+            <h3 class="mb-3">बैंक मित्र बनने के फायदे</h3>
+            <p>बैंक मित्र बनने से आप कई तरह के कमाई कर सकते हैं. किसी भी व्यक्ति का खाता खोलने, पैसे जमा करवाने, पैसे
+              निकालने, उसका क्रेडिट कार्ड और बिल भुगतान करने पर बैंक मित्र को कमीशन दिया जाता है। </p>
+            <p>प्रधान मंत्री जन धन योजना (पीएमजेडीवाई) के तहत, सभी बैंक मित्र को 1.25 लाख रुपये का ऋण भी दिया जाता है,
+              जिसमें से 50,000 रुपये का ऋण सामान वगैरह के लिए, 25,000 रुपये का ऋण काम के लिए और 50,000 रुपये का कर्ज
+              वाहन के लिए दिया जाता है। इसके अलावा बैंक मित्र को हर महीने 2000 से 5000 रुपये आमदनी के तौर पर दिए जाते
+              हैं। </p>
+            <img src="../frontend/assets/images/center-img.jpeg" alt="" class="img-fluid rounded mb-2 mt-3 w-100">
+            <h3 class="mb-3">बैंक मित्र बनने के लिए जरूरत का सामान</h3>
+            <p>केवल वही आदमी बैंक मित्र बनने के लिए आवेदन कर सकता है, जिनके पास कंप्यूटर या लैपटॉप है. इंटरनेट की सुविधा
+              है, प्रिंटर, स्कैनर है। इन सब के अलावा कम से कम 100 वर्ग फुट में ऑफिस होना चाहिए। </p>
+          </div>
+
+
+          <!-- list unstyled -->
+          <div class="mb-5">
+            <h3 class="mb-3">बैंक मित्र बनने के लिए दस्तावेज</h3>
+            <ul>
+              <li>पहचान पत्र के लिए पेन कार्ड, आधार कार्ड, पासपोर्ट या वोटर आईडी कार्ड की कॉपी।</li>
+              <li>योग्यता के लिए 10वीं क्लास की मार्कशीट और चरित्र प्रमाण पत्र। </li>
+
+              <li>व्यावसायिक पते के लिए बिजली का बिल, टेलीफोन का बिल, राशन कार्ड, आधार कार्ड या पासपोर्ट की कॉपी। </li>
+            </ul>
+          </div>
+
+          <div class="mb-5">
+            <h3 class="mb-3">कौन बन सकता है बैंक मित्र (Qualifications)</h3>
+            <ul>
+              <li>केवल वो ही लोग बैंक मित्र बन सकते हैं, जो कि 10 वीं कक्षा तक पढ़े हुए हैं और साथ में जिन्हें कंप्यूटर
+                का ज्ञान है। </li>
+              <li>योग्यता के लिए 10वीं क्लास की मार्कशीट और चरित्र प्रमाण पत्र। </li>
+              <li>बैंक से रिटायर्ड कोई भी व्यक्ति, सैनिक, किसी भी प्रकार की शॉप चलाने वाला व्यक्ति और आदि जगह पर काम
+                करने वाले लोग भी इसके लाभार्थी बनने के लिए योग्य हैं। </li>
+            </ul>
+          </div>
+
+          <div class="mb-5">
+            <h3 class="mb-3">कौन बन सकता है बैंक मित्र (Qualifications)</h3>
+            <ul>
+              <li>केवल वो ही लोग बैंक मित्र बन सकते हैं, जो कि 10 वीं कक्षा तक पढ़े हुए हैं और साथ में जिन्हें कंप्यूटर
+                का ज्ञान है। </li>
+              <li>योग्यता के लिए 10वीं क्लास की मार्कशीट और चरित्र प्रमाण पत्र। </li>
+              <li>बैंक से रिटायर्ड कोई भी व्यक्ति, सैनिक, किसी भी प्रकार की शॉप चलाने वाला व्यक्ति और आदि जगह पर काम
+                करने वाले लोग भी इसके लाभार्थी बनने के लिए योग्य हैं। </li>
+            </ul>
+          </div>
+
+          <div class="mb-5">
+            <h3 class="mb-3">क्या-क्या करेंगे बैंक मित्र</h3>
+            <ul>
+              <li>प्रधानमंत्री जन-धन योजना के तहत बचत और दूसरी सुविधाओं के बारे में लोगों को शिक्षित करना और जागरूकता
+                फैलाना।</li>
+              <li>सेविंग्स और लोन सम्बंधित बातों की सलाह देना।</li>
+              <li>ग्राहकों की पहचान करना</li>
+              <li>प्राथमिक जानकारी, आंकडें इक्कठा करना, फॉर्म को संभलके रखना, लोगों द्वारा दी गई जानकारी की जांच करना,
+                और लोगों द्वारा दी गई राशी को संभल कर जमा करवाना।</li>
+              <li>आवेदन और खातों से सम्बंधित फॉर्म भरना।</li>
+              <li>राशी का समय पर भुगतान और जमा करने का कार्य।</li>
+              <li>किसी की तरफ से आया हुआ पैसा सही हांथों तक पहुचना और उसकी रसीद बनाने का काम।</li>
+              <li>खतों और अन्य सुविधाओं से सम्बंधित जानकारी उपलब्ध करवाना।</li>
+            </ul>
+          </div>
+
+          <div class="mb-4">
+            <h3 class="mb-3">कैसे करें अप्लाई </h3>
+            <p>बैंक मित्र बनने के लिए बैंकों में भी आवेदन किया जा सकता है. सामान्य सेवा केंद्र खोलकर भी बैंक मित्र बना
+              जा सकता है. भारतीय स्टेट बैंक समय-समय पर बैंक मित्र के लिए आवेदन मांगता है। आप अपने पास की ब्रांच में जाकर
+              पूरी जानकारी हासिल कर सकते हैं। </p>
+          </div>
+          <div class="mb-4">
+            <h3 class="mb-3">निष्कर्ष</h3>
+            <p>आप मित्र सेवा से भी जुड़ कर बैंक मित्र बन सकते है और अच्छा कमीशन कमा सकते है। इसके अलावा आप हमारे दूसरे
+              कार्यक्रम से भी लाभ उठा सकते है। </p>
+          </div>
+
+          <!-- <div class="mb-5">
+            <h3 class="mb-3">Ordered List (Nested)</h3>
+            <ol>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>Consectetur adipiscing elit</li>
+              <li>Integer molestie lorem at massa</li>
+              <li>Facilisis in pretium nisl aliquet</li>
+              <li>
+                Nulla volutpat aliquam velit
+                <ol>
+                  <li>Phasellus iaculis neque</li>
+                  <li>Purus sodales ultricies</li>
+                  <li>Vestibulum laoreet porttitor sem</li>
+                  <li>Ac tristique libero volutpat at</li>
+                </ol>
+              </li>
+              <li>Faucibus porta lacus fringilla vel</li>
+              <li>Aenean sit amet erat nunc</li>
+              <li>Eget porttitor lorem</li>
+            </ol>
+          </div> -->
+          <!-- table -->
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('../web-layouts/footer') %>

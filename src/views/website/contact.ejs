@@ -1,0 +1,197 @@
+<%- include('./web-layouts/header') %>
+
+    <!-- hero section -->
+    <div class="bg-cover bg-shape" style=" background-image:linear-gradient(180deg, rgb(30 24 53 / 68%) 0%, rgb(30 24 53 / 76%) 90.16%),
+        url(../assets/images/team-hero-img.jpeg); ">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-3 col-lg-6 col-md-12 col-12">
+                    <div class="py-lg-15 py-12 text-white text-center">
+                        <h1 class=" text-white mb-3 display-4">
+                            Get Connect
+                        </h1>
+                        <p class="mb-0 lead text-light">
+                            Our team gets hundreds of emails, notes, and requests for different opportunities every day.
+                            And yes, my team members and I do read every single email that comes through.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- about  -->
+
+    <div class="pb-14">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-2 col-lg-8 col-md-12 col-12">
+                    <div class="card mt-n12 text-center mb-12">
+                        <div class="card-body p-4 p-lg-8">
+                            <div class="mb-5">
+                                <h2 class="mb-3">We love Hearing From You</h2>
+                                <p>
+                                    If you are looking for advice, please fill out this form. We will <br>find you and
+                                    get in touch.
+                                </p>
+                            </div>
+                            <% if(status==0){ %>
+                                <div class="alert alert-danger text-white">
+                                    <button type="button" class="close ml-auto" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true" class="text-black">×</span> </button>
+                                    <h5 class="text-black"> Alert</h5>
+                                    <ul class="text-black">
+                                        <% Object.values(message).forEach(function(error){ %>
+                                            <li class="text-black">
+                                                <%= error.msg %>
+                                            </li>
+                                            <% }); %>
+                                    </ul>
+
+                                </div>
+                                <% } %>
+                                    <% if(status==1){ %>
+                                        <div class="alert alert-success text-white">
+                                            <button type="button" class="close ml-auto" data-dismiss="alert"
+                                                aria-label="Close"> <span aria-hidden="true" class="text-black">×</span>
+                                            </button>
+                                            <h5 class="text-black">
+                                                <%= message%>
+                                            </h5>
+                                        </div>
+                                        <% } %>
+                                            <form action="../../contact" method="post" class="form-row">
+                                                <div class="from-group col-md-6 col-12 mb-3">
+                                                    <label for="fname" class="sr-only">Name</label>
+                                                    <input type="text" class="form-control" id="name" placeholder="Name"
+                                                        name="name" required="">
+                                                </div>
+                                                <div class="from-group col-md-6 col-12 mb-3">
+                                                    <label for="lname" class="sr-only">Mobile No</label>
+                                                    <input type="number" class="form-control" id="mobile"
+                                                        placeholder="Mobile" name="mobile" required="" maxlength="10"
+                                                        minlength="10">
+                                                </div>
+
+                                                <div class="form-group col-12 mb-3">
+                                                    <label for="purpose" class="sr-only">State</label>
+                                                    <select class="custom-select" name="state" id="purpose" required="">
+                                                        <option value="">Select state</option>
+                                                        <option value="ANDAMAN & NICOBAR ISLANDS">ANDAMAN & NICOBAR
+                                                            ISLANDS</option>
+                                                        <option value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                                        <option value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                                        <option value="ASSAM">ASSAM</option>
+                                                        <option value="BIHAR">BIHAR</option>
+                                                        <option value="CHANDIGARH">CHANDIGARH</option>
+                                                        <option value="CHHATTISGARH">CHHATTISGARH</option>
+                                                        <option value="DADRA & NAGAR HAVELI AND DAMAN & DIU">DADRA NAGAR
+                                                            HAVELI</option>
+                                                        <option value="DELHI">DELHI</option>
+                                                        <option value="GOA">GOA</option>
+                                                        <option value="GUJARAT">GUJARAT</option>
+                                                        <option value="HARYANA">HARYANA</option>
+                                                        <option value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                                        <option value="JAMMU & KASHMIR">JAMMU & KASHMIR</option>
+                                                        <option value="JHARKHAND">JHARKHAND</option>
+                                                        <option value="KARNATAKA">KARNATAKA</option>
+                                                        <option value="KERALA">KERALA</option>
+                                                        <option value="LAKSHADWEEP">LAKSHADWEEP</option>
+                                                        <option value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                                        <option value="MAHARASHTRA">MAHARASHTRA</option>
+                                                        <option value="MANIPUR">MANIPUR</option>
+                                                        <option value="MEGHALAYA">MEGHALAYA</option>
+                                                        <option value="MIZORAM">MIZORAM</option>
+                                                        <option value="NAGALAND">NAGALAND</option>
+                                                        <option value="ODISHA">ODISHA</option>
+                                                        <option value="PUDUCHERRY">PUDUCHERRY</option>
+                                                        <option value="PUNJAB">PUNJAB</option>
+                                                        <option value="RAJASTHAN">RAJASTHAN</option>
+                                                        <option value="SIKKIM">SIKKIM</option>
+                                                        <option value="TAMIL NADU">TAMIL NADU</option>
+                                                        <option value="TELANGANA">TELANGANA</option>
+                                                        <option value="TRIPURA">TRIPURA</option>
+                                                        <option value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                                        <option value="UTTARAKHAND">UTTARAKHAND</option>
+                                                        <option value="WEST BENGAL">WEST BENGAL</option>
+
+
+                                                    </select>
+                                                </div>
+                                                <div class="from-group col-12 mb-3">
+                                                    <label for="text" class="sr-only"> City</label>
+                                                    <input type="text" class="form-control" id="email"
+                                                        placeholder="City" name="city" required="">
+                                                </div>
+                                                <div class="from-group col-12 mb-3">
+                                                    <label for="text" class="sr-only"> Description</label>
+                                                    <textarea class="form-control" placeholder="Description"
+                                                        name="description" required="" height="200px"></textarea>
+                                                </div>
+                                                <div class="col-12">
+                                                    <button type="submit" class="btn btn-primary btn-block">
+                                                        Send Message
+                                                    </button>
+                                                </div>
+                                            </form>
+                        </div>
+                    </div>
+                    <!-- contact info -->
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="text-center">
+                                <h4 class="h5 mb-3">Speaking inquiries:</h4>
+                                <p class="text-danger font-weight-bold">0522 4300858</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="text-center">
+                                <h4 class="h5 mb-3">Business inquiries:</h4>
+                                <a href="#!" class="text-danger font-weight-bold">help@mitrsewa.in</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="text-center">
+                                <h4 class="h5 mb-3">Head Office:</h4>
+                                <a href="#!" class="text-danger font-weight-bold">13/566, Indira Nagar, Near Aurobindo
+                                    Park,
+                                    Lucknow - 226016.
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- social media -->
+                    <div class="row">
+                        <div class="offset-lg-3 col-lg-6 col-md-12 col-12">
+                            <div class="text-center mt-14">
+                                <h4 class="mb-4">Follow me on</h4>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <a href="https://www.facebook.com/mitrsewafoundation/" target="_blank" class="social-btn sb-facebook sb-round btn-light "><i
+                                                class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://twitter.com/mitrsewa" class="social-btn sb-twitter sb-round btn-light " target="_blank"><i
+                                                class="fab fa-twitter"></i></a>
+                                    </li>
+                                    <!-- <li class="list-inline-item">
+                                        <a href="https://www.facebook.com/mitrsewafoundation/" target="_blank" class="social-btn sb-linkedin sb-round btn-light "><i
+                                                class="fab fa-linkedin"></i></a>
+                                    </li> -->
+                                    <li class="list-inline-item">
+                                        <a href="https://youtube.com/channel/UC08MnPejr0_7yuqlkOoLTwQ" target="_blank" class="social-btn sb-youtube sb-round btn-light "><i
+                                                class="fab fa-youtube"></i></a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.instagram.com/mitrsewafoundation/" target="_blank" class="social-btn sb-instagram sb-round btn-light "><i
+                                                class="fab fa-instagram"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('./web-layouts/footer') %>

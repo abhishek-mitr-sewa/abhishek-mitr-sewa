@@ -1,0 +1,67 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<style src="css/responsive.dataTables.min.css"></style>
+<%- include('./main') %>
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-6 text-center text-sm-left mb-4 mb-sm-0">
+        <span class="text-uppercase page-subtitle">List</span>
+        <h3 class="page-title"><%= zeDetails.fullname%>'s Field Excutive List</h3>
+      </div>
+    </div>
+    <div class="col-md-12 text-right"> <button type="button" class="btn btn-warning mb-2" onclick="history.back();">Back</button></div>
+
+    <!-- End Page Header -->
+    <!-- Transaction History Table -->
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+      <!-- Button trigger modal -->
+      <table class="transaction-history d-none dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1152px;">
+      <thead>
+        <tr role="row">
+          <th class="sorting_asc">#</th>
+          <th class="sorting">Full Name</th>
+          <th class="sorting" >Mobile</th>
+          <th class="sorting" >District</th>
+          <th class="sorting">State</th>
+          <th class="sorting">Referrer Code</th>
+          <th class="sorting">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%  
+        if(data.length > 0) {
+          let i=1;
+          data.forEach(function (row){ %>
+
+          <tr role="row" class="odd">
+            <td tabindex="0" class="sorting_1"><%= i; %></td>
+              <td><%= row.fullname %></td>
+              <td><%= row.mobile %></td>
+              <td><%= row.city %></td>
+              <td><%= row.state %></td>
+              <td><%= row.referrer_code %></td>
+            <td>
+              <div class="btn-group d-table ml-auto" role="group" aria-label="Basic example">
+                <a href="/admin/febclist/<%= row.referrer_code;%>">
+                  <button type="button" class="btn btn-white">View MS</small></button>
+                </a>
+                <a href="/admin/downloadfebc/<%= row.referrer_code;%>">
+                  <button type="button" class="btn btn-white">Download MS</small></button>
+                </a>
+                
+              </div>
+            </td>
+          </tr>
+          
+        <% i++; }); }  %>
+      </tbody>
+    </table>
+  </div>
+    <!-- End Transaction History Table -->
+  </div>
+
+</main>
+
+
+<%- include('../layouts/footer') %> 

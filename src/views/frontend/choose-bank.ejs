@@ -1,0 +1,602 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/inner-leftmenu') %>
+<style>
+  @media screen and (max-width: 500px) {
+    .custom-link {
+      width: 100%;
+    }
+  }
+  
+</style>
+<style>
+  .dev_added{background-color: #91fcb60f;}
+  .container {
+    position: relative;
+    width: 1020px;
+    margin: 0 auto;
+}
+.money-back-guarantee {
+  cursor: pointer;
+  text-align: center;
+  padding: 1.812rem 0;
+}
+.money-back-guarantee .check svg {
+    margin-top: 5px;
+}
+.check {
+ 
+  background: #37ae2a;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: table;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  box-shadow: 0 14px 85px rgb(55 174 42 / 47%), 0 9px 20px rgb(55 174 42 / 23%);
+}
+.check_disable{
+  
+  background: #cacedb;
+  box-shadow: 0 14px 85px rgb(147 151 147 / 79%), 0 9px 20px rgb(234 235 234 / 23%);
+}
+.background_color_disable{
+  background-color: #f3f3f326;
+}
+.hide{display: none !important;}
+.show{display: block !important;}
+.text-semibold {
+  font-weight: 100;
+  font-size: smaller;
+}
+.plr-0{
+  padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+.user-teams .card-body {
+  min-height: 7.0625rem;
+}
+</style>
+  <div class="main-content-container container-fluid px-4">
+    <div class="row">
+      <div class="col-lg-10 mx-auto mt-4">
+        <!-- Edit User Details Card -->
+        <div class="card card-small edit-user-details mb-4">
+          
+          <div class="card-body p-0">
+            <div class="border-bottom clearfix d-flex">
+              <ul class="nav nav-tabs border-0 mt-auto mx-4 pt-2 w-100">
+                <li class="nav-item custom-link">
+                  <a class="nav-link" href="javascript:void(0);">
+                    Bank Details 
+                    <% 
+                      if(getUserData.kyc_status ==='approved'){ %>
+                        <span class="card-post__category badge badge-pill float-right ml-3 badge-success">Approved</span>
+                    <% }else if(getKYCData.pan_number !=null){ %>
+                          <span class="card-post__category badge badge-pill float-right ml-3 badge-warning">Submitted</span>
+                    <% }else{ %>
+                        <span class="card-post__category badge badge-pill float-right ml-3 badge-danger">Pending</span>
+                     <% } %>
+                    
+                  </a>
+                </li>
+
+                <li class="nav-item custom-link">
+                  <a class="nav-link " href="javascript:void(0);">Upload ID
+                    <%
+                      if(getKYCData.bank_detail_status ==='approved'){ %>
+                        <span class="card-post__category badge badge-pill float-right ml-3 badge-success">Approved</span>
+                    <% }else if(getKYCData.kyc_status ==='submitted'){ %>
+                        <span class="card-post__category badge badge-pill float-right ml-3 badge-warning">Submitted</span>
+                    <% }else { %>
+                      <span class="card-post__category badge badge-pill float-right ml-3 badge-danger">Pending</span>
+                    <% } %>
+                  </a>
+                </li>
+                <li class="nav-item custom-link">
+                  <a class="nav-link active" href="javascript:void(0);">Choose Bank
+                    <%
+                    if(getUserData.payment_status ==='paid'){ %>
+                      <span class="card-post__category badge badge-pill float-right ml-3 badge-success">Approved</span>
+                  <% }else { %>
+                    <span class="card-post__category badge badge-pill float-right ml-3 badge-danger">Pending</span>
+                   <% } %>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <form action="/members/makePayment" method="POST" class="py-4" name="frm">
+
+              <% if(getUserData.user_type == "newews"){%>
+
+                <input type="hidden" name="no_bank" class="bnk_nameVal">
+                <div class="card-body plr-0">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h5 class="ml-3">One Time Activation Fee</h5>
+                    </div>
+                    <div class="row w-100">
+                      <div class="col-7 text-left pl-5">
+                        <span class="stats-small__label text-uppercase">Description</span>
+                        <div class="text-fiord-blue" id="mianTxt">One time registration free.</div>
+                        
+                      </div>
+                     
+                      <div class="col-5 text-right">
+                        <span class="stats-small__label text-uppercase">Amount (in RS.)</span>
+                        <h6 class="text-fiord-blue" id="">500.00</h6>
+                      </div>
+                    </div>
+                    <br/>
+                    <div class="row w-100">
+                      <div class="col-7 pl-5 text-left ">
+                        <span class="text-fiord-blue">18% on the total cost</span>
+                        <span class="stats-small__label text-uppercase">(GST)</span>
+                      </div>
+                      <div class="col-5 text-right">
+                        <h6 class="text-fiord-blue">90.00</h6>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <hr>
+                 
+                  <div class="row">
+                    <div class="col-6 text-left">
+                      <h5 class="text-bold text-fiord-blue ml-3">Total</h5>
+                    </div>
+                    <div class="col-6 text-right">
+                      <h5 class="text-fiord-blue text-right mr-3">590.00</h5>
+                    </div>
+                  </div>
+                  
+                </div>
+                <input type="hidden" name="regfee" id="" value="500">
+                <hr>
+                <div class="col-md-12 text-right mt-3">
+                  <button type="submit" class="mb-3 btn btn-primary" id="pa yment"><i class="material-icons">file_copy</i> Pay Now</button>
+              </div>
+                <%} else {%>
+              <div class="form-row form-group mx-4 bankDiv">
+                <label for="" class="bankDiv">Choose Bank</label>
+                <select name="bank_name" id="bank_name" class="form-control bankDiv">
+                  <option value="2000">Fino Payment Bank (Rs. 2000.00)</option>
+                  <!-- <option value="3000">JIO Payment Bank (Rs. 3000.00)</option>
+                  <option value="5000">HDFC Bank (Rs. 5000.00)</option>
+                  <option value="2500">Yes Bank (Rs. 2500.00)</option> -->
+                </select>
+                <input type="hidden" name="bnk_name" class="bnk_nameVal">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-6" id="onboarding">
+                  
+                  <div class="money-back-guarantee hideclick">
+                    <div class="check onboarding">
+                      <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+                      </svg>
+                    </div>
+                    <div class="pl-3">BCA On Boarding Fee- Rs. 2,000.00
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-6 showclick" id="feildex">
+                  <div class="money-back-guarantee">
+                    <div class="check check_disable feildex">
+                      <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+                      </svg>
+                    </div>
+                     For Field Excutive
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12 plr-0">
+                <div class="user-teams mb-4">
+                  <!-- <div class="card-header border-bottom">
+                    <span class="m-0">Choose Devices</span>
+                    <a href="javascript:void(0);" class="text-right">
+                      <span class="text-right showclick"> (Show)</span>
+                    </a> 
+                  </div> -->
+                  <!-- <div class="card-body p-0 deviceMainDiv" style="min-height: 20.95rem;display: none;"> -->
+                  <div class="card-body p-0 deviceMainDiv">
+                    <div class="container-fluid">
+                      <div class="row px-3 classactive_1">
+                        <div class="col-4 user-teams__info mb-1">
+                          <h6 class="m-0 1_deviceName">MSF Member</h6>
+                          <!-- <span class="text-light">This is the device which is very useful for our all works and its really less proce avaliable to the market. Dont miss. </span> -->
+                        </div>
+                        <!-- <div class="col-md-2 text-center mb-1">
+                          <label for="">Quantity</label>
+                          <input type="text" value="1" class="form-control col-6 text-center 1_quantity">
+                        </div> -->
+                        <div class="col-5 text-center mb-1 pt-4">
+                          <label for="">Amount <small>(in Rs.)</small></label>
+                          <h6 class="1_amount">5,000.00</h6>
+                        </div>
+
+                        
+                        <div class="col-3 text-right mb-1 text-right">
+                          <input class="btn btn-success addBtnClk bt-1" alt="1" type="button" value="Add">
+                        </div>
+                      </div>
+                      <!-- <div class="row px-3 classactive_2">
+                        <div class="col-4 user-teams__info mb-1">
+                          <h6 class="m-0 2_deviceName">MSF Family & Relative</h6>
+                        </div>
+                        <div class="col-5 text-center mb-1 pt-4">
+                          <label for="">Amount <small>(in Rs.)</small></label>
+                          <h6 class="2_amount">10,000.00</h6>
+                        </div>
+                        <div class="col-3 text-right mb-1">
+                          <input class="btn btn-success addBtnClk bt-2" alt="2"  type="button" value="Add">
+                        </div>
+                      </div>
+                      <div class="row px-3 classactive_3">
+                        <div class="col-4 user-teams__info mb-1">
+                          <h6 class="m-0 3_deviceName">Others</h6>
+                        </div>
+                        <div class="col-5 text-center mb-1 pt-4">
+                          <label for="">Amount <small>(in Rs.)</small></label>
+                          <h6 class="3_amount">20,000.00</h6>
+                        </div>
+                        <div class="col-3 text-right mb-1">
+                          <input class="btn btn-success addBtnClk bt-3" alt="3"  type="button" value="Add" >
+                        </div>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-body plr-0">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h5 class="ml-3">One Time Activation Fee</h5>
+                  </div>
+                  <!-- <hr>
+                  <div class="row w-100">
+                    <div class="col-12">
+                      <div class="row px-3 classactive_1 mb-3 finoclass" style="padding-left: 2rem!important;">
+                        <div class="col-5 user-teams__info mb-1">
+                          <h6 class="m-0 fino_device_deviceName">PIN PAD</h6>
+                          <span class="text-light">This is the device which is very useful for our all works and its really less price avaliable to the market. Dont miss. </span>
+                        </div>
+                        <div class="col-md-2 mb-1">
+                          <label for="">Quantity</label>
+                          <input type="text" value="1" class="form-control col-6 text-center fino_device_quantity">
+                        </div>
+                        <div class="col-2 text-center mb-1">
+                          <label for="">Amount <small>(in Rs.)</small></label>
+                          <h6 class="fino_device_amount">3300.00</h6>
+                        </div>
+                        
+                        <div class="col-3 text-right mb-1 text-right mt-3">
+                          <input class="btn btn-success fino_device_addBtnClk" alt="fino_device" type="button" value="Add">
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+
+
+                  <div class="row w-100">
+                    <div class="col-7 text-left pl-5">
+                      <span class="stats-small__label text-uppercase">Description</span>
+                      <div class="text-fiord-blue" id="mianTxt">One time registration free.</div>
+                      
+                    </div>
+                   
+                    <div class="col-5 text-right">
+                      <span class="stats-small__label text-uppercase">Amount (in RS.)</span>
+                      <h6 class="text-fiord-blue" id="fee">2000.00</h6>
+                    </div>
+                  </div>
+                  <br/>
+                  <div class="row w-100">
+                    <div class="col-7 pl-5 text-left ">
+                      <span class="text-fiord-blue">18% on the total cost</span>
+                      <span class="stats-small__label text-uppercase">(GST)</span>
+                    </div>
+                    <div class="col-5 text-right">
+                      <h6 class="text-fiord-blue gstCost"></h6>
+                    </div>
+
+                  </div>
+                  
+                  
+                  <div id="deviceIteamAdd" class="w-100"></div>
+                  
+                </div>
+                <hr>
+               
+                <div class="row">
+                  <div class="col-6 text-left">
+                    <h5 class="text-bold text-fiord-blue ml-3">Total</h5>
+                  </div>
+                  <div class="col-6 text-right">
+                    <h5 class="text-fiord-blue text-right grandTotalAmount mr-3">00.00</h5>
+                  </div>
+                </div>
+              
+                
+              </div>
+              <input type="hidden" name="regfee" id="regfeeval" value="2000">
+              <hr>
+              <div class="col-md-12 text-right mt-3">
+                <button type="submit" class="mb-3 btn btn-primary" id="pa yment"><i class="material-icons">file_copy</i> Pay Now</button>
+            </div> 
+            <%}%>
+            </form>
+          </div>
+         
+        </div>
+        <!-- End Edit User Details Card -->
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    $(document).ready(function () {
+      $(".deviceMainDiv").hide();
+      
+      $(".showclick").click(function () {
+        $(".deviceMainDiv").show('slow');
+      });
+
+      $(".hideclick").click(function () {
+        $(".deviceMainDiv").hide('slow');
+      });
+
+
+      
+      var data = {'device_id': $(".addBtnClk").attr("alt")};
+          $.post({
+              traditional: true,
+              url: '/members/remTempPackage',
+              contentType: 'application/json',
+              data: JSON.stringify(data),
+              dataType: 'json',
+              success: function(response){ 
+                if(response){
+                  //alert('rem-'+response);
+                }
+              }
+          });
+
+
+
+      
+      var actualDeviceAmount = {"0_amount" : 2000, "1_amount" : 5000, "2_amount" : 10000, "3_amount" : 20000, "fino_device_amount": 3300};
+      var gst = 18;
+      var packageAmount = actualDeviceAmount["0_amount"];
+      var totalChooseAmount = 0;
+      var onlyDeviceAllowStatus = false;
+      var addAmountDelete = false;
+      var fino_device_quantity = 1;
+
+
+      $(".fino_device_quantity").keydown(function (e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+      $(".fino_device_addBtnClk").click(function () {
+        fino_device_quantity = $(".fino_device_quantity").val();
+          
+        var selectPackageAmount = (parseFloat(actualDeviceAmount["fino_device_amount"]) * parseFloat(fino_device_quantity));
+
+
+        if($(this).val() === 'Add'){
+          $(this).removeClass('btn-success');
+          $(this).addClass('btn-danger');
+          $(this).val('Remove');
+          totalChooseAmount = parseFloat(actualDeviceAmount["0_amount"]) + parseFloat(selectPackageAmount);
+          
+          var data = {'quantity':fino_device_quantity, 'device_id': 'fino_device'};
+            $.post({
+              traditional: true,
+              url: '/members/addTempPackage',
+              contentType: 'application/json',
+              data: JSON.stringify(data),
+              dataType: 'json',
+              success: function(response){ 
+                if(response){
+                  //alert(response);
+                }
+              }
+          });
+          
+
+        }else{
+          $(this).addClass('btn-success');
+          $(this).removeClass('btn-danger');
+          $(this).val('Add');
+          totalChooseAmount = parseFloat(totalChooseAmount) - parseFloat(selectPackageAmount);
+          
+          var data = {'device_id': 'fino_device'};
+          $.post({
+              traditional: true,
+              url: '/members/remTempPackage',
+              contentType: 'application/json',
+              data: JSON.stringify(data),
+              dataType: 'json',
+              success: function(response){ 
+                
+              }
+          });
+
+
+        }
+
+
+        
+
+        $("#fee").html(totalChooseAmount+'.00');
+        var gstCost = (parseFloat(totalChooseAmount) * parseInt(gst)) /100; 
+
+        $(".gstCost").html(gstCost+'.00');
+        $(".grandTotalAmount").html(parseFloat(totalChooseAmount) + parseFloat(gstCost)+'.00');
+
+
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      $(".addBtnClk").click(function () {
+        var packageID = $(this).attr("alt");
+        
+        var selectPackageAmount = parseFloat(actualDeviceAmount[packageID+"_amount"]);
+        
+        $("#regfeeval").val(selectPackageAmount);
+        
+
+        if($(this).val() === 'Add'){
+          $(this).removeClass('btn-success');
+          $(this).addClass('btn-danger');
+          $(this).val('Remove');
+          $(".bankDiv").addClass('show');
+          $(".bankDiv").removeClass('hide');
+          $('.classactive_'+packageID).addClass('dev_added');
+          var packageName = $('.'+packageID+'_deviceName').text();
+          
+          addAmountDelete = false;
+          
+          totalChooseAmount = parseFloat(selectPackageAmount);
+
+          // Disable add buttons once any choose ... 
+          if(parseInt(packageID) == 1){
+              //onlyDeviceAllowStatus = true;
+              $('.bt-2').attr("disabled", "disabled");
+              $('.bt-3').attr("disabled", "disabled");
+              $('.classactive_2').addClass('background_color_disable');
+              $('.classactive_3').addClass('background_color_disable');
+            }else if(parseInt(packageID) == 2){
+              //onlyDeviceAllowStatus = true;
+              $('.bt-1').attr("disabled", "disabled");
+              $('.bt-3').attr("disabled", "disabled");
+              $('.classactive_1').addClass('background_color_disable');
+              $('.classactive_3').addClass('background_color_disable');
+            }else{
+              $('.bt-1').attr("disabled", "disabled");
+              $('.bt-2').attr("disabled", "disabled");
+              $('.classactive_2').addClass('background_color_disable');
+              $('.classactive_1').addClass('background_color_disable');
+              
+              
+            }
+            var data = {'quantity':packageID, 'device_id': packageID};
+            $.post({
+              traditional: true,
+              url: '/members/addTempPackage',
+              contentType: 'application/json',
+              data: JSON.stringify(data),
+              dataType: 'json',
+              success: function(response){ 
+                if(response){
+                  //alert(response);
+                }
+              }
+          });
+          
+            $("#mianTxt").html(packageName);
+        }else{  // for remove click button ---
+          $(this).addClass('btn-success');
+          $(this).removeClass('btn-danger');
+          $(this).val('Add');
+          $(".bankDiv").addClass('hide');
+          $(".bankDiv").removeClass('show');
+          addAmountDelete = true;
+          $("#regfeeval").val('');
+          $("#deviceIteamAdd").html('');
+          packageAmount = actualDeviceAmount["0_amount"];
+          totalChooseAmount = actualDeviceAmount["0_amount"]; 
+
+          if(parseInt(packageID) == 1){
+            $('.bt-2').removeAttr("disabled", "disabled");
+            $('.bt-3').removeAttr("disabled", "disabled");
+            $('.classactive_2').removeClass('background_color_disable');
+            $('.classactive_3').removeClass('background_color_disable');
+          }else if(parseInt(packageID) == 2){
+            $('.bt-1').removeAttr("disabled", "disabled");
+            $('.bt-3').removeAttr("disabled", "disabled");
+            $('.classactive_1').removeClass('background_color_disable');
+            $('.classactive_3').removeClass('background_color_disable');
+          }else{
+            $('.bt-1').removeAttr("disabled", "disabled");
+            $('.bt-2').removeAttr("disabled", "disabled");
+            $('.classactive_2').removeClass('background_color_disable');
+            $('.classactive_1').removeClass('background_color_disable');
+          }
+
+          $("#mianTxt").html('One time registration free.'); 
+          var data = {'device_id': packageID};
+          $.post({
+              traditional: true,
+              url: '/members/remTempPackage',
+              contentType: 'application/json',
+              data: JSON.stringify(data),
+              dataType: 'json',
+              success: function(response){ 
+                if(response){
+                  //alert('rem-'+response);
+                }
+              }
+          });
+
+        }
+        
+        $("#fee").html(totalChooseAmount+'.00');
+        var gstCost = (parseFloat(totalChooseAmount) * parseInt(gst)) /100; 
+        $(".gstCost").html(gstCost+'.00');
+        $(".grandTotalAmount").html(parseFloat(totalChooseAmount) + parseFloat(gstCost)+'.00');
+      });  
+
+      
+      $("#fee").html(packageAmount+'.00');
+      var gstCost = (parseFloat(totalChooseAmount) + parseFloat(packageAmount) * parseInt(gst)) /100; 
+
+      $(".gstCost").html(gstCost+'.00');
+      $(".grandTotalAmount").html(parseFloat(totalChooseAmount) + parseFloat(packageAmount) + parseFloat(gstCost)+'.00');
+
+
+      $("#feildex").click(function(){
+        $(".finoclass").hide();
+        $("#regfeeval").val('');
+        $(".feildex").removeClass('check_disable');
+        $(".onboarding").addClass('check_disable');
+      });
+      
+      $("#onboarding").click(function(){
+        $(".finoclass").show();
+        //onlyDeviceAllowStatus = false;
+        $("#regfeeval").val('2000');
+        $(".feildex").addClass('check_disable');
+        $(".onboarding").removeClass('check_disable');
+        location.reload();
+
+      });
+
+
+    });
+  </script>
+
+ <%- include('../layouts/footer') %> 

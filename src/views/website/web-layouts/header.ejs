@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Mitr Sewa</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Libs CSS -->
+  <link rel="stylesheet" href="../frontend/assets/libs/tiny-slider/dist/tiny-slider.css">
+
+  <link rel="stylesheet" href="../frontend/assets/libs/bootstrap-icons/font/bootstrap-icons.css">
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="../frontend/assets/css/theme.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  <script src="../frontend/assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../frontend/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .collapsible-link::before {
+      content: '';
+      width: 14px;
+      height: 2px;
+      background: #333;
+      position: absolute;
+      top: calc(50% - 1px);
+      right: 1rem;
+      display: block;
+      transition: all 0.3s;
+    }
+
+    /* Vertical line */
+    .collapsible-link::after {
+      content: '';
+      width: 2px;
+      height: 14px;
+      background: #333;
+      position: absolute;
+      top: calc(50% - 7px);
+      right: calc(1rem + 6px);
+      display: block;
+      transition: all 0.3s;
+    }
+
+    .collapsible-link[aria-expanded='true']::after {
+      transform: rotate(90deg) translateX(-1px);
+    }
+
+    .collapsible-link[aria-expanded='true']::before {
+      transform: rotate(180deg);
+    }
+
+    body {
+      color: #211d2b;
+      font-size: 1.1rem;
+    }
+
+    .bg-default {
+      background-color: #ffffff !important;
+    }
+
+    .header_link {
+      color: #3c3c3b !important;
+      text-decoration: none !important;
+      font-size: 15px;
+      position: relative;
+      top: 2px;
+    }
+
+    .background_gradient {
+      background: linear-gradient(#ee5735, #261f44);
+      height: 590px;
+    }
+
+    .banner_light_bg {
+      background-color: #f6f6f6;
+    }
+
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+      width: 100%;
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    .logo_name {
+      color: #fff;
+      font-size: 1.9rem;
+      margin-bottom: 0;
+      font-weight: 800;
+      font-style: italic;
+
+    }
+
+    .tagline_name {
+      color: #fff;
+      font-size: .7rem;
+      margin-left: 29%;
+      margin-top: -20px;
+      font-weight: 700;
+      letter-spacing: 2.6px;
+    }
+
+    .header .navbar-default.navbar {
+      padding: 10px 0;
+    }
+
+    .slick-slide img {
+      display: block;
+    }
+
+    .u-clients {
+      width: 190px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .rounded-bottom {
+      text-align: justify;
+    }
+
+    .border-1:hover {
+      position: relative;
+      z-index: 1;
+      -webkit-box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+      box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+      border: 0;
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+    }
+
+    h4.heading {
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .bgclr {
+      background: #f7f9ff;
+    }
+
+    .bg-shape:after {
+      position: absolute;
+      background: none;
+      background-size: none;
+      bottom: 0px;
+      height: 0px;
+    }
+
+    .header .navbar-default.navbar .navbar-nav .nav-item .nav-link {
+      font-size: 16px;
+    }
+    .footer .list-group .list-group-item .list-group-item-link {
+    color: #98979e;}
+  </style>
+</head>
+
+<body>
+  <!-- header -->
+  <div class="header fixed-top border-top-3 border-top border-primary">
+    <!-- navigation start -->
+    <div class="container-lg">
+      <nav class="navbar navbar-expand-lg navbar-default">
+        <a class="navbar-brand" href="/index">
+          <img src="../frontend/assets/images/logo.svg" alt="" style="height: 55px;" />
+          <span class="logo_name">Mitr Sewa</span>
+          <div class="tagline_name ">Vikas Sabke Dwaar</div>
+        </a>
+
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-default"
+          aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar top-bar mt-0"></span>
+          <span class="icon-bar middle-bar"></span>
+          <span class="icon-bar bottom-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-default">
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-default"
+            aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-times"></i>
+          </button>
+          <ul class="navbar-nav ml-auto mr-lg-3 ">
+            <li class="nav-item dropdown disabled">
+              <a class="nav-link d-lg-none" href="#!">
+                Menu
+              </a>
+            </li>
+            <li class="nav-item dropdown ">
+              <a accesskey="home" accesskey="home" class="nav-link dropdown-toggle home" href="/index" id="" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" data-display="static">
+                Home
+              </a>
+            </li>
+            <li class="nav-item dropdown ">
+              <a accesskey="projects" class="nav-link dropdown-toggle projects" href="#!" id="" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" data-display="static">
+                Projects
+              </a>
+              <ul class="dropdown-menu  dropdown-menu-right dropdown-menu-xl-left  dropdown-menu-arrow"
+                aria-labelledby="menu-2">
+                <li class="dropdown-submenu ">
+                  <a accesskey="digiportal" class="dropdown-item dropdown-list-group-item dropdown-toggle digiportal"
+                    href="https://mitrdigiportal.com" id="">
+                    <div class="d-flex align-items-center">
+                      <div class="mr-3 icon-shape icon-lg rounded-circle bg-light">
+                        <!-- <i class="bi bi-mic-fill font-24"></i> -->
+                        <i class="bi bi-file-earmark-richtext-fill font-24"></i>
+                      </div>
+                      <div class="">
+                        <h4 class="mb-0 h5">Digiportal</h4>
+                        <p class="text-muted mb-0 font-12">
+                          Fund Transfer
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="dropdown-submenu ">
+                  <a accesskey="bima_menu" class="dropdown-item dropdown-list-group-item dropdown-toggle bima_menu" href="https://www.mitrbima.com/"
+                    id="">
+                    <div class="d-flex align-items-center">
+                      <div class="mr-3 icon-shape icon-lg rounded-circle bg-light">
+                        <i class="bi bi-stack font-24"></i>
+                      </div>
+                      <div class="">
+                        <h4 class="mb-0 h5">Mitr Bima</h4>
+                        <p class="text-muted mb-0 font-12">
+                          & Insurance
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="dropdown-submenu ">
+                  <a accesskey="estore" class="dropdown-item dropdown-list-group-item dropdown-toggle estore" href="http://mitrestore.com/"
+                    id="">
+                    <div class="d-flex align-items-center">
+                      <div class="mr-3 icon-shape icon-lg rounded-circle bg-light">
+                        <i class="bi bi-calendar3 font-24"></i>
+                      </div>
+                      <div class="">
+                        <h4 class="mb-0 h5">Mitr E-Store</h4>
+                        <p class="text-muted mb-0 font-12">
+                          Sell & Buy Products
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="dropdown-submenu ">
+                  <a accesskey="amazon" class="dropdown-item dropdown-list-group-item dropdown-toggle amazon" href="https://store.amazon.in"
+                    id="">
+                    <div class="d-flex align-items-center">
+                      <div class="mr-3 icon-shape icon-lg rounded-circle bg-light">
+                        <!-- <i class="bi bi-mic-fill font-24"></i> -->
+                        <i class="bi bi-file-earmark-richtext-fill font-24"></i>
+                      </div>
+                      <div class="">
+                        <h4 class="mb-0 h5">Amazon</h4>
+                        <p class="text-muted mb-0 font-12">
+                          Store login & Earn
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a accesskey="contact" class="nav-link dropdown-toggle contact" href="contact" id=""
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Contact
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <!-- <a accesskey="opening" class="nav-link dropdown-toggle opening" href="javascript:void(0);" id="" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Openings
+              </a>
+            </li> -->
+            <li class="nav-item dropdown ">
+              <a accesskey="team" class="nav-link dropdown-toggle team" href="/team" id=""
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                Teams
+              </a>
+            </li>
+            <li class="nav-item dropdown ">
+              <a accesskey="blog" class="nav-link dropdown-toggle blog" href="blog" id=""
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                Blog
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a accesskey="" class="nav-link dropdown-toggle" href="" id="menu-7" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Resources
+              </a>
+              <ul class="dropdown-menu dropdown-menu-arrow dropdown-menu-right dropdown-menu-xl-left  "
+                aria-labelledby="menu-7">
+                <li>
+                  <a accesskey="documents" class="dropdown-item documents" href="https://www.mitrbima.com/mitr-sewa" id="">
+                    <div class="d-flex align-items-center">
+                      <span class="mr-3">
+                        <i class="bi bi-file-text-fill font-24"></i>
+                      </span>
+                      <div>
+                        <h5 class="mb-0">Documentation</h5>
+                        <span class="font-12 text-muted">How our product works</span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                
+                <li>
+                  <a accesskey="specialvideo" class="dropdown-item specialvideo" href="https://youtube.com/channel/UC08MnPejr0_7yuqlkOoLTwQ"
+                    id="">
+                    <div class="d-flex align-items-center">
+                      <span class="mr-3">
+                        <i class="bi bi-file-earmark-text-fill font-24"></i>
+                      </span>
+                      <div>
+                        <h5 class=" mb-0 ">Special Videos <span class="text-primary font-12 ml-1 ">All products</span>
+                        </h5>
+                        <span class="font-12 text-muted ">All Special Videos</span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="header-btn ">
+            <a accesskey="" href="https://mitrsewa.in/login" class="btn btn-outline-light btn-sm">Member Login</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- navigation close -->
+  </div>

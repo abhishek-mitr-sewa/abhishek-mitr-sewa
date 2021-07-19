@@ -1,0 +1,318 @@
+<%- include('../layouts/header') %>
+<%- include('../'+leftMenuType) %>
+  <!-- <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert"> -->
+    <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button> -->
+    <!-- <i class="material-icons">view_warning</i>
+    <strong>Alert!</strong> Your profile is not completed, Please complete! 
+  </div> -->
+  
+  <div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Overview</span>
+        <h3 class="page-title">User Profile</h3>
+      </div>
+    </div>
+    <!-- End Page Header -->
+    <!-- Default Light Table -->
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card card-small user-details mb-4">
+          <div class="card-header p-0">
+            <div class="user-details__bg">
+              <img src="<%= path; %>images/avatars/up-user-details-background.jpg" alt="User Details Background Image">
+            </div>
+          </div>
+          <div class="card-body border-bottom text-center">
+            <div class="user-details__avatar mx-auto">
+              <img src="<%= path; %><%= getUserData.profile_image %>" alt="User Avatar">
+            </div>
+            <h4 class="mb-0"><%= ((getUserDetailsData.f_name === null) ? 'Guest': getUserDetailsData.f_name+' '+ getUserDetailsData.l_name) %></h4>
+            <span class="text-muted d-block mb-2"><%= (getUserData.user_type.trim() == 'bc') ? 'MS' : getUserData.user_type.toUpperCase() %> </span>
+           <% if(getKYCData.pan_number === null){ %>
+              <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-danger mr-2">
+                Update KYC</button>
+           <% } else if(getKYCData.bc_agent_agreement === null){ %>
+            <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-salmon mr-2">
+              Update ID Proof</button>
+           <% } else if(getUserData.payment_status === 'no'){ %>
+            <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-java mr-2">
+              Pay Fee</button>
+          <% } else { %>
+            <span class="text-success">Account is Verified</span>
+            <% } %>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item px-4">
+              <div class="progress-wrapper">
+                <strong class="text-muted d-block mb-2">Account Status</strong>
+                <div class="progress progress-sm">
+                  <%
+                  var prnctg = '5%';
+                  var barColor = 'salmon';
+                  var styl = 'wdth-5';
+                  if(getUserDetailsData.post_office != null && getKYCData.pan_number === null && getKYCData.bc_agent_agreement === null && getUserData.payment_status === 'no'){
+                    prnctg = '30%';
+                    barColor = 'danger';
+                    styl = 'wdth-30';
+                  }else if(getKYCData.pan_number != null && getKYCData.bc_agent_agreement === null && getUserData.payment_status === 'no'){
+                    prnctg = '50%';
+                    barColor = 'warning';
+                    styl = 'wdth-50';
+                  }else if(getKYCData.bc_agent_agreement != null && getUserData.payment_status === 'no'){
+                    prnctg = '70%';
+                    barColor = 'java';
+                    styl = 'wdth-70';
+                  }else if(getUserData.payment_status != 'no'){
+                    barColor = 'success';
+                    prnctg = '100%';
+                    styl = 'wdth-100';
+                  }
+                  %>
+                  <div class="progress-bar bg-<%= barColor %> <%= styl %>" role="progressbar" aria-valuenow="<%= prnctg %>" aria-valuemin="0" aria-valuemax="100">
+                    <span class="progress-value"><%= prnctg %></span>
+                  </div>
+                </div>
+              </div>
+              
+            </li>
+            
+            <li class="list-group">
+              <div class="user-details__user-data border-top border-bottom p-4">
+                <div class="row mb-3">
+                  <div class="col w-50">
+                    <span>Email</span>
+                    <span class="small"><%= getUserData.email %></span>
+                  </div>
+                  <div class="col w-50">
+                    <span>Location</span>
+                    <span class="small"><%= ((getUserDetailsData.city=== null) ? 'N/A' : getUserDetailsData.city) %></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col w-50">
+                    <span>Phone</span>
+                    <span class="small">+91 <%= getUserData.mobile %></span>
+                  </div>
+                  <div class="col w-50">
+                    <span>PAN Number</span>
+                    <span class="small"><%= ((getKYCData.pan_number === null) ? 'N/A' : getKYCData.pan_number) %></span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            
+            <!-- <li class="list-group-item p-4">
+              <strong class="text-muted d-block mb-2">Description</strong>
+              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?</span>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card card-small mb-4">
+          <div class="card-header border-bottom">
+            <h6 class="m-0">Profile Details</h6>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item p-3">
+              <div class="row">
+                <div class="col">
+                  <% 
+                  if(messages && messages.message) {
+                      %>
+                      <div class="alert alert-danger text-white">
+                        <%=messages.message %>
+                      </div>
+                      <%
+                  }
+
+                  if(messages && messages.message_r) {
+                      %>
+                      <div class="alert alert-success text-white">
+                        <%=messages.message_r %>
+                      </div>
+                      <%
+                  }
+                %>
+               <% if(status == 0){   %>
+                  <div class="alert alert-danger text-white">
+                      <button type="button" class="close ml-auto" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true" class="text-white">×</span> </button>
+                      <h5 class="text-white"> Alert</h5> 
+                      <ul>
+                          <% Object.values(message).forEach(function(error){ %>
+                                <li><%= error.msg %></li>
+                          <% }); %>
+                      </ul>
+                    
+                  </div>
+                <%  } %>
+                  <form action="/agents/profile?id=<%= getUserData.id %>" method="POST" name="frmupdt" encType="multipart/form-data">
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="">First name</label>
+                        <input type="text" name="f_name" class="form-control" id="" placeholder="First name" value="<%= getUserDetailsData.f_name %>" required="">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="">Middle name</label>
+                        <input type="text" class="form-control" id="" placeholder="Middle name" name="m_name" value="<%= getUserDetailsData.m_name %>">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="">Last name</label>
+                        <input type="text" class="form-control" id="" placeholder="Last name" name="l_name" required="" value="<%= getUserDetailsData.l_name %>" required>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="feEmailAddress">Email</label>
+                        <input type="text" class="form-control" id="" placeholder="Email" name="email" value="<%= getUserData.email; %>" required> </div>
+                      <div class="form-group col-md-6">
+                        <label for="fePassword">Mobile</label>
+                        <input type="text" name="mobile" value= "<%= getUserData.mobile %>" class="form-control" id="" placeholder="+91 979 5232 334" disabled> 
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="feInputAddress">Fathers name <small>
+                            (D/O, S/O, W/O)
+                          </small></label>
+                          <input type="text" name="relative_name" value="<%= getUserDetailsData.relative_name %>" class="form-control" id="" placeholder="" required> 
+                        </div>
+
+                        <div class="form-group col-md-6">
+                          <label for="">Date Of Birth</label>
+                          <div class="input-group date" data-provide="datepicker">
+                            <input type="text" class="form-control" data-date-format="dd-mm-yyyy" value="<%= getUserData.dob %>" name="dob" required>
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="">House Number</label>
+                        <input type="text" class="form-control" name="house_number" id="" placeholder="First name" value="<%= getUserDetailsData.house_number %>" required="">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="">Street</label>
+                        <input type="text" class="form-control" id="" placeholder="Street name" name="street" value="<%= getUserDetailsData.street %>" required="">
+                      </div>
+                      
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="">Village Locality</label>
+                        <input type="text" class="form-control" id="" placeholder="Village Locality" name="village_locality" required="" value="<%= getUserDetailsData.village_locality %>" required>
+                      </div>
+                        <div class="form-group col-md-6">
+                          <label for="feInputAddress">Post Office</label>
+                          <input type="text" value="<%= getUserDetailsData.post_office %>" class="form-control" id="" name="post_office" placeholder="Post Office" required> 
+                      </div>
+                    </div>
+                    
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="">State</label>
+                        <select id="" name="state" class="form-control" required>
+                          <option value="">Select state</option>
+                          <option <%= ((getUserDetailsData.state === 'ANDAMAN & NICOBAR ISLANDS')? 'selected' : ''); %> value="ANDAMAN & NICOBAR ISLANDS">ANDAMAN & NICOBAR ISLANDS</option>
+                          <option <%= ((getUserDetailsData.state === 'ANDHRA PRADESH')? 'selected' : ''); %> value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                          <option <%= ((getUserDetailsData.state === 'ARUNACHAL PRADESH')? 'selected' : ''); %> value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                          <option <%= ((getUserDetailsData.state === 'ASSAM')? 'selected' : ''); %> value="ASSAM">ASSAM</option>
+                          <option <%= ((getUserDetailsData.state === 'BIHAR')? 'selected' : ''); %> value="BIHAR">BIHAR</option>
+                          <option <%= ((getUserDetailsData.state === 'CHANDIGARH')? 'selected' : ''); %> value="CHANDIGARH">CHANDIGARH</option>
+                          <option <%= ((getUserDetailsData.state === 'CHHATTISGARH')? 'selected' : ''); %> value="CHHATTISGARH">CHHATTISGARH</option>
+                          <option <%= ((getUserDetailsData.state === 'DADRA & NAGAR HAVELI')? 'selected' : ''); %> value="DADRA & NAGAR HAVELI AND DAMAN & DIU">DADRA NAGAR HAVELI</option>
+                          <option <%= ((getUserDetailsData.state === 'DELHI')? 'selected' : ''); %> value="DELHI">DELHI</option>
+                          <option <%= ((getUserDetailsData.state === 'GOA')? 'selected' : ''); %> value="GOA">GOA</option>
+                          <option <%= ((getUserDetailsData.state === 'GUJARAT')? 'selected' : ''); %> value="GUJARAT">GUJARAT</option>
+                          <option <%= ((getUserDetailsData.state === 'HARYANA')? 'selected' : ''); %> value="HARYANA">HARYANA</option>
+                          <option <%= ((getUserDetailsData.state === 'HIMACHAL PRADESH')? 'selected' : ''); %> value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                          <option <%= ((getUserDetailsData.state === 'JAMMU & KASHMIR')? 'selected' : 'JAMMU & KASHMIR'); %> value="JAMMU & KASHMIR">JAMMU & KASHMIR</option>
+                          <option <%= ((getUserDetailsData.state === 'JHARKHAND')? 'selected' : ''); %> value="JHARKHAND">JHARKHAND</option>
+                          <option <%= ((getUserDetailsData.state === 'KARNATAKA')? 'selected' : ''); %> value="KARNATAKA">KARNATAKA</option>
+                          <option <%= ((getUserDetailsData.state === 'KERALA')? 'selected' : ''); %> value="KERALA">KERALA</option>
+                          <option <%= ((getUserDetailsData.state === 'LAKSHADWEEP')? 'selected' : ''); %> value="LAKSHADWEEP">LAKSHADWEEP</option>
+                          <option <%= ((getUserDetailsData.state === 'MADHYA PRADESH')? 'selected' : ''); %> value="MADHYA PRADESH">MADHYA PRADESH</option>
+                          <option <%= ((getUserDetailsData.state === 'MAHARASHTRA')? 'selected' : ''); %> value="MAHARASHTRA">MAHARASHTRA</option>
+                          <option <%= ((getUserDetailsData.state === 'MANIPUR')? 'selected' : ''); %> value="MANIPUR">MANIPUR</option>
+                          <option <%= ((getUserDetailsData.state === 'MEGHALAYA')? 'selected' : ''); %> value="MEGHALAYA">MEGHALAYA</option>
+                          <option <%= ((getUserDetailsData.state === 'MIZORAM')? 'selected' : ''); %> value="MIZORAM">MIZORAM</option>
+                          <option <%= ((getUserDetailsData.state === 'NAGALAND')? 'selected' : ''); %> value="NAGALAND">NAGALAND</option>
+                          <option <%= ((getUserDetailsData.state === 'ODISHA')? 'selected' : ''); %> value="ODISHA">ODISHA</option>
+                          <option <%= ((getUserDetailsData.state === 'PUDUCHERRY')? 'selected' : ''); %> value="PUDUCHERRY">PUDUCHERRY</option>
+                          <option <%= ((getUserDetailsData.state === 'PUNJAB')? 'selected' : ''); %> value="PUNJAB">PUNJAB</option>
+                          <option <%= ((getUserDetailsData.state === 'RAJASTHAN')? 'selected' : ''); %> value="RAJASTHAN">RAJASTHAN</option>
+                          <option <%= ((getUserDetailsData.state === 'SIKKIM')? 'selected' : ''); %> value="SIKKIM">SIKKIM</option>
+                          <option <%= ((getUserDetailsData.state === 'TAMIL NADU')? 'selected' : ''); %> value="TAMIL NADU">TAMIL NADU</option>
+                          <option <%= ((getUserDetailsData.state === '')? 'selected' : ''); %> value="TELANGANA">TELANGANA</option>
+                          <option <%= ((getUserDetailsData.state === 'TRIPURA')? 'selected' : ''); %> value="TRIPURA">TRIPURA</option>
+                          <option <%= ((getUserDetailsData.state === 'UTTAR PRADESH')? 'selected' : ''); %> value="UTTAR PRADESH">UTTAR PRADESH</option>
+                          <option <%= ((getUserDetailsData.state === 'UTTARAKHAND')? 'selected' : ''); %> value="UTTARAKHAND">UTTARAKHAND</option>
+                          <option <%= ((getUserDetailsData.state === 'WEST BENGAL')? 'selected' : ''); %> value="WEST BENGAL">WEST BENGAL</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="feInputCity">District</label>
+                        <input type="text" name="city" value="<%= getUserDetailsData.city %>" class="form-control" required>
+                      </div>
+                      
+                      <div class="form-group col-md-4">
+                        <label for="">Pin Code</label>
+                        <input type="text" class="form-control" id="" placeholder="Enter Pin Code" name="pin_code" value="<%= getUserDetailsData.pin_code %>" required>
+                      </div>
+                    </div>
+
+                    
+                    <div class="form-group">
+                      <label for="">Referred Code</label>
+                      <input type="text" class="form-control" name="referl_code" value="<%= getUserData.referl_code %>" placeholder="Enter Referal Code" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Blood Group</label>
+                      <input type="text" class="form-control" value="<%= getUserDetailsData.blood_group %>" disabled required>
+                    </div>
+                    <div class="form-group">
+                      <label for="">Upload Photo</label>
+                      <div class="custom-file">
+                        <input type="file" name="profile_image" class="custom-file-input" id="chooseflNameVal">
+                        <label class="custom-file-label" for="customFile2">Choose file...</label>
+                        <div id="flName"></div>
+                      </div>
+                    </div>
+                    
+                    
+                    <div class="col-md-11 text-right mt-3" style="max-width: none;">
+                      <button type="submit" class="mb-3 btn btn-warning"><i class="material-icons">file_copy</i> Update & Next</button> &nbsp; &nbsp;
+                      <a href="/agents/view-kyc/<%= getUserData._id%>" class="mb-3 btn btn-primary"> Next <i class="material-icons">arrow_forward</i></a>
+                  </div>
+
+
+                  </form>
+                  
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- End Default Light Table -->
+  </div>
+
+  <script>
+   $(document).ready(function(){
+      $('#chooseflNameVal').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('#flName').html(fileName);
+        });
+    });
+  </script>
+        <%- include('../layouts/footer') %> 

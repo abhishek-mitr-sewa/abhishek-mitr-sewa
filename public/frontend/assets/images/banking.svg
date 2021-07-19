@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.551559in" height="0.37089in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 571 384"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <font id="FontID0" horiz-adv-x="777" font-variant="normal" style="fill-rule:nonzero" font-style="normal" font-weight="900">
+	<font-face 
+		font-family="Arial Black">
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="A" horiz-adv-x="777"><path d="M513.443 117.999l-250.56 0 -36.0344 -117.999 -225.915 0 269.604 716.019 242.158 0 268.297 -716.019 -231.703 0 -35.8476 117.999zm-46.8633 154.966l-78.0433 257.282 -78.6034 -257.282 156.647 0z"/></glyph>
+   <glyph unicode="N" horiz-adv-x="833"><path d="M75.056 716.019l206.497 0 268.484 -395.444 0 395.444 208.925 0 0 -716.019 -208.925 0 -266.99 393.204 0 -393.204 -207.991 0 0 716.019z"/></glyph>
+   <glyph unicode="K" horiz-adv-x="833"><path d="M73.9358 716.019l221.06 0 0 -270.538 231.889 270.538 294.063 0 -261.202 -269.044 273.338 -446.975 -272.218 0 -151.046 294.063 -114.824 -119.679 0 -174.384 -221.06 0 0 716.019z"/></glyph>
+   <glyph unicode="B" horiz-adv-x="777"><path d="M73.9358 716.019l414.488 0c69.0814,0 122.106,-17.177 159.074,-51.3443 36.9679,-34.1673 55.4518,-76.5497 55.4518,-126.96 0,-42.3824 -13.0695,-78.7901 -39.5818,-108.85 -17.5504,-20.351 -43.3159,-36.2211 -77.1098,-47.9836 51.3443,-12.3226 89.059,-33.6072 113.331,-63.6669 24.2718,-30.2465 36.4078,-67.9612 36.4078,-113.518 0,-37.1546 -8.5885,-70.5751 -25.7655,-100.261 -17.3637,-29.6863 -41.0754,-53.0246 -70.9485,-70.2016 -18.6706,-10.6423 -46.6766,-18.4839 -84.2046,-23.3383 -49.6639,-6.53473 -82.711,-9.89544 -99.1412,-9.89544l-382.001 0 0 716.019zm223.114 -280.993l96.5273 0c34.354,0 58.6258,5.97461 72.0687,17.7371 13.4429,12.1359 20.351,29.3129 20.351,51.7177 0,20.9111 -6.90814,37.1546 -20.351,48.9171 -13.4429,11.7625 -37.1546,17.5504 -70.5751,17.5504l-98.0209 0 0 -135.922zm0 -280.993l112.771 0c38.0881,0 64.9739,6.72143 80.6572,20.351 15.6833,13.4429 23.525,31.3667 23.525,54.3316 0,21.0978 -7.65497,38.0881 -23.1516,50.9709 -15.4966,12.8827 -42.7558,19.2308 -81.5907,19.2308l-112.211 0 0 -144.884z"/></glyph>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Arial Black";src:url("#FontID0") format(svg)}
+    .fil3 {fill:none}
+    .fil8 {fill:#D6E4F4}
+    .fil0 {fill:#C53538}
+    .fil4 {fill:#5F9AA8}
+    .fil5 {fill:#7AC1C5}
+    .fil13 {fill:#80BECD}
+    .fil10 {fill:#80BFCE}
+    .fil9 {fill:#ABC9ED}
+    .fil6 {fill:#ACC8EF}
+    .fil11 {fill:#ACC9E7}
+    .fil7 {fill:#D0E6FE}
+    .fil12 {fill:#D2E3FD}
+    .fil16 {fill:#FBA91F}
+    .fil14 {fill:#FFA40E}
+    .fil1 {fill:#FFA513}
+    .fil2 {fill:#FFB93F}
+    .fil15 {fill:#F7A012;fill-rule:nonzero}
+    .fnt0 {font-weight:900;font-size:21.8238px;font-family:'Arial Black'}
+   ]]>
+  </style>
+      <clipPath id="id0">
+       <path d="M524 337l-75 0 0 14 75 0 0 -14z"/>
+      </clipPath>
+      <clipPath id="id1">
+       <path d="M519 351l-75 0 0 14 75 0 0 -14z"/>
+      </clipPath>
+      <clipPath id="id2">
+       <path d="M515 309l-75 0 0 15 75 0 0 -15z"/>
+      </clipPath>
+      <clipPath id="id3">
+       <path d="M511 323l-76 0 0 15 76 0 0 -15z"/>
+      </clipPath>
+      <clipPath id="id4">
+       <path d="M525 281l-75 0 0 14 75 0 0 -14z"/>
+      </clipPath>
+      <clipPath id="id5">
+       <path d="M521 295l-76 0 0 14 76 0 0 -14z"/>
+      </clipPath>
+     <clipPath id="id6">
+      <path d="M73 337l96 0 0 15 -96 0 0 -15z"/>
+     </clipPath>
+     <clipPath id="id7">
+      <path d="M79 352l96 0 0 14 -96 0 0 -14z"/>
+     </clipPath>
+     <clipPath id="id8">
+      <path d="M82 309l96 0 0 15 -96 0 0 -15z"/>
+     </clipPath>
+     <clipPath id="id9">
+      <path d="M88 324l95 0 0 14 -95 0 0 -14z"/>
+     </clipPath>
+     <clipPath id="id10">
+      <path d="M68 281l96 0 0 14 -96 0 0 -14z"/>
+     </clipPath>
+     <clipPath id="id11">
+      <path d="M74 295l96 0 0 15 -96 0 0 -15z"/>
+     </clipPath>
+     <clipPath id="id12">
+      <path d="M306 337l138 0 0 14 -138 0 0 -14z"/>
+     </clipPath>
+     <clipPath id="id13">
+      <path d="M315 351l138 0 0 15 -138 0 0 -15z"/>
+     </clipPath>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_586411312">
+   <path class="fil0" d="M519 365l-469 0c0,0 -71,-46 -23,-93 48,-46 49,-81 31,-118 -18,-38 -30,-77 3,-101 32,-24 45,-54 156,-46 0,0 42,16 69,37 27,20 34,-1 68,-21 34,-19 146,-51 156,24 10,75 -31,107 -31,125 0,18 90,-3 92,57 1,60 -52,136 -52,136z"/>
+   <g>
+    <g>
+     <polygon class="fil1" points="524,337 449,337 449,351 524,351 "/>
+     <g style="clip-path:url(#id0)">
+      <g>
+       <rect class="fil2" x="520" y="334" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="517" y="334" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="515" y="334" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="512" y="334" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="510" y="334" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="505" y="334" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="500" y="334" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="496" y="334" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="491" y="334" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="486" y="334" width="3.65194" height="19.8297"/>
+      </g>
+     </g>
+     <polygon class="fil3" points="524,337 449,337 449,351 524,351 "/>
+     <polygon class="fil1" points="519,351 444,351 444,365 519,365 "/>
+     <g style="clip-path:url(#id1)">
+      <g>
+       <rect class="fil2" x="515" y="348" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="513" y="348" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="510" y="348" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="508" y="348" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="505" y="348" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="501" y="349" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="496" y="349" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="491" y="349" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="486" y="349" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="482" y="349" width="3.65194" height="19.8297"/>
+      </g>
+     </g>
+     <polygon class="fil3" points="519,351 444,351 444,365 519,365 "/>
+    </g>
+    <g>
+     <polygon class="fil1" points="515,309 440,309 440,324 515,324 "/>
+     <g style="clip-path:url(#id2)">
+      <g>
+       <rect class="fil2" x="511" y="307" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="509" y="307" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="506" y="307" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="504" y="307" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="501" y="307" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="497" y="307" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="492" y="307" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="487" y="307" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="482" y="307" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="478" y="307" width="3.65194" height="19.8297"/>
+      </g>
+     </g>
+     <polygon class="fil3" points="515,309 440,309 440,324 515,324 "/>
+     <polygon class="fil1" points="511,323 435,323 435,338 511,338 "/>
+     <g style="clip-path:url(#id3)">
+      <g>
+       <rect class="fil2" x="507" y="321" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="504" y="321" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="502" y="321" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="499" y="321" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="497" y="321" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="492" y="321" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="487" y="321" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="482" y="321" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="478" y="321" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="473" y="321" width="3.65194" height="19.8297"/>
+      </g>
+     </g>
+     <polygon class="fil3" points="511,323 435,323 435,338 511,338 "/>
+    </g>
+    <g>
+     <polygon class="fil1" points="525,281 450,281 450,295 525,295 "/>
+     <g style="clip-path:url(#id4)">
+      <g>
+       <rect class="fil2" x="521" y="278" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="519" y="278" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="516" y="278" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="514" y="278" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="511" y="278" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="507" y="278" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="502" y="278" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="497" y="278" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="492" y="278" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="488" y="278" width="3.65194" height="19.8297"/>
+      </g>
+     </g>
+     <polygon class="fil3" points="525,281 450,281 450,295 525,295 "/>
+     <polygon class="fil1" points="521,295 445,295 445,309 521,309 "/>
+     <g style="clip-path:url(#id5)">
+      <g>
+       <rect class="fil2" x="516" y="292" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="514" y="292" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="511" y="292" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="509" y="292" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="506" y="292" width="1.93521" height="19.8297"/>
+       <rect class="fil2" x="502" y="293" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="497" y="293" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="492" y="293" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="488" y="293" width="3.65194" height="19.8297"/>
+       <rect class="fil2" x="483" y="293" width="3.65194" height="19.8297"/>
+      </g>
+     </g>
+     <polygon class="fil3" points="521,295 445,295 445,309 521,309 "/>
+    </g>
+   </g>
+   <g>
+    <rect class="fil4" x="103" y="118" width="360" height="205"/>
+    <rect class="fil5" x="58" y="351" width="450.411" height="14.5107"/>
+    <rect class="fil6" x="71" y="338" width="424.527" height="14.5107"/>
+    <rect class="fil7" x="84" y="324" width="397.615" height="14.5107"/>
+    <polygon class="fil8" points="432,297 387,296 393,141 424,142 "/>
+    <rect class="fil9" x="380" y="311" width="60.1969" height="12.7553"/>
+    <rect class="fil9" x="379" y="116" width="60.1969" height="12.7553"/>
+    <rect class="fil10" x="387" y="296" width="44.4191" height="14.5187"/>
+    <rect class="fil10" x="386" y="129" width="44.4191" height="14.5187"/>
+    <polygon class="fil8" points="345,297 301,296 307,141 338,142 "/>
+    <rect class="fil9" x="293" y="311" width="60.1969" height="12.7553"/>
+    <rect class="fil9" x="293" y="116" width="60.1969" height="12.7553"/>
+    <rect class="fil10" x="301" y="296" width="44.4191" height="14.5187"/>
+    <rect class="fil10" x="300" y="129" width="44.4191" height="14.5187"/>
+    <polygon class="fil8" points="259,297 215,296 220,141 252,142 "/>
+    <rect class="fil9" x="207" y="311" width="60.1969" height="12.7553"/>
+    <rect class="fil9" x="206" y="116" width="60.1969" height="12.7553"/>
+    <rect class="fil10" x="215" y="296" width="44.4191" height="14.5187"/>
+    <rect class="fil10" x="214" y="129" width="44.4191" height="14.5187"/>
+    <polygon class="fil8" points="173,297 128,296 134,141 165,142 "/>
+    <rect class="fil9" x="121" y="311" width="60.1969" height="12.7553"/>
+    <rect class="fil9" x="120" y="116" width="60.1969" height="12.7553"/>
+    <rect class="fil10" x="128" y="296" width="44.4191" height="14.5187"/>
+    <rect class="fil10" x="128" y="129" width="44.4191" height="14.5187"/>
+    <rect class="fil4" x="99" y="108" width="376.054" height="10.6226"/>
+    <rect class="fil11" x="94" y="94" width="381.011" height="14.1649"/>
+    <polygon class="fil12" points="115,94 456,94 286,29 "/>
+    <polygon class="fil13" points="184,81 387,81 286,42 "/>
+    <text x="251" y="76"  class="fil4 fnt0">BANK</text>
+   </g>
+   <g>
+    <polygon class="fil1" points="73,337 169,337 169,352 73,352 "/>
+    <g style="clip-path:url(#id6)">
+     <g>
+      <rect class="fil2" x="76" y="335" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="79" y="335" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="82" y="335" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="86" y="335" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="89" y="335" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="92" y="335" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="98" y="335" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="104" y="335" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="110" y="335" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="116" y="335" width="4.64042" height="20.1776"/>
+     </g>
+    </g>
+    <polygon class="fil3" points="73,337 169,337 169,352 73,352 "/>
+    <polygon class="fil1" points="79,352 175,352 175,366 79,366 "/>
+    <g style="clip-path:url(#id7)">
+     <g>
+      <rect class="fil2" x="82" y="349" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="85" y="349" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="88" y="349" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="91" y="349" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="95" y="349" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="98" y="349" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="104" y="349" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="110" y="349" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="116" y="349" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="122" y="349" width="4.64042" height="20.1776"/>
+     </g>
+    </g>
+    <polygon class="fil3" points="79,352 175,352 175,366 79,366 "/>
+    <polygon class="fil1" points="82,309 178,309 178,324 82,324 "/>
+    <g style="clip-path:url(#id8)">
+     <g>
+      <rect class="fil2" x="85" y="307" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="88" y="307" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="91" y="307" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="94" y="307" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="97" y="307" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="101" y="307" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="107" y="307" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="113" y="307" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="119" y="307" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="125" y="307" width="4.64042" height="20.1776"/>
+     </g>
+    </g>
+    <polygon class="fil3" points="82,309 178,309 178,324 82,324 "/>
+    <polygon class="fil1" points="88,324 183,324 183,338 88,338 "/>
+    <g style="clip-path:url(#id9)">
+     <g>
+      <rect class="fil2" x="90" y="321" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="94" y="321" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="97" y="321" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="100" y="321" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="103" y="321" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="107" y="321" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="113" y="321" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="119" y="321" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="125" y="321" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="131" y="321" width="4.64042" height="20.1776"/>
+     </g>
+    </g>
+    <polygon class="fil3" points="88,324 183,324 183,338 88,338 "/>
+    <polygon class="fil1" points="68,281 164,281 164,295 68,295 "/>
+    <g style="clip-path:url(#id10)">
+     <g>
+      <rect class="fil2" x="71" y="278" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="74" y="278" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="77" y="278" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="80" y="278" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="84" y="278" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="87" y="278" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="93" y="278" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="99" y="278" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="105" y="278" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="111" y="278" width="4.64042" height="20.1776"/>
+     </g>
+    </g>
+    <polygon class="fil3" points="68,281 164,281 164,295 68,295 "/>
+    <polygon class="fil1" points="74,295 170,295 170,310 74,310 "/>
+    <g style="clip-path:url(#id11)">
+     <g>
+      <rect class="fil2" x="77" y="293" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="80" y="293" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="83" y="293" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="86" y="293" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="89" y="293" width="2.45902" height="20.1776"/>
+      <rect class="fil2" x="93" y="293" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="99" y="293" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="105" y="293" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="111" y="293" width="4.64042" height="20.1776"/>
+      <rect class="fil2" x="117" y="293" width="4.64042" height="20.1776"/>
+     </g>
+    </g>
+    <polygon class="fil3" points="74,295 170,295 170,310 74,310 "/>
+   </g>
+   <g>
+    <polygon class="fil1" points="306,337 444,337 444,351 306,351 "/>
+    <g style="clip-path:url(#id12)">
+     <g>
+      <rect class="fil2" x="310" y="334" width="3.54068" height="19.8297"/>
+      <rect class="fil2" x="315" y="334" width="3.54068" height="19.8297"/>
+      <rect class="fil2" x="320" y="334" width="3.54068" height="19.8297"/>
+      <rect class="fil2" x="324" y="334" width="3.54068" height="19.8297"/>
+      <rect class="fil2" x="329" y="334" width="3.54068" height="19.8297"/>
+      <rect class="fil2" x="334" y="335" width="6.68162" height="19.8297"/>
+      <rect class="fil2" x="343" y="335" width="6.68162" height="19.8297"/>
+      <rect class="fil2" x="351" y="335" width="6.68162" height="19.8297"/>
+      <rect class="fil2" x="360" y="335" width="6.68162" height="19.8297"/>
+      <rect class="fil2" x="369" y="335" width="6.68162" height="19.8297"/>
+     </g>
+    </g>
+    <polygon class="fil3" points="306,337 444,337 444,351 306,351 "/>
+    <polygon class="fil1" points="315,351 453,351 453,366 315,366 "/>
+    <g style="clip-path:url(#id13)">
+     <g>
+      <rect class="fil2" x="319" y="349" width="3.54068" height="19.8297"/>
+      <rect class="fil2" x="323" y="349" width="3.54068" height="19.8297"/>
+      <rect class="fil2" x="328" y="349" width="3.54068" height="19.8297"/>
+      <rect class="fil2" x="333" y="349" width="3.54068" height="19.8297"/>
+      <rect class="fil2" x="337" y="349" width="3.54068" height="19.8297"/>
+      <rect class="fil2" x="342" y="349" width="6.68162" height="19.8297"/>
+      <rect class="fil2" x="351" y="349" width="6.68162" height="19.8297"/>
+      <rect class="fil2" x="360" y="349" width="6.68162" height="19.8297"/>
+      <rect class="fil2" x="368" y="349" width="6.68162" height="19.8297"/>
+      <rect class="fil2" x="377" y="349" width="6.68162" height="19.8297"/>
+     </g>
+    </g>
+    <polygon class="fil3" points="315,351 453,351 453,366 315,366 "/>
+   </g>
+   <g>
+    <ellipse class="fil2" cx="227" cy="303" rx="68" ry="64"/>
+    <path class="fil14" d="M232 239c32,6 55,32 55,63 0,36 -30,65 -67,65 -2,0 -4,0 -6,-1 4,1 8,1 13,1 37,0 67,-28 67,-64 0,-33 -27,-61 -62,-64z"/>
+    <g>
+     <path class="fil15" d="M283 303l-3 0 0 0 -1 -2 0 -3 0 -3 -1 -3 0 -2 -1 -3 -1 -2 -1 -3 -1 -2 -1 -2 -1 -3 -2 -2 -1 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -1 -2 -2 -2 -1 -2 -2 -2 -1 -3 -1 -2 -1 -3 -1 -2 -1 -3 -1 -2 -1 -3 0 -3 0 -3 -1 -3 0 0 -3 3 0 3 0 3 1 3 0 3 1 3 1 2 1 3 1 3 1 2 1 3 1 2 2 2 1 2 2 3 2 2 2 1 2 2 2 2 2 2 2 1 3 2 2 1 3 1 2 1 3 1 2 1 3 0 3 1 3 0 3 1 2 0 3 0 0zm-59 58l0 -4 0 0 3 0 3 0 3 0 3 -1 2 0 3 -1 2 -1 3 -1 2 -1 3 -1 2 -1 2 -2 2 -1 2 -2 2 -2 2 -1 2 -2 2 -2 2 -2 1 -2 2 -3 1 -2 1 -2 1 -3 1 -2 1 -3 1 -2 0 -3 1 -2 0 -3 0 -3 1 -3 3 0 0 3 -1 3 0 3 -1 3 0 3 -1 2 -1 3 -1 3 -1 2 -1 3 -2 2 -1 2 -2 3 -2 2 -2 2 -1 2 -2 2 -3 2 -2 1 -2 2 -2 1 -3 2 -2 1 -3 1 -3 1 -2 1 -3 1 -3 0 -3 1 -3 0 -3 1 -3 0 0 0zm-58 -58l3 0 0 0 0 3 1 3 0 3 0 2 1 3 1 2 1 3 1 2 1 3 1 2 1 2 2 3 1 2 2 2 2 2 1 2 2 1 2 2 2 2 3 1 2 2 2 1 2 1 3 1 2 1 3 1 3 1 2 0 3 1 3 0 3 0 2 0 0 4 -3 0 -3 -1 -2 0 -3 -1 -3 0 -3 -1 -3 -1 -2 -1 -3 -1 -2 -1 -3 -2 -2 -1 -2 -2 -3 -1 -2 -2 -2 -2 -2 -2 -2 -2 -1 -2 -2 -3 -1 -2 -2 -2 -1 -3 -1 -2 -1 -3 -1 -3 -1 -2 -1 -3 0 -3 -1 -3 0 -3 0 -3 0 0zm58 -57l0 3 0 0 -2 0 -3 1 -3 0 -3 0 -2 1 -3 1 -3 1 -2 1 -3 1 -2 1 -2 1 -2 2 -3 1 -2 2 -2 1 -2 2 -1 2 -2 2 -2 2 -1 2 -2 2 -1 3 -1 2 -1 2 -1 3 -1 2 -1 3 -1 2 0 3 0 3 -1 3 0 2 -3 0 0 -3 0 -2 1 -3 0 -3 1 -3 1 -3 1 -2 1 -3 1 -2 1 -3 2 -2 1 -3 2 -2 1 -2 2 -2 2 -2 2 -2 2 -2 3 -2 2 -1 2 -2 3 -1 2 -1 3 -1 2 -1 3 -1 3 -1 3 -1 3 0 2 -1 3 0 3 0 0 0z"/>
+     <path id="1" class="fil2" d="M224 248c32,0 57,25 57,55 0,31 -25,56 -57,56 -31,0 -56,-25 -56,-56 0,-30 25,-55 56,-55z"/>
+    </g>
+    <path class="fil16" d="M201 310l16 1c0,3 0,6 1,7 1,3 3,5 7,6 2,0 4,-1 5,-2 2,-1 3,-2 3,-4 0,-2 0,-4 -1,-5 -1,-2 -4,-3 -8,-5 -7,-3 -12,-7 -14,-11 -3,-3 -4,-8 -3,-13 0,-4 2,-7 4,-10 2,-2 5,-4 8,-6 2,0 4,-1 7,-1l1 -10 14 2 -2 10c4,1 6,3 9,6 3,3 4,9 4,16l-16 -1c0,-3 -1,-6 -2,-7 -1,-2 -3,-3 -5,-3 -2,0 -3,0 -4,1 -2,1 -2,2 -2,3 -1,1 0,2 0,3 1,1 3,2 5,3 7,3 12,6 15,9 3,2 5,5 6,8 1,3 1,7 1,10 -1,5 -3,8 -5,12 -2,3 -6,5 -9,7 -3,1 -5,1 -9,1l-1 13 -14 -2 2 -13c-4,-2 -8,-5 -10,-8 -2,-5 -4,-10 -3,-17z"/>
+   </g>
+   <rect class="fil0" y="365" width="555.229" height="18.4133"/>
+  </g>
+ </g>
+</svg>

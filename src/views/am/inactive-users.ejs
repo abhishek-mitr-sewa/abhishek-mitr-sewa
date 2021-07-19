@@ -1,0 +1,117 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<style src="css/responsive.dataTables.min.css"></style>
+<%- include('./main') %>
+
+<style>
+    .dataTables_wrapper table.dataTable tbody td {
+        padding: .35rem .25rem !important;
+        }
+    .footer {
+       position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       background-color: white;
+       color: white;
+       text-align: center;
+    }
+    .border-right {
+        border-right: 1px solid #a6a8aa!important;
+    }
+    div.fixed {
+      position: fixed;
+      bottom: 10px;
+      background-color: #f5f6f8;
+    } 
+    .nav-link {
+        font-size: .6rem;
+    }
+    </style>
+      <div class="main-content-container container-fluid px-4 mb-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+          <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+            <span class="text-uppercase page-subtitle">Dashboard</span>
+            <h3 class="page-title">Inactive Users <%= (((state.toString()).length>0) ? `(${state})` : '');%></h3>
+          </div>
+          
+        </div>
+        <!-- <div class="col-md-12 text-right"> <a href="../../am/bc-list-export/<%= state%>" class="btn btn-success mb-2">Download MITR SEWAK CSV</a></div> -->
+        <div class="col-md-12 text-centre"> <span  class="badge badge-primary mb-2"><strong>Total Pending Users - </strong><%=data.length %></span></div>
+        
+        <!-- End Page Header -->
+        <!-- Transaction History Table -->
+      
+    
+    
+        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+          <!-- Button trigger modal -->
+          <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
+            <thead>
+                <tr>
+                  <th >#</th>
+                <th >Name</th>
+                <!-- <th >Email</th> -->
+                <th  >Mobile</th>
+                <th >Pan No</th>
+                <th  >District</th>
+                <th >Pincode</th>
+                <th >State</th> 
+                
+                <!--<th >Aadhar</th> -->
+                <!-- <th >Payment</th> -->
+                <!-- <th >Trans</th>   -->   
+                <!-- <th >Referrer Code</th> -->
+                <!-- <th >Referral Code</th> -->
+                <!-- <th >FE Name</th>
+                <th >FE Mobile</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <% if(data.length > 0) {
+                data.forEach(function (row,index){ 
+                 
+                  
+              %>
+                <tr >
+                  <td style="cursor: pointer;"><%= index+1 %></td>
+                  <td ><%= row.kycDetails.full_name %></td>
+                  <td ><%= row.mobile %></td>
+                  <td ><%= row.kycDetails.pan_number %></td>
+                  <td ><%= row.usersDetails.city %></td>
+                  <td ><%= row.usersDetails.pin_code %></td>
+                  <td ><%= row.usersDetails.state %></td>
+                  
+                </tr>
+                        
+      
+              <% }); }  %>
+            </tbody>  
+        </table>
+        </div>
+        <!-- End Transaction History Table -->
+        
+      </div>
+    
+    </main>
+     
+    <script>
+    /* $(document).ready(function() {
+        $('#example').dataTable({
+          'iDisplayLength': 100
+        });
+    }); */
+    $(document).ready(function() {
+        var table = $('#example').DataTable( {
+            responsive: true,
+            'iDisplayLength': 50
+        } );
+     
+        new $.fn.dataTable.FixedHeader( table );
+    } );
+    
+    </script>
+
+
+<%- include('../layouts/footer') %> 

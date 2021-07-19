@@ -1,0 +1,168 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<style src="css/responsive.dataTables.min.css"></style>
+<%- include('./main') %>
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+        <span class="text-uppercase page-subtitle">Dashboard</span>
+        <h3 class="page-title">Field Executive List</h3>
+      </div>
+      
+    </div>
+
+    <div class="col-md-12 text-right"> <a class="btn btn-success mb-2" href="/admin/download">Download FE CSV</a></div>
+    <!-- End Page Header -->
+    <!-- Transaction History Table -->
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+      <!-- Button trigger modal -->
+      <table class="transaction-history d-none dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1152px;">
+      <thead>
+        <tr role="row">
+          <th class="sorting_asc">#</th>
+          <th class="sorting">Full Name</th>
+          <th class="sorting" >Mobile</th>
+          <th class="sorting" >District</th>
+          <th class="sorting">Referrer Code</th>
+          <th class="sorting">Transcation Dt</th>
+          <th class="sorting">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%  
+        if(data.length > 0) {
+          let i =1;
+          data.forEach(function (row){  
+            var dt = row.trans_date.substring(0, row.trans_date.length - 5);
+            var d = new Date(dt);
+            
+            var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear();
+            
+          %>
+
+          <tr role="row" class="odd">
+            <td tabindex="0" class="sorting_1"> <%= i %></td>
+            <!-- <td>October 31st 2017 <span class="text-sm">02:10 PM</span> -->
+            <td><%= row.f_name+' '+row.m_name+' '+row.l_name %></td>
+            <td><%= row.mobile %></td>
+            <td><%= row.city %></td>
+            <td><%= row.referrer_code; %></td>
+            <td> <%= datestring; %> </td>
+            <td class="text-center">
+              <div class="btn-group d-table ml-auto" role="group" aria-label="Basic example">
+                <a href="/admin/febclist/<%= row.referrer_code;%>">
+                  <button type="button" class="btn btn-white">View MS</small></button>
+                </a>
+                <a href="/admin/downloadfebc/<%= row.referrer_code;%>">
+                  <button type="button" class="btn btn-white">Download MS</small></button>
+                </a>
+            <% if(usrType === 'admin') {%>
+                <a href="/admin/member-edit/<%=row._id %>">
+                  <button type="button" class="btn btn-white">Edit /<small>View</small></button>
+                </a>
+                <button type="button" class="btn btn-white" data-toggle="modal" data-target="#del<%= row._id %>">
+                  <i class="material-icons">delete</i>
+                </button>
+              
+          <% } %>
+              </div>
+            </td>
+          </tr>
+           <!-- Modal Change Member type-->
+        <div class="modal fade" id="<%= row.f_name+'_'+row.mobile %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Update Member Type</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form name="frm" action="/memberTypeUpdate" method="POST">
+                <div class="modal-body">
+                  <div class="col">
+                    
+                    <div class="form-row text-center">
+                      <div class="form-group col-md-11">
+                        <select id="" name="member_type" class="form-control">
+                            <option selected="">Choose Member Type</option>
+                            <option value="user" <%= ((row.user_type.toUpperCase() === 'USER')? 'selected' : ''); %> >MS</option>
+                            <option value="bc" <%= ((row.user_type.toUpperCase() === 'BC')? 'selected' : ''); %> >Field Agent</option>
+                            <option value="agent" <%= ((row.user_type.toUpperCase() === 'AGENT')? 'selected' : ''); %>>Agnet</option>
+                        </select>
+                    </div>
+                    </div>
+                    <input type="hidden" value="<%= row._id; %>" name="_id">
+                  
+                </div>
+                    
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                  <input type="submit" class="btn btn-primary" value="Save changes">
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ----------------------------- END --------------------   -->
+
+          <!-- Modal Delete Member type-->
+          <div class="modal fade" id="del<%= row._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Delete Member</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form action="/admin/memberDelete" method="POST" name="ffrm">
+                  <div class="modal-body">
+                    <span class="text-sm">Please enter <label class="text-warning">delete</label> in the text box for delete the member.</span>
+                    <div class="form-row mt-3">
+                      <div class="form-group col-md-11">
+                        <input type="text" class="form-control col-sm-5 conf_val_<%= row.mobile; %>" name="conf_val" placeholder="Enter delete text." maxlength="6">
+                        <span class="text-danger conf_error_<%= row.mobile; %>"></span>
+                    </div>
+                    </div>
+                    <input type="hidden" value="<%= row._id; %>" name="_id">
+                  </div>
+    
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                    <input type="button" class="btn btn-primary delsubmoit" alt="<%= row.mobile; %>" onclick='console.log($("#del<%=row._id %>").find("form").first().submit());' value="Save changes">
+                  </div>
+  
+                </form>
+              </div>
+  
+            </div>
+          </div>         
+
+        <% i++; }); }  %>
+      </tbody>
+    </table>
+  </div>
+    <!-- End Transaction History Table -->
+  </div>
+
+</main>
+<script>
+$(document).ready(function() {
+  $(".delsubmoit").click(function (e) {
+    e.preventDefault();
+    var mobile = $(this).attr('alt');
+    var confText = $(".conf_val_"+mobile).val();
+    if(confText != 'delete'){
+      $(".conf_error_"+mobile).html('Please enter correct text.');
+    }
+  });
+});
+
+</script>
+
+<%- include('../layouts/footer') %> 

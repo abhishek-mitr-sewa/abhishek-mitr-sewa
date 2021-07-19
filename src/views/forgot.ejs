@@ -1,0 +1,119 @@
+<%- include('layouts/header') %>
+<style>
+  .invalid-feedback {
+     display: block;
+  }
+</style>
+        <main class="main-content col">
+          <div class="main-content-container container-fluid px-4 my-auto h-100">
+            <div class="row no-gutters h-100">
+              <div class="col-lg-3 col-md-5 auth-form mx-auto my-auto">
+                <div class="card">
+                  <div class="card-body">
+                    <img class="d-table mx-auto mb-3" src="../images/mitr_sewa.svg" alt="Shards Dashboards - Register Template">
+                    <h5 class="auth-form__title text-center mb-4">Forgot password</h5>
+                    <form name="frm" action="/admin/resetpass" method="POST" >
+                      <% if(status ==0){ %>
+                        <div class="alert alert-danger alert-rounded text-white"> <b class="text-center">Alert</b><br>
+                           <span class="text-left"><%= message %> </span> 
+                        </div>
+                      <%  } %>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Mobile Number</label>
+                        <input type="text" name="mobile" class="form-control" placeholder="Enter Mobile number" id="mobile" maxlength="10" required>
+                        <div class="invalid-feedback" id="invalidmobile"></div>
+                        <div class="text-success small" id="otpsent"></div>
+                      </div>
+                      <div class="form-group">
+                        <label for="">OTP</label>
+                        <input type="text" name="otp" class="form-control" id="" placeholder="Enter Valid OTP" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="">New Password</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="">Confirm Password</label>
+                        <input type="password" class="form-control" id="confpassval" placeholder="Confirm Password" required>
+                        <div class="invalid-feedback" id="confpass"></div>
+                      </div>
+
+                      <input type="submit" id="submit" class="btn btn-pill btn-accent d-table mx-auto" value="Reset Password" name="submit">
+                    </form>
+                  </div>
+                </div>
+                <div class="auth-form__meta d-flex mt-4">
+                  <a href="/login">Login</a>
+                  <a class="ml-auto" href="/members/create-user">Create new account?</a>
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>
+        </main>
+        
+        <script>
+          $(document).ready(function () {
+            $('input[type="submit"]').attr('disabled','disabled');
+
+            $("#mobile").blur( function () {
+              var mmobile = $('#mobile').val().trim();
+                $.post({
+                    traditional: true,
+                    url: '/members/checkValidMobileNumber',
+                    contentType: 'application/json',
+                    data: JSON.stringify({'mobile': mmobile}),
+                    dataType: 'json',
+                    success: function(responses){
+                      if(responses){
+                        sendOTP(mmobile);
+                      }else{
+                        $("#otpsent").html("");
+                        $('input[type="submit"]').attr('disabled','disabled');
+                        $("#invalidmobile").html("Please Enter valid Mobile Number.");
+                      }
+                    }
+                  });
+            
+            });
+  
+            $('#confpassval').blur(function (){
+              checkPasswordMatch();
+            });
+          });
+
+  function sendOTP(mobile){
+    $.post({
+        traditional: true,
+        url: '/members/createOTP',
+        contentType: 'application/json',
+        data: JSON.stringify({'mobile': mobile}),
+        dataType: 'json',
+        success: function(response){ 
+          if(response){
+            $("#otpsent").html('OTP has been send on your mobile.');
+            $("#invalidmobile").html("");
+          }
+          else{
+            alert(response);
+          }
+        }
+    });
+                        
+  }
+
+  function checkPasswordMatch() {
+        var password = $("#password").val();
+        var confirmPassword = $("#confpassval").val();
+        if (password != confirmPassword)
+            $("#confpass").html("Passwords does not match!");
+        else{
+          $("#confpassval").focus();
+          $("#confpass").html("");
+          $('input[type="submit"]').attr('disabled',false);
+        }
+            
+    }
+</script>
+        <%- include('layouts/footer') %> 

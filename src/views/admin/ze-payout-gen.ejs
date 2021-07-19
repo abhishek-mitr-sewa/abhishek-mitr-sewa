@@ -1,0 +1,120 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<style src="css/responsive.dataTables.min.css"></style>
+<%- include('./main') %>
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+        <span class="text-uppercase page-subtitle">Dashboard</span>
+        <h3 class="page-title">ZE Payout List</h3>
+      </div>
+      
+    </div>
+
+    <form action="./list-ze-payouts" method="get" name="ss">
+      <% if(status == 0){   %>
+        <div class="alert alert-danger text-white">
+            <button type="button" class="close ml-auto" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true" class="text-white">×</span> </button>
+            <h5 class="text-white"> Alert</h5> 
+            <span><%= message; %></span>
+          
+        </div>
+    <%  } %>
+
+        <div class="form-row mx-4">
+          <div class="col-lg-10 d-flex">
+            <div class="form-group col-md-4">
+              <select id="" name="year" class="form-control" required>
+                <option value="2021" <%= (year == "2021")? "selected":"" %>>2021</option>
+                <option value="2022" <%= (year == "2022")? "selected":"" %>>2022</option>
+                <option value="2023" <%= (year == "2023")? "selected":"" %>>2023</option>
+                <option value="2024" <%= (year == "2024")? "selected":"" %>>2024</option>
+                <option value="2025" <%= (year == "2025")? "selected":"" %>>2025</option>
+                <option value="2023" <%= (year == "2026")? "selected":"" %>>2026</option>
+                <option value="2024" <%= (year == "2027")? "selected":"" %>>2027</option>
+                <option value="2025" <%= (year == "2028")? "selected":"" %>>2028</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <select id="" name="month" class="form-control" required>
+                <option value="">Select Month</option>
+                <option value="jan" <%= (month == "jan")? "selected":"" %>>Jan</option>
+                <option value="feb" <%= (month == "feb")? "selected":"" %>>Feb</option>
+                <option value="mar" <%= (month == "mar")? "selected":"" %>>Mar</option>
+                <option value="apr" <%= (month == "apr")? "selected":"" %>>Apr</option>
+                <option value="may" <%= (month == "may")? "selected":"" %>>May</option>
+                <option value="jun" <%= (month == "jun")? "selected":"" %>>Jun</option>
+                <option value="jul" <%= (month == "jul")? "selected":"" %>>Jul</option>
+                <option value="aug" <%= (month == "aug")? "selected":"" %>>Aug</option>
+                <option value="sep" <%= (month == "sep")? "selected":"" %>>Sep</option>
+                <option value="oct" <%= (month == "oct")? "selected":"" %>>Oct</option>
+                <option value="nov" <%= (month == "nov")? "selected":"" %>>Nov</option>
+                <option value="dec" <%= (month == "dec")? "selected":"" %>>Dec</option>
+              </select>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <input type="submit" class="col-md-7 btn btn-primary mb-2" value="View Payout">
+            </div>
+          </div>
+      </div>
+    </form>
+
+ 
+    <!-- End Page Header -->
+    <!-- Transaction History Table -->
+  
+    <div class="col-md-12 text-right"> 
+      <a href="../../admin/ze-payouts-export/<%=year%>/<%=month%>" class="btn btn-success mb-2">Download CSV for <%=year%> <%=month%></a>
+    </div>
+
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+      <!-- Button trigger modal -->
+      <table class="transaction-history d-none dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1152px;">
+      <thead>
+        <tr role="row">
+          <th class="sorting_asc">#</th>
+          <!-- <th class="sorting"> Id </th> -->
+          <th class="sorting">ZE Name</th>
+          <th class="sorting" >ZE Mobile</th>
+          <th class="sorting">ZE Amount</th>
+          <th class="sorting">PAN Number</th>
+          <th class="sorting">Bank NAME</th>
+          <th class="sorting">Acconut No</th>
+          <th class="sorting">IFSC</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <% if(data.length > 0) { 
+          data.forEach((row,index)=>{
+          let zedata = JSON.parse(row.ze_details); 
+        %>
+          <tr role="row" class="odd">
+            <td tabindex="0" class="sorting_1"><%= index+1 %></td>
+            <!-- <td>October 31st 2017 <span class="text-sm">02:10 PM</span> -->
+            <!-- <td><%= zedata._id %></td> -->
+            <td><%= zedata.fullname %></td>
+            <td><%= zedata.mobile %></td>
+            <td><%= row.ze_payout_amount; %></td>
+            <td ><%= row.kyc_details.pan_number; %></td>
+            <td ><%= row.kyc_details.bank_name; %></td>
+            <td ><%= row.kyc_details.account_number; %></td>
+            <td ><%= row.kyc_details.ifsc_code; %></td>
+            
+          </tr>        
+        <% 
+            })
+          } 
+        %>
+       
+      </tbody>
+    </table>
+  </div>
+    <!-- End Transaction History Table -->
+  </div>
+
+</main>
+
+<%- include('../layouts/footer') %> 

@@ -1,0 +1,229 @@
+<%- include('../layouts/header') %>
+<%- include('../'+leftMenuType) %>
+<style>
+  .card-post__image {
+    min-height: 17.00rem !important;
+  }
+</style>
+  <div class="main-content-container container-fluid px-4">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-6 mt-4">
+        <!-- Edit User Details Card -->
+        <div class="card card-small edit-user-details mb-4">
+          
+          <div class="card-body p-0">
+            <div class="border-bottom clearfix d-flex">
+              <ul class="nav nav-tabs border-0 mt-auto mx-4 pt-2">
+                <li class="nav-item ">
+                  <a class="nav-link" href="javascript:void(0);">
+                    Bank Details 
+                    <% 
+                      if(getUserData.kyc_status ==='approved'){ %>
+                        <span class="card-post__category badge badge-pill badge-success">Approved</span>
+                    <% }else if(getKYCData.pan_front !==null){ %>
+                          <span class="card-post__category badge badge-pill badge-warning">Submitted</span>
+                    <% }else { %>
+                        <span class="card-post__category badge badge-pill badge-danger">Pending</span>
+                     <% } %>
+                    
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link active" href="javascript:void(0);">Upload ID
+                    <%
+                      if(getKYCData.bank_detail_status ==='approved'){ %>
+                        <span class="card-post__category badge badge-pill badge-success">Approved</span>
+                    <% }else if(getKYCData.kyc_status ==='submitted'){ %>
+                        <span class="card-post__category badge badge-pill badge-warning">Submitted</span>
+                    <% }else { %>
+                      <span class="card-post__category badge badge-pill badge-danger">Pending</span>
+                    <% } %>
+                  </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0);">Choose Bank
+                    <%
+                    if(getKYCData.kyc_status ==='approved'){ %>
+                      <span class="card-post__category badge badge-pill badge-success">Approved</span>
+                  <% }else if(getKYCData.kyc_status ==='submitted'){ %>
+                    <span class="card-post__category badge badge-pill badge-warning">Submitted</span>
+                <% }else { %>
+                    <span class="card-post__category badge badge-pill badge-danger">Pending</span>
+                   <% } %>
+                  </a>
+                </li> -->
+              </ul>
+            </div>
+            <% if(success.length > 0){ %>
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success !</strong> <%= success %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <% } %>
+            <% if(error.length > 0){ %>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Alert !</strong> <%= error %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            <% } %> 
+            <form class="py-4" action="/admin/kyc-upload" method="POST" name="frm" enctype="multipart/form-data">
+              <input type="hidden" name="_id" value="<%= getUserData._id;%>">
+              <div class="form-row form-group mx-4">
+                <label for="">Upload Aadhar Front</label>
+                <div class="custom-file "> 
+                  <input type="file" name="aadhar_front" class="custom-file-input" id="aadhar_front">
+                  <label class="custom-file-label" for="customFile2">Choose file...</label>
+                </div>
+              </div>
+              <div class="form-row form-group mx-4">
+                <label for="" class="mt-2">Upload Aadhar Back</label>
+                <div class="custom-file "> 
+                  <input type="file" name="aadhar_back" class="custom-file-input" id="aadhar_back">
+                  <label class="custom-file-label" id="aadhar_backNM"><%= ((getKYCData.aadhar_back) ? getKYCData.aadhar_back : 'Choose file...') %></label>
+                  <!-- <small id="aadhar_backNM" class="mb-1"><%= getKYCData.aadhar_back %></small> -->
+                </div>
+              </div>
+              
+
+              <div class="form-row form-group mx-4">
+                <label for="">Upload PAN Front</label>
+                <div class="custom-file">
+                  <input type="file" name="pan_front" class="custom-file-input" id="pan_front">
+                  <label class="custom-file-label" for="pan_front">Choose file...</label>
+                </div>
+              </div>
+              
+              <div class="form-row form-group mx-4">
+                <label for="">Upload Agent Agreement</label>
+                <div class="custom-file">
+                  <input type="file" name="bc_admin_agreement" class="custom-file-input" id="bc_admin_agreement">
+                  <label class="custom-file-label" for="bc_admin_agreement">Choose file...</label>
+                </div>
+              </div>
+
+              <!-- <div class="form-row form-group mx-4 mt-2">
+                <label for="" class="mt-2">Upload Agent Signature</label>
+                <div class="custom-file">
+                  <input type="file" name="bc_agent_signature" class="custom-file-input" id="bc_agent_signature" required="">
+                  <label class="custom-file-label" id="bc_agent_signatureNM"><%= ((getKYCData.bc_agent_signature) ? getKYCData.bc_agent_signature : 'Choose file...') %></label>
+                  <span class="" ></span>
+                  <span id="bc_agent_signatureNM" class="mb-1 text-danger">Size must be 300×100 </span>
+                </div>
+              </div> -->
+
+              <hr>
+              
+                <div class="col-md-11 text-right mt-3" style="max-width: none;">
+                  <button type="submit" class="mb-3 btn btn-warning"><i class="material-icons">file_copy</i> Upload & Save</button>
+
+                  <a href="/admin/view-kyc/<%= getUserData._id;%>" class="mb-3 btn btn-light"><i class="material-icons">keyboard_backspace</i> Back</a>
+
+                  <a href="/admin/admin-dashboard" class="mb-3 btn btn-info"><i class="material-icons">file_copy</i> Go to Dashboard</a>
+
+                <a href="/admin/list" class="mb-3 btn btn-primary"><i class="material-icons">file_copy</i> Go to List</a>
+                
+              </div>
+            
+               
+            </form>
+          </div>
+         
+        </div>
+        <!-- End Edit User Details Card -->
+      </div>
+      <div class="col-lg-4 mt-4">
+        <div class="card card-small edit-user-details mb-4">
+            <div class="card card-small card-post h-100 mb-3">
+              <div class="card-post__image" style="background-image: url('../../upload/kyc_image/<%= getUserData.mobile;%>/<%= getKYCData.aadhar_front;%>');"></div>
+              <div class="card-footer text-muted border-top py-3">
+                <span class="d-inline-block">Aadhar Front Image</span>
+              </div>
+            </div>
+
+            <div class="card card-small card-post h-100 mb-3">
+              <div class="card-post__image" style="background-image: url('../../upload/kyc_image/<%= getUserData.mobile;%>/<%= getKYCData.aadhar_back;%>');"></div>
+              <div class="card-footer text-muted border-top py-3">
+                <span class="d-inline-block">Aadhar Back Image</span>
+              </div>
+            </div>
+          
+            <div class="card card-small card-post h-100 mb-3">
+              <div class="card-post__image" style="background-image: url('../../upload/kyc_image/<%= getUserData.mobile;%>/<%= getKYCData.pan_front;%>');"></div>
+              <div class="card-footer text-muted border-top py-3">
+                <span class="d-inline-block">Pan Front Image</span>
+              </div>
+            </div>
+            <!-- <div class="card card-small card-post h-100 mb-3">
+              <div class="card-post__image" style="background-image: url('../../upload/kyc_image/<%= getUserData.mobile;%>/<%= getKYCData.bc_agent_signature %>');"></div>
+              <div class="card-footer text-muted border-top py-3">
+                <span class="d-inline-block">User Signature Image</span>
+              </div>
+            </div> -->
+
+            <div class="card card-small card-post h-100">
+              <% 
+                // Check if it's PDF or not
+                const agrementUrl = getKYCData && getKYCData.bc_agent_agreement ? getKYCData.bc_agent_agreement.split(".") : null;
+                if(agrementUrl && agrementUrl[agrementUrl.length - 1] == "pdf") {
+              %>
+                  <a class="p-3" href='../../upload/kyc_image/<%= getUserData.mobile;%>/<%= getKYCData.bc_agent_agreement;%>'>Download Agrement</a>
+             <%  }
+                else {
+              %>
+                  <div class="card-post__image" style="background-image: url('../../upload/kyc_image/<%= getUserData.mobile;%>/<%= getKYCData.bc_agent_agreement;%>');"></div>
+              <%
+                }
+
+              %>%>
+              
+              <div class="card-footer text-muted border-top py-3">
+                <span class="d-inline-block">Agent Agreement Image</span>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $('#aadhar_front, #aadhar_back, #pan_front, #bc_agent_agreement').change(function(e){
+        var id = $(this).attr('id');
+            var fileName = e.target.files[0].name;
+            $('#'+id+'NM').html(fileName);
+        });
+
+        var _URL = window.URL || window.webkitURL;
+        $("#bc_agent_signature").change(function (e) {
+        var file, img;
+        var id = $(this).attr('id');
+        if ((file = this.files[0])) {
+            img = new Image();
+            var objectUrl = _URL.createObjectURL(file);
+            img.onload = function () {
+                if(this.height <=  100 && this.width <= 300){
+                  $('#'+id+'NM').html('');
+                 
+                  alert(`Image size must be 300x100, provided size is ${this.width} x ${this.height} `);
+                  $('#sbmt_btn').prop('disabled', true);
+                _URL.revokeObjectURL(objectUrl);
+                }else{
+                  
+                  $('#sbmt_btn').prop('disabled', false);
+                }
+               
+            };
+            img.src = objectUrl;
+        }
+    });
+
+
+    });
+
+  </script>
+ <%- include('../layouts/footer') %> 

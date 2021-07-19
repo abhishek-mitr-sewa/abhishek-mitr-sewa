@@ -1,0 +1,131 @@
+<%- include('../layouts/header') %>
+<%- include('../'+leftMenuType) %>
+
+  
+  <div class="main-content-container container-fluid px-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+        <span class="text-uppercase page-subtitle">Overview</span>
+        <h3 class="page-title">Create MS Account</h3>
+      </div>
+    </div>
+    <!-- End Page Header -->
+    <!-- Default Light Table -->
+    <div class="row">
+      
+      <div class="col-lg-8">
+        <div class="card card-small mb-4">
+          <div class="card-header border-bottom">
+            <h6 class="m-0">Add Mitr Sewak</h6>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item p-3">
+              <div class="row">
+                <div class="col">
+                  <% 
+                  if(messages && status == 1) {
+                      %>
+                      <div class="alert alert-success text-white">
+                        <%=messages %>
+                      </div>
+                      <%
+                  }
+                %>
+               <% if(status == 0){   %>
+                  <div class="alert alert-danger text-white">
+                      <button type="button" class="close ml-auto" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true" class="text-white">×</span> </button>
+                      <h5 class="text-white"> Alert</h5> 
+                      <ul>
+                          <% Object.values(message).forEach(function(error){ %>
+                                <li><%= error.msg %></li>
+                          <% }); %>
+                      </ul>
+                    
+                  </div>
+                <%  } %>
+                  <form action="/agents/create-ms" method="POST" name="frmupdt">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="feEmailAddress">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Email" name="email" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"> </div>
+                      <div class="form-group col-md-6">
+                        <label for="">Mobile</label>
+                        <input type="text" name="mobile"  class="form-control" maxlength="10" minlength="10" id="mobile" required> 
+                        <span class="text-danger" id="mobileerr"></span>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="password"  required> </div>
+                      <div class="form-group col-md-6">
+                        <label for="">Confirm Password</label>
+                        <input type="text" class="form-control" id="conf_pass" required> 
+                        <span class="text-danger" id="CheckPasswordMatch"></span>
+                      </div>
+                    </div>
+                    <div class="form-row mt-3">
+                      <div class="form-group col-md-11">
+                        <label for="">Is Economically Weaker Section?</label>
+                        <select id="" name="user_type" class="form-control">
+                          <option value="">Select</option>
+                          <option value="ews">Yes</option>
+                          <option value="USER" selected>No</option>
+                        </select>
+                        <span class="text-danger conf_error_bldgrp"></span>
+                      </div>
+                    </div>
+                    <div class="col-md-12 text-right mt-3">
+                      <button type="submit" id="submit" class="mb-3 btn btn-warning"><i class="material-icons">file_copy</i> Create</button> 
+                  </div>
+                  </form>
+                  
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- End Default Light Table -->
+  </div>
+
+  <script>
+   $(document).ready(function(){
+      $('#chooseflNameVal').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('#flName').html(fileName);
+        });
+      $("#conf_pass").keyup(checkPasswordMatch);
+      $('#mobile').bind('keyup paste', function(){
+        this.value = this.value.replace(/[^0-9]/g, '');
+        if(this.value.length!=10){
+          $("#mobileerr").html("Please enter correct 10 digit mobile number.");
+          $("#submit").prop('disabled', true);
+        }else{
+          $("#mobileerr").html("");
+          $("#submit").prop('disabled', false);
+        }
+      });
+    
+   
+    function checkPasswordMatch() {
+          var password = $("#password").val();
+          var confirmPassword = $("#conf_pass").val();
+          if (password != confirmPassword){
+            $("#CheckPasswordMatch").html("Passwords does not match!");
+            $("#submit").prop('disabled', true);
+          } 
+          else{
+            $("#CheckPasswordMatch").html("");
+            $("#submit").prop('disabled', false);
+          }
+             
+        }
+   
+
+  });
+
+  </script>
+<%- include('../layouts/footer') %> 

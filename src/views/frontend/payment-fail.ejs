@@ -1,0 +1,52 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/inner-leftmenu') %>
+<style>
+  .dev_added{background-color: #91fcb60f;}
+  .container {
+    position: relative;
+    width: 1020px;
+    margin: 0 auto;
+}
+.money-back-guarantee {
+  cursor: pointer;
+  text-align: center;
+}
+.money-back-guarantee .check svg {
+    margin-top: 28px;
+}
+.check {
+  background: #37ae2a;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: table;
+    margin: 0 auto;
+    margin-bottom: 45px;
+  box-shadow: 0 14px 85px rgb(55 174 42 / 47%), 0 9px 20px rgb(55 174 42 / 23%);
+}
+
+</style>
+  <div class="main-content-container container-fluid px-4">
+    <div class="row">
+      <div class="col-lg-10 mx-auto mt-4">
+        <div class="error">
+          <div class="error__content">
+            <div class="money-back-guarantee">
+              <div class="check onboarding" style="background: red;;">
+                <svg fill="#fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+                </svg>
+              </div>
+               
+            </div>
+            <h3>Oops !!</h3>
+            <p>Your payment has been failed. Please retry.</p>
+            <a href="/members/choose-bank" class="btn btn-success btn-pill">← Go To Payment</a>
+          </div> <!-- / .error_content -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <%- include('../layouts/footer') %> 

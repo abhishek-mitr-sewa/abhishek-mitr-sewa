@@ -1,0 +1,146 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<%- include('./main') %>
+    <style>
+      .tr-bcColor-red{
+        background-color: #fae7ee;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .td-min-orange{
+        background-color:#fdf5e6; 
+      }
+      .tr-min-orange{
+        background-color:#fdf5e6; 
+      }
+      .tr-bcColor-green{
+        background-color: #e7f7f0;
+      
+      }
+      .lo-stats .card-body {
+        min-height: 33rem;
+      }
+
+      .container-fluid-model {
+        position: absolute;
+        height: 21%;
+        min-width: 30rem;
+        padding-right: 1px;
+        padding-left: 1px;
+      }
+      .arrow-red{
+        font-size: 18px !important;
+        color: red;
+      }
+      .arrow-green{
+        font-size: 18px !important;
+        color:green;
+      }
+      .div-bg-color{
+        background-color: rgba(86, 61, 124, .15);
+        /* border: 1px solid rgba(86, 61, 124, .2); */
+      }
+      .text-middle{
+        align-self: center;
+      }
+      .list-group-small .list-group-item {padding: .625rem .1rem;}
+      .plr-0{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+      .btn-group-sm>.btn, .btn-sm {
+        padding: .3286rem .575rem;
+        font-size: .5875rem;
+      }
+    </style>
+    <div class="main-content-container container-fluid px-4">
+      <!-- Page Header -->
+      <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-6 text-center text-sm-left mb-0">
+          <span class="text-uppercase page-subtitle">Dashboard</span>
+          <h3 class="page-title">FE State Wise Bima Report  </h3>
+        </div>
+      </div>
+      <div class="card-header border-bottom">
+        <div class="btn-group btn-group-sm">
+          <% 
+          if(data.length > 0){ 
+              let totCl = [];
+              let yesCl = [];
+              let prevCl = [];
+              data.map((val,index)=>{
+                totCl.push(val.total_clients);
+                yesCl.push(val.yesterday_clients);
+                prevCl.push(val.previous_month_clients);
+              })
+          %>
+            <div class="alert alert-primary">
+              <span><strong>Total Policies </strong> <h4 class="text-white text-center"><%=totCl.reduce((a, b) => a + b, 0) %></h4></span>
+            </div>
+            <div class="alert alert-warning">
+              <span><strong>Current Month Policies</strong><h4 class="text-white text-center">
+                <%=prevCl.reduce((a, b) => a + b, 0) %>
+              </h4></span>
+            </div>  
+            <div class="alert alert-success">
+              <span><strong>Yesterday Policies</strong> 
+                <h4 class="text-white text-center">
+                  <%=yesCl.reduce((a, b) => a + b, 0) %>
+                </h4>
+                </span>
+            </div> 
+          <% 
+            }
+          %>
+        </div>
+        <div class="float-right" >
+          <a class="btn btn-primary btm-sm" href="../cron-for-bima/state">Refresh from live</a>
+        </div>
+      </div>
+         
+      <div class="card-body p-0 pb-3 text-left">
+          <table class="table mb-0" id="example">
+          <thead class="bg-light">
+              <tr>
+                  <th >#</th>
+                  <th >State</th>
+                  <th >Yesterday Policies</th>
+                  <th >Current Month Policies</th>
+                  <th >Total Policies</th>
+              </tr>
+          </thead>
+              <tbody>
+                <%
+                  if(data.length > 0){
+                    data.forEach((data,index)=>{  
+                %>
+                    <tr>
+                      
+                      <td><%= index+1 %></td>
+                      <td><%= data.state%></td>
+                      <td><%= data.yesterday_clients%></td>
+                      <td><%= data.previous_month_clients%></td>
+                      <td><%= data.total_clients%></td>
+                    </tr>
+                <%    }) }else{ %>
+                    <tr>
+                      <th>No data avaliable</th>
+                    </tr>
+                <% } %>
+              </tbody>
+          </table>
+      </div>
+          
+    </div>      
+  </main>
+        
+
+<script >
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+
+<%- include('../layouts/footer') %>        

@@ -1,0 +1,320 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<style src="css/responsive.dataTables.min.css"></style>
+<%- include('./main') %>
+<style>
+  .scrollDiv {
+  height:600px;
+  overflow-y: scroll;
+}
+.loader {
+  max-width: 10rem;
+  width: 100%;
+  height: auto;
+  stroke-linecap: round;
+  margin-top: 40%;
+    margin-left: 36%;
+}
+
+circle {
+  fill: none;
+  stroke-width: 3.5;
+  -webkit-animation-name: preloader;
+          animation-name: preloader;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-transform-origin: 170px 170px;
+          transform-origin: 170px 170px;
+  will-change: transform;
+}
+circle:nth-of-type(1) {
+  stroke-dasharray: 550;
+}
+circle:nth-of-type(2) {
+  stroke-dasharray: 500;
+}
+circle:nth-of-type(3) {
+  stroke-dasharray: 450;
+}
+circle:nth-of-type(4) {
+  stroke-dasharray: 300;
+}
+circle:nth-of-type(1) {
+  -webkit-animation-delay: -0.15s;
+          animation-delay: -0.15s;
+}
+circle:nth-of-type(2) {
+  -webkit-animation-delay: -0.3s;
+          animation-delay: -0.3s;
+}
+circle:nth-of-type(3) {
+  -webkit-animation-delay: -0.45s;
+  -moz-animation-delay:  -0.45s;
+          animation-delay: -0.45s;
+}
+circle:nth-of-type(4) {
+  -webkit-animation-delay: -0.6s;
+  -moz-animation-delay: -0.6s;
+          animation-delay: -0.6s;
+}
+
+@-webkit-keyframes preloader {
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader {
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+</style>
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+        <span class="text-uppercase page-subtitle">Dashboard</span>
+        <h3 class="page-title">Field Executive List</h3>
+      </div>
+      
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="card card-small go-stats">
+          <div class="card-header border-bottom">
+            <!-- <h6 class="m-0 DataTables_Table_0_length">Make Zonel Excutive</h6> -->
+            <div class="text-right dataTables_filter" style="float: right;"><input type="text" class="search" placeholder="Search..."></div>
+          </div>
+  
+          
+          <div class="card-body py-0 scrollDiv">
+            <ul class="list-group list-group-small list-group-flush">
+              <%  
+                if(data.length > 0) {
+                let i =1;
+                data.forEach(function (row){ %>
+                  <div class="zeSearch">
+                    <li class="list-group-item d-flex row px-0">
+                      <div class="col-lg-8 col-md-8 col-sm-8 col-6">
+                        <h6 class="go-stats__label mb-1"><%= row.fullname %></h6>
+                        <div class="go-stats__meta">
+                          <span class="mr-2">Mobile: <label class="text-light"><%= row.mobile %> </label></span>
+                          <span class="d-block d-sm-inline">
+                            FE Code: <strong class="text-success"><%= row.referrer_code %></strong></span><br>
+                            <span class="mr-2">City: <label class="text-light"><%= row.city %></label> </span>
+                            <span class="mr-2">State: <label class="text-light"><%= row.state %></label> </span>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-6 d-flex">
+                      
+                        <div class="btn-group d-table ml-auto" role="group" aria-label="Basic example">
+                          <button type="button" class="btn btn-sm btn btn-sm ml-auto btn-outline-accent ze_button" style="margin-top: 25px;" accesskey="<%= row._id %>">Make ZE</button>
+                        </div>
+                      </div>
+                    </li>
+                  </div>
+              <% i++; }); }  %>
+            </ul>
+          </div>
+  
+          <div class="card-footer border-top">
+            <div class="row">
+              <div class="col">
+               &nbsp;
+              </div>
+              <div class="col-md-12 view-report">
+                <span>First choose any one Field Excutive as a Zonel Head and then select any 9 Field Excutive.</span>
+                <!-- <input type="submit" value="Next" name="submit" class="btn btn-success"> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 mb-4">
+        <div class="card card-small go-stats">
+          <div class="card-header border-bottom">
+            <!-- <h6 class="m-0">Choose Feild Excutive</h6> -->
+            <div class="text-right dataTables_filter" style="float: right;"><input type="text" class="searchfe" placeholder="Search..."></div>
+            <!-- <div class="block-handle"></div> -->
+          </div>
+  
+          
+          <div class="card-body py-0 scrollDiv">
+            <ul class="list-group list-group-small list-group-flush">
+              <div id="fediv">
+               
+                
+                <div class="loader_class">
+	
+                  <svg class="loader" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
+                     <circle cx="170" cy="170" r="160" stroke="#E2007C"/>
+                     <circle cx="170" cy="170" r="135" stroke="#404041"/>
+                     <circle cx="170" cy="170" r="110" stroke="#E2007C"/>
+                     <circle cx="170" cy="170" r="85" stroke="#404041"/>
+                  </svg>
+                  
+                </div>
+              </div>
+            </ul>
+          </div>
+  
+          <div class="card-footer border-top">
+            <div class="row">
+              <div class="col">
+               &nbsp;
+              </div>
+              <div class="col text-right view-report">
+                <input type="submit" value="Save" name="submit" id="smbt_btn" class="btn btn-success">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- End Page Header -->
+    
+
+  
+     
+ 
+
+
+  </div>
+
+</main>
+<script>
+$(document).ready(function() {
+$(".loader_class").hide();
+$("#smbt_btn").prop('disabled', true);
+var totalAddedFE = [];
+
+// Add ZE button click code here---------
+  $(".ze_button").click(function () {
+    var id = $(this).attr('accesskey');
+    if($(this).html() === 'Make ZE'){ // click for add ze code here
+      $(".loader_class").show();
+      $(this).html('Remove');
+      $(this).removeClass('btn-outline-accent');
+      $(this).addClass('btn-primary');
+      $(".ze_button").prop('disabled', true);
+      $(this).prop('disabled', false);
+      var data = {'id': id};
+          $.post({
+              traditional: true,
+              url: '/admin/selectFEByLocation',
+              contentType: 'application/json',
+              data: JSON.stringify(data),
+              //dataType: 'json',
+              success: function(response){ 
+                totalAddedFE[0] = id;
+                $(".loader_class").hide();
+                $('#fediv').html(response);
+              },
+              error: function (xhr, status, error) {
+                  alert('Error: ' + error.message);
+              }
+          });
+    }else{
+      $(".loader_class").hide();
+      $('#fediv').html('');
+      $(this).html('Make ZE');
+      $(this).addClass('btn-outline-accent');
+      $(this).removeClass('btn-primary');
+      $(".ze_button").prop('disabled', false);
+      totalAddedFE =[];
+    }
+    
+  });
+
+
+// Add fe under ze code is here --------------
+  var countr =1; 
+
+  $("body").on("click", ".add_fe_btn", function () {
+    var id = $(this).attr('accesskey');
+    
+      if($(this).html() === 'Add'){
+        if(countr <=9){
+          $(this).html('Added');
+          $(this).removeClass('btn-white');
+          $(this).addClass('btn-success');
+
+          totalAddedFE[countr] = id; 
+          if(countr === 9){
+            $("#smbt_btn").prop('disabled', false);
+          }
+          countr++;
+        }else{
+          alert("Select Only 10 Field Excutives.");
+        }
+      }else{
+        $(this).html('Add');
+        $(this).addClass('btn-white');
+        $(this).removeClass('btn-success');
+        $("#smbt_btn").prop('disabled', true);
+        totalAddedFE = totalAddedFE.filter(function(elem){
+          return elem != id; 
+        });
+        countr--;
+      }
+    
+
+   
+  });
+
+
+  $("#smbt_btn").click(function (e) {
+    //alert(totalAddedFE);
+    //e.preventDefault();
+    if(totalAddedFE.length >0){
+      $.post({
+        traditional: true,
+        url: '/admin/saveselectedfe',
+        contentType: 'application/json',
+        data: JSON.stringify(totalAddedFE),
+        success: function(response){ 
+          if(response == 'true'){
+            location.reload();
+          }
+          
+          // redirect to list page.
+        },
+        error: function (xhr, status, error) {
+            alert('Error: ' + error.message);
+        }
+      });
+
+    }else{
+      alert('not matched');
+    }
+   
+  });
+  
+
+  $(".search").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".zeSearch").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+  $(".searchfe").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".feSearch").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+});
+
+</script>
+<%- include('../layouts/footer') %> 

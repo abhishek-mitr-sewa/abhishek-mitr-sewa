@@ -1,0 +1,222 @@
+<%- include('../layouts/header') %>
+<%- include('../'+leftMenuType) %>
+  <div class="main-content-container container-fluid px-4">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-10 mx-auto mt-4">
+        <!-- Edit User Details Card -->
+        <div class="card card-small edit-user-details mb-4">
+          
+          <div class="card-body p-0">
+            <div class="border-bottom clearfix d-flex">
+              <ul class="nav nav-tabs border-0 mt-auto mx-4 pt-2">
+                <li class="nav-item ">
+                  <a class="nav-link active" href="javascript:void(0);">
+                    Bank Details 
+                    <% 
+                      if(getUserData.kyc_status ==='approved'){ %>
+                        <span class="card-post__category badge badge-pill badge-success">Approved</span>
+                    <% }else if(getKYCData.pan_number !=null){ %>
+                          <span class="card-post__category badge badge-pill badge-warning">Submitted</span>
+                    <% }else{ %>
+                        <span class="card-post__category badge badge-pill badge-danger">Pending</span>
+                     <% } %>
+                    
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link " href="javascript:void(0);">Upload ID
+                    <%
+                      if(getKYCData.bank_detail_status ==='approved'){ %>
+                        <span class="card-post__category badge badge-pill badge-success">Approved</span>
+                    <% }else if(getKYCData.kyc_status ==='submitted'){ %>
+                        <span class="card-post__category badge badge-pill badge-warning">Submitted</span>
+                    <% }else { %>
+                      <span class="card-post__category badge badge-pill badge-danger">Pending</span>
+                    <% } %>
+                  </a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0);">Choose Bank
+                    <%
+                    if(getKYCData.kyc_status ==='approved'){ %>
+                      <span class="card-post__category badge badge-pill badge-success">Approved</span>
+                  <% }else if(getKYCData.kyc_status ==='submitted'){ %>
+                    <span class="card-post__category badge badge-pill badge-warning">Submitted</span>
+                <% }else { %>
+                    <span class="card-post__category badge badge-pill badge-danger">Pending</span>
+                   <% } %>
+                  </a>
+                </li> -->
+              </ul>
+            </div>
+            <form class="py-4" method="POST" action="/admin/kyc-1">
+              <% if(status == 0){   %>
+                    <div class="alert alert-danger text-white">
+                        <button type="button" class="close ml-auto" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true" class="text-white">×</span> </button>
+                        <h5 class="text-white"> Alert</h5> 
+                        <ul>
+                            <% Object.values(message).forEach(function(error){ %>
+                                  <li><%= error.msg %></li>
+                            <% }); %>
+                        </ul>
+                      
+                    </div>
+                <%  } %>
+
+              <div class="form-row mx-4">
+                <div class="col mb-3">
+                  <h6 class="form-text m-0">Personal Information</h6>
+                  <p class="form-text text-muted m-0">Provide your Bank account and persional details.</p>
+                </div>
+              </div>
+              <div class="form-row mx-4">
+                <div class="col-lg-12">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="">Full Name</label>
+                      <input type="text" name="full_name" class="form-control" value="<%= getKYCData.full_name %>">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="">UPI ID</label>
+                      <input type="text" value="<%= getKYCData.upi_id %>" name="upi_id" class="form-control" id="" placeholder="Enter UPI ID">
+                      <input type="hidden" name="_id" value="<%= getUserData._id; %>">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                      <label for="userLocation">Bank Name</label>
+                      <div class="input-group input-group-seamless">
+                       
+                        <input type="text" value="<%= getKYCData.bank_name %>"  name="bank_name" class="form-control" placeholder="Enter Bank Name">
+                      </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="phoneNumber">Branch Name</label>
+                      <div class="input-group input-group-seamless">
+                        
+                        <input type="text" value="<%= getKYCData.branch_name %>" name="branch_name" class="form-control" id="" placeholder="Enter Branch Name">
+                      </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="">IFSC Code</label>
+                      <div class="input-group input-group-seamless">
+                        
+                        <input type="text" value="<%= getKYCData.ifsc_code %>"  name="ifsc_code" class="form-control" id="" placeholder="IFSC Code">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row mx-4">
+                <div class="col-lg-12">
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="">Account Number</label>
+                      <input type="text" name="account_number" class="form-control" placeholder="Account Number" value="<%= getKYCData.account_number %>">
+                      
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label for="">Aadhar Number</label>
+                      <input type="text" name="aadhar_number" class="form-control" id="aadhar" placeholder="Aadhar Number" value="<%= getKYCData.aadhar_number %>">
+                      <div class="invalid-feedback ml-5" id="invalidaadhar"></div>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label for="userLocation">PAN Number</label>
+                      <div class="input-group input-group-seamless">
+                       
+                        <input type="text" id="pan" name="pan_number" class="form-control" placeholder="Enter PAN Number" value="<%= getKYCData.pan_number %>">
+                        <div class="invalid-feedback ml-5" id="invalidpan"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="col-md-11 text-right mt-3" style="max-width: none;">
+                <!-- <i class="material-icons">file_copy</i> -->
+                <button type="submit" class="mb-3 btn btn-warning"><i class="material-icons">file_copy</i> Upload & Save</button> &nbsp;
+               
+                  <a href="/admin/member-edit/<%= getUserData._id;%>" class="mb-3 btn btn-light"><i class="material-icons">keyboard_backspace</i> Back</a>
+
+                  <a href="/admin/kyc-upload/<%= getUserData._id;%>" class="mb-3 btn btn-primary"> Next <i class="material-icons">arrow_forward</i></a>
+             
+                
+
+
+                <!-- <input type="submit" name="submt" class="mb-3 btn btn-primary" value="Save & Next">  -->
+              </div> 
+            </form>
+          </div>
+         
+        </div>
+        <!-- End Edit User Details Card -->
+      </div>
+    </div>
+  </div>
+
+<script>
+  $(document).ready(function () {
+    var buttonAccess = false;
+    //$('input[type="submit"]').attr('disabled','disabled');
+    $("#pan").keyup(function () {
+      var regExp = /[a-zA-z]{5}\d{4}[a-zA-Z]{1}/; 
+      var txtpan = $(this).val(); 
+      if (txtpan.length == 10 ) { 
+        if( txtpan.match(regExp) ){ 
+          $("#pan").removeClass('is-invalid');
+          $("#invalidpan").html("");
+          $(':input[type="submit"]').prop('disabled', false);
+          buttonAccess = true;
+        }
+        else {
+          event.preventDefault();
+          buttonAccess = false;
+          $("#pan").addClass('is-invalid');
+          $(':input[type="submit"]').prop('disabled', true);
+          $("#invalidpan").html("Please enter valid PAN Number");
+        } 
+      } 
+      else { 
+        buttonAccess = false;
+        $("#pan").addClass('is-invalid');
+        $(':input[type="submit"]').prop('disabled', true);
+        $("#invalidpan").html("Please enter 10 digits for a valid PAN Number");
+        event.preventDefault(); 
+      } 
+    });
+
+    $("#aadhar").keyup(function () {
+      var aadhar = $(this).val();
+      var adharcardTwelveDigit = /^\d{12}$/;
+      var adharSixteenDigit = /^\d{16}$/;
+      if (aadhar != '') {
+          if (aadhar.match(adharcardTwelveDigit)) {
+            buttonAccess = true;
+            $("#aadhar").removeClass('is-invalid');
+            $("#invalidaadhar").html('');
+            $(':input[type="submit"]').prop('disabled', false);
+          }
+          else if (aadhar.match(adharSixteenDigit)) {
+            buttonAccess = true;
+            $("#aadhar").removeClass('is-invalid');
+            $("#invalidaadhar").html('');
+            $(':input[type="submit"]').prop('disabled', false);
+          }
+          else {
+            event.preventDefault();
+            buttonAccess = false;
+            $("#aadhar").addClass('is-invalid');
+            $("#invalidaadhar").html("Please enter valid Aadhar Number");
+            $(':input[type="submit"]').prop('disabled', true);
+          }
+      }
+      
+    });
+    
+    
+
+  });
+</script>
+
+ <%- include('../layouts/footer') %> 

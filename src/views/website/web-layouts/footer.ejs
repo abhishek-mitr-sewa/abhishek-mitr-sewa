@@ -1,0 +1,104 @@
+
+  <!-- footer -->
+  <div class="footer pt-11 pb-3 bg-dark text-base">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-6">
+          <div class="mb-4">
+            <h4 class="mb-4 text-white">Services</h4>
+            <ul class="list-unstyled list-group">
+              <li class="list-group-item"><a target="_blank" href="https://mitrdigiportal.com/" class="list-group-item-link" data-toggle="digiportal" >Mitr Digi Portal</a></li>
+              <li class="list-group-item"><a target="_blank" href="https://www.mitrbima.com/login" class="list-group-item-link">Mitr Bima </a></li>
+              <li class="list-group-item"><a target="_blank" href="http://mitrestore.com/" class="list-group-item-link">Mitr e Store</a></li>
+              <li class="list-group-item"><a target="_blank" href="https://store.amazon.in/" class="list-group-item-link"> Amazon</a></li>
+              <!-- <li class="list-group-item"><a target="_blank" href="#!" class="list-group-item-link">Contact Us</a></li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-6">
+          <div class="mb-4">
+            <h4 class="mb-4 text-white ">Blog</h4>
+            <ul class="list-unstyled list-group ">
+              <li class="list-group-item"><a href="/blog" class="list-group-item-link">Blogs</a></li>
+              <!-- <li class="list-group-item"><a href="#!" class="list-group-item-link">Relationship</a></li>
+              <li class="list-group-item"><a href="#!" class="list-group-item-link">Leadership</a></li>
+              <li class="list-group-item"><a href="#!" class="list-group-item-link">Life ing</a></li>
+              <li class="list-group-item"><a href="#!" class="list-group-item-link">Time Management</a></li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-6">
+          <div class="mb-4">
+            <h4 class="mb-4 text-white ">Resources</h4>
+            <ul class="list-unstyled list-group ">
+              <li class="list-group-item"><a href="/contact" class="list-group-item-link">Enquiry</a></li>
+              <li class="list-group-item"><a href="/team" class="list-group-item-link"> Teams </a></li>
+              <!-- <li class="list-group-item"><a href="#!" class="list-group-item-link"> Podcast</a></li> -->
+              </ul>
+              <!-- <h4 class="mb-4 text-white mt-4">Openings</h4>
+              <ul class="list-unstyled list-group ">
+                <li class="list-group-item"><a href="#!" class="list-group-item-link">New Openings</a></li>
+                 <li class="list-group-item"><a href="#!" class="list-group-item-link">Download App</a></li> 
+              </ul> -->
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-6">
+          <div class="mb-4">
+            <h4 class="mb-4 text-white ">Follow US</h4>
+            <ul class="list-unstyled list-group">
+              <li class="list-group-item"><a href="https://www.instagram.com/mitrsewafoundation/" class="list-group-item-link">Instagram</a></li>
+              <li class="list-group-item"><a href="https://www.facebook.com/mitrsewafoundation/" class="list-group-item-link"> Facebook</a></li>
+              <!-- <li class="list-group-item"><a href="#!" class="list-group-item-link"> LinkedIn</a></li> -->
+              <li class="list-group-item"><a href="https://youtube.com/channel/UC08MnPejr0_7yuqlkOoLTwQ" class="list-group-item-link">YouTube</a></li>
+              <li class="list-group-item"><a href="https://twitter.com/mitrsewa" class="list-group-item-link">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="mt-8">
+            <ul class="list-inline">
+              <li class="list-inline-item">© 2021, MitrSewa.in.</li>
+              <li class="list-inline-item"><a href="#!" class="text-reset"> Privacy Policy </a></li>
+              <li class="list-inline-item"><a href="#!" class="text-reset"> Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+
+
+
+  <script>
+    $(document).ready(function () {
+      $(".home, .bima_menu, .estore, .amazon, .enquiry, .team, .contact, .opening, .documents, .specialvideo, .blog, .digiportal").click(function () {
+        
+        var url = $(this).attr("href");
+        var pagename = $(this).attr("accesskey");
+       
+        if(pagename == "home" || pagename == "contact" || pagename == "blog" || pagename == "team" || pagename == "opening"){
+          window.location = url;
+        }else{
+          window.open(url, '_blank');
+        }
+        
+
+      });
+
+    });
+  </script>
+
+  <!-- clipboard -->
+  <script src="../frontend/libs/clipboard-js/clipboard.min.js"></script>
+  <!-- Theme JS -->
+  <script src="../frontend/assets/js/theme.min.js"></script>
+
+
+
+
+
+</body>
+
+</html>

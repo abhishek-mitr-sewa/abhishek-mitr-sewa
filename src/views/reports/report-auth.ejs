@@ -1,0 +1,132 @@
+<%- include('../layouts/header') %>
+<%- include('../'+leftMenuType) %>
+
+  
+<main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <!-- Page Header -->
+    <div class="content-container container-fluid px-4">
+      <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-6 text-center text-sm-left mb-0">
+          <span class="text-uppercase page-subtitle">Dashboard</span>
+          <h3 class="page-title">Auth for Area Manager </h3>
+        </div>
+      </div>
+    </div>
+    <!-- End Page Header -->
+    <!-- Default Light Table -->
+ 
+      
+      <div class="col-lg-8">
+        <div class="card card-small mb-4">
+          <div class="card-header border-bottom">
+            <h6 class="m-0">Add Details</h6>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item p-3">
+              <div class="row">
+                <div class="col">
+                  <% 
+                  if(status == 1) {
+                      %>
+                      <div class="alert alert-success text-white">
+                        <%=messages %>
+                      </div>
+                      <%
+                  }
+                %>
+               <% if(status == 0){   %>
+                  <div class="alert alert-danger text-white">
+                      <button type="button" class="close ml-auto" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true" class="text-white">×</span> </button>
+                      <h5 class="text-white"> Alert</h5> 
+                      <ul>
+                          <% Object.values(message).forEach(function(error){ %>
+                                <li><%= error.msg %></li>
+                          <% }); %>
+                      </ul>
+                    
+                  </div>
+                <%  } %>
+                  <form action="/agents/create-ms" method="POST" name="frmupdt">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="feEmailAddress">State</label>
+                        <select id="" name="state" class="form-control" required>
+                          <option value="">Select state</option>
+                          <option value="ANDAMAN & NICOBAR ISLANDS">ANDAMAN & NICOBAR ISLANDS</option>
+                          <option value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                          <option value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                          <option value="ASSAM">ASSAM</option>
+                          <option value="BIHAR">BIHAR</option>
+                          <option value="CHANDIGARH">CHANDIGARH</option>
+                          <option value="CHHATTISGARH">CHHATTISGARH</option>
+                          <option value="DADRA & NAGAR HAVELI AND DAMAN & DIU">DADRA NAGAR HAVELI</option>
+                          <option value="DELHI">DELHI</option>
+                          <option value="GOA">GOA</option>
+                          <option value="GUJARAT">GUJARAT</option>
+                          <option value="HARYANA">HARYANA</option>
+                          <option value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                          <option value="JAMMU & KASHMIR">JAMMU & KASHMIR</option>
+                          <option value="JHARKHAND">JHARKHAND</option>
+                          <option value="KARNATAKA">KARNATAKA</option>
+                          <option value="KERALA">KERALA</option>
+                          <option value="LAKSHADWEEP">LAKSHADWEEP</option>
+                          <option value="MADHYA PRADESH">MADHYA PRADESH</option>
+                          <option value="MAHARASHTRA">MAHARASHTRA</option>
+                          <option value="MANIPUR">MANIPUR</option>
+                          <option value="MEGHALAYA">MEGHALAYA</option>
+                          <option value="MIZORAM">MIZORAM</option>
+                          <option value="NAGALAND">NAGALAND</option>
+                          <option value="ODISHA">ODISHA</option>
+                          <option value="PUDUCHERRY">PUDUCHERRY</option>
+                          <option value="PUNJAB">PUNJAB</option>
+                          <option value="RAJASTHAN">RAJASTHAN</option>
+                          <option value="SIKKIM">SIKKIM</option>
+                          <option value="TAMIL NADU">TAMIL NADU</option>
+                          <option value="TELANGANA">TELANGANA</option>
+                          <option value="TRIPURA">TRIPURA</option>
+                          <option value="UTTAR PRADESH">UTTAR PRADESH</option>
+                          <option value="UTTARAKHAND">UTTARAKHAND</option>
+                          <option value="WEST BENGAL">WEST BENGAL</option>
+                        </select>
+                        
+                       </div>
+                      <div class="form-group col-md-6">
+                        <label for="">Mobile</label>
+                        <input type="text" name="mobile"  class="form-control" maxlength="10" id="mobile"> 
+                      </div>
+                    </div>
+                    
+                    <!-- <div class="form-row mt-3">
+                      <div class="form-group col-md-11">
+                        <label for="">Is Economically Weaker Section?</label>
+                        <select id="" name="user_type" class="form-control">
+                          <option value="">Select</option>
+                          <option value="ews">Yes</option>
+                          <option value="USER" selected>No</option>
+                        </select>
+                        <span class="text-danger conf_error_bldgrp"></span>
+                      </div>
+                    </div> -->
+                    <div class="col-md-12 text-right mt-3">
+                      <button type="submit" class="mb-3 btn btn-warning"><i class="material-icons">file_copy</i> Allow</button> 
+                  </div>
+                  </form>
+                  
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+   
+    <!-- End Default Light Table -->
+  </div>
+
+  <script>
+   $(document).ready(function(){
+      $('#mobile').bind('keyup paste', function(){
+        this.value = this.value.replace(/[^0-9]/g, '');
+      });
+    });
+  </script>
+        <%- include('../layouts/footer') %> 

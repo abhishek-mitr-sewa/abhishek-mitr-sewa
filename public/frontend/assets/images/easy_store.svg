@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="0.471016in" height="0.512409in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 470 511"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:#FCD526}
+    .fil3 {fill:#7035B8}
+    .fil4 {fill:#8241D1}
+    .fil1 {fill:#B273FF}
+    .fil2 {fill:#FFB800}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_618759272">
+   <polygon class="fil0" points="239,0 448,148 448,148 32,148 32,149 "/>
+   <rect class="fil1" x="32" y="148" width="413" height="192"/>
+   <g>
+    <path class="fil2" d="M32 148l66 0 0 22c0,13 -10,23 -22,23l-22 0c-12,0 -22,-10 -22,-23l0 -22z"/>
+    <path class="fil2" d="M101 148l66 0 0 22c0,13 -10,23 -22,23l-22 0c-12,0 -22,-10 -22,-23l0 -22z"/>
+    <path class="fil2" d="M170 148l66 0 0 22c0,12 -10,23 -22,23l-22 0c-12,0 -22,-11 -22,-23l0 -22z"/>
+    <path class="fil2" d="M239 148l67 0 0 22c0,12 -10,23 -23,23l-21 0c-12,0 -23,-11 -23,-23l0 -22z"/>
+    <path class="fil2" d="M309 148l66 0 0 22c0,12 -10,23 -22,23l-22 0c-12,0 -22,-11 -22,-23l0 -22z"/>
+    <path class="fil2" d="M379 148l66 0 0 22c0,12 -10,23 -22,23l-22 0c-12,0 -22,-11 -22,-23l0 -22z"/>
+   </g>
+   <rect class="fil2" y="340" width="470" height="133"/>
+   <g>
+    <g>
+     <circle class="fil3" cx="110" cy="256" r="29"/>
+     <rect class="fil3" x="69" y="276" width="82.599" height="130.526" rx="41" ry="41"/>
+     <rect class="fil3" x="80" y="379" width="25.8129" height="132.22" rx="13" ry="13"/>
+     <rect class="fil3" x="111" y="379" width="25.8129" height="132.22" rx="13" ry="13"/>
+    </g>
+    <rect class="fil3" transform="matrix(0.021673 0.0345219 -0.0511411 0.0321066 197.791 268.03)" width="317" height="1628" rx="158" ry="158"/>
+   </g>
+   <path class="fil4" d="M313 266l0 0c17,0 31,16 31,35l0 39 -62 0 0 -39c0,-19 14,-35 31,-35z"/>
+   <g>
+    <circle class="fil4" cx="312" cy="245" r="24"/>
+    <rect class="fil4" transform="matrix(0.0168516 0.0340801 -0.0367036 0.0331078 295.829 270.446)" width="317" height="1628" rx="158" ry="158"/>
+   </g>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,214 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<style src="css/responsive.dataTables.min.css"></style>
+<%- include('./main') %>
+<style>
+.dataTables_wrapper table.dataTable tbody td {
+    padding: .35rem .25rem !important;
+    }
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: white;
+   color: white;
+   text-align: center;
+}
+.border-right {
+    border-right: 1px solid #a6a8aa!important;
+}
+div.fixed {
+  position: fixed;
+  bottom: 10px;
+  background-color: #f5f6f8;
+} 
+.nav-link {
+    font-size: .6rem;
+}
+</style>
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+        <span class="text-uppercase page-subtitle">Dashboard</span>
+        <h3 class="page-title">MS List for <%= (((state.toString()).length>0) ? `(${state})` : '');%></h3>
+      </div>
+      
+    </div>
+    <div class="col-md-12 text-right"> <a href="../../admin/bc-list-export/<%= state%>" class="btn btn-success mb-2">Download MITR SEWAK CSV</a></div>
+
+    <!-- End Page Header -->
+    <!-- Transaction History Table -->
+  
+
+
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer" style="    margin-bottom: 100px;">
+      <!-- Button trigger modal -->
+      <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
+        <thead>
+            <tr>
+              <th >#</th>
+            <th >Name</th>
+            <!-- <th >Email</th> -->
+            <th  >Mobile</th>
+            <th  >District</th>
+            <th >Pincode</th>
+            <!-- <th >State</th> -->
+            <th >Pan No</th>
+            <th >Aadhar</th>
+            <!-- <th >Payment</th> -->
+            <th >Trans</th>     
+            <th >Referrer Code</th>
+            <th >Referral Code</th>
+            <th >FE Name</th>
+            <th >FE Mobile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(data.length > 0) {
+            let i =1;
+            data.forEach(function (row){ 
+              var date = '';
+              if(row.trans_date.toString().length > 0){
+                var dt = row.trans_date.toString();
+              dt = dt.substring(0, dt.length - 10);
+                
+              var dateObject = new Date(dt); 
+               date = new Date(dateObject).toLocaleDateString();
+              }else{
+                date = 'N/A';
+              }
+              
+          %>
+            <tr >
+              <td style="cursor: pointer;"><%= i %></td>
+              <!-- <td>October 31st 2017 <span class="text-sm">02:10 PM</span> -->
+              <td ><%= row.f_name+' '+row.m_name+' '+row.l_name %></td>
+              <!-- <td><%= (((row.email.toString()).length>0) ? row.email : 'N/A'); %></td> -->
+              <td><%= row.mobile %></td>
+              <td ><%= (((row.city.toString()).length>0) ? row.city : 'N/A'); %></td>
+              <td>
+                <%= (((row.pincode.toString()).length>0) ? row.pincode : 'N/A'); %>
+              </td>
+              <!-- <td>
+                <%= (((row.state.toString()).length>0) ? row.state : 'N/A'); %>
+              </td> -->
+              <td>
+                <%= (((row.pan_no.toString()).length>0) ? row.pan_no : 'N/A'); %>
+              </td>
+              <td>
+                <%= (((row.aadhar_no.toString()).length>0) ? row.aadhar_no : 'N/A'); %>
+              </td>
+              <!-- <td class="<%= ((row.payment_status != 'no') ? 'text-success' : 'text-danger'); %>" >
+                <%= ((row.payment_status != 'paid')? 'Pending' : 'Success'); %>
+              </td> -->
+              <!-- <td><%= ((row.user_type.toUpperCase() === 'agent') ? 'Feild Agent' : row.user_type.toUpperCase()); %></td> -->
+              <td>
+                <span class="<%= (((row.trans_date.toString()).length>0) ? 'text-success' : 'text-info') %>"><%= date; %></span>
+              </td>
+              <td>
+                <%= (((row.referrer_code.toString()).length>0) ? row.referrer_code : 'N/A'); %>
+              </td>
+              <td>
+                <%= (((row.referl_code.toString()).length>0) ? row.referl_code : 'N/A'); %>
+              </td>
+              <td>
+                <%= (((row.fe_fullname.toString()).length>0) ? row.fe_fullname : 'N/A'); %>
+              </td>
+              <td>
+                <%= (((row.fe_mobile.toString()).length>0) ? row.fe_mobile : 'N/A'); %>
+              </td>
+            </tr>
+                    
+  
+          <% i++; }); }  %>
+        </tbody>  
+    </table>
+    </div>
+    <!-- End Transaction History Table -->
+    
+  </div>
+
+
+  <div class="fixed">
+  <!-- <footer class="main-footer d-flex p-2 px-3 bg-white border-top"> -->
+    <ul class="nav">
+     
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/all">All</a>
+      </li>
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/ASSAM">ASSAM</a>
+      </li>
+      
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/GUJARAT">GUJARAT</a>
+      </li>
+       
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/JHARKHAND">JHARKHAND</a>
+      </li>
+      
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/MADHYA PRADESH">MADHYA PRADESH</a>
+      </li>
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/MAHARASHTRA">MAHARASHTRA</a>
+      </li>
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/MANIPUR">MANIPUR</a>
+      </li>
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/ODISHA">ODISHA</a>
+      </li>
+     
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/RAJASTHAN">RAJASTHAN</a>
+      </li>
+      
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/UTTAR PRADESH">UTTAR PRADESH</a>
+      </li>
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/UTTARAKHAND">UTTARAKHAND</a>
+      </li>
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/WEST BENGAL">WEST BENGAL</a>
+      </li>
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/BIHAR">BIHAR</a>
+      </li>
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/NAGALAND">NAGALAND</a>
+      </li>
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/MEGHALAYA">MEGHALAYA</a>
+      </li>
+      <li class="border-right">
+        <a class="nav-link" href="/admin/bc-list-view/ARUNACHAL PRADESH">ARUNACHAL PRADESH</a>
+      </li>
+    </ul>
+   
+  <!-- </footer> -->
+</div>
+</main>
+ 
+<script>
+/* $(document).ready(function() {
+    $('#example').dataTable({
+      'iDisplayLength': 100
+    });
+}); */
+$(document).ready(function() {
+    var table = $('#example').DataTable( {
+        responsive: true,
+        'iDisplayLength': 50
+    } );
+ 
+    new $.fn.dataTable.FixedHeader( table );
+} );
+
+</script>
+
+<%- include('../layouts/footer') %> 

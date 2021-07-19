@@ -1,0 +1,316 @@
+
+      <!-- Main Sidebar -->
+      <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+        <div class="main-navbar">
+          <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+            <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+              <div class="d-table m-auto">
+                <!-- <img id="main-logo" class="d-inline-block align-top mr-1 img-thumbnail" style="max-width: 36px;" src="<%= path %>/<%=user.profile_image %>" alt="Shards Dashboard"> -->
+                <span class="d-none d-md-inline ml-1"><%=user.fullname %></span>
+              </div>
+            </a>
+            <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+              <i class="material-icons"></i>
+            </a>
+          </nav>
+        </div>
+        <!-- <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+          <div class="input-group input-group-seamless ml-3">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fas fa-search"></i>
+              </div>
+            </div>
+            <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search">
+          </div>
+        </form> -->
+        <% 
+          let activeBar = '';
+          if(title && (title == "Success Payments" || title == "Failed Payments" || title == "Create Payment")) {
+            activeBar = 'Payments';
+          } else if(title && (title == "List")) {
+            activeBar = 'Manage User';
+          } else if(title && title == "Dashboard") {
+            activeBar = "Dashboard";
+          }
+
+        %> 
+        <div class="nav-wrapper" style="overflow-y: auto;">
+          <h6 class="main-sidebar__nav-title">Dashboards</h6>
+          
+            <% if(usrType === 'admin') {%>
+            <ul class="nav nav--no-borders flex-column">
+                <li class="nav-item">
+                  <a class="nav-link " href="/admin/admin-dashboard">
+                    <i class="material-icons"></i>
+                    <span>Dashboard</span> 
+                  </a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/admin/admin-report-cards/UTTAR PRADESH">
+                  <i class="material-icons"></i>
+                  <span>Report Cards</span> 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="../../admin/bc-list-view/all">
+                  <i class="material-icons"></i>
+                  <span>MS Sheet</span> 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="../../admin/fe-list-view/all">
+                  <i class="material-icons"></i>
+                  <span>FE Sheet</span> 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="../../admin/admin-bima-reports/UTTAR PRADESH">
+                  <i class="material-icons"></i>
+                  <span>Fe Bima Report</span> 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="../../admin/bima-state-wise/">
+                  <i class="material-icons"></i>
+                  <span>FE State Wise Report</span> 
+                </a>
+              </li>
+            </ul>
+            <h6 class="main-sidebar__nav-title">Account</h6>
+            <ul class="nav nav--no-borders flex-column">
+              <li class="nav-item dropdown <%=(activeBar=='Manage User') ? 'show active' : '' %> ">
+                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                  <i class="material-icons"></i>
+                  <span>Manage User</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-small <%=(activeBar=='Manage User') ? 'show d-block' : '' %>" x-placement="bottom-start" style="display:none;position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                  <!-- <a class="dropdown-item " href="user-profile.html">Create</a> -->
+                  <a class="dropdown-item <%=title && (title == 'Success Payments') ? 'active' : '' %>" href="/admin/list">Pending</a>
+                  <a class="dropdown-item <%=title && (title == 'Failed Payments') ? 'active' : '' %>" href="/admin/list-bca">Mitrsewak (MS)</a>
+                  <a class="dropdown-item <%=title && (title == 'List EWS') ? 'active' : '' %>" href="/admin/list-ews">EWS</a>
+                  <a class="dropdown-item <%=title && (title == 'Success Payments') ? 'active' : '' %>" href="/admin/listAgent">Field Executive</a>
+                  <a class="dropdown-item <%=title && (title == 'Success Payments') ? 'active' : '' %>" href="/admin/boughtdevice">Bought Device</a>
+              
+                </div>
+              </li>
+          
+
+              <li class="nav-item dropdown <%=(activeBar=='Payments') ? 'show active' : '' %>">
+                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                  <i class="material-icons"></i>
+                  <span>Payments</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-small <%= (activeBar=='Payments') ? 'show' : '' %>"  x-placement="bottom-start" 
+                  style="display: <%=(activeBar=='Payments') ? 'block' : 'none' %>; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                  <!-- <a class="dropdown-item " href="user-profile.html">Create</a> -->
+                  <a class="dropdown-item <%=title && (title == 'Success Payments') ? 'active' : '' %>" href="/admin/success-payment">Success Payments</a>
+                  <a class="dropdown-item <%=title && (title == 'Failed Payments') ? 'active' : '' %>" href="/admin/failed-payment">Failed Payments</a>
+                
+                  <a class="dropdown-item <%=title && (title == 'Create Payment') ? 'active' : '' %>" href="/admin/create-payment">Create Payments</a>
+                
+                </div>
+              </li>
+            
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="material-icons">view_module</i>
+                    <span>Create Report AUTH</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                    
+                    <a class="dropdown-item <%=title && (title == 'Add member') ? 'active' : '' %>" href="/reports/report-auth">Add Member</a>
+                
+                    <a class="dropdown-item " href="/reports/member-list">View</a>
+                  </div>
+                </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                  <i class="material-icons">view_module</i>
+                  <span>Manage ZE</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                  <% if(usrType === 'admin') {%>
+                  <a class="dropdown-item <%=title && (title == 'Add ZE') ? 'active' : '' %>" href="/admin/chooseze">Add ZE</a>
+                  <% } %>
+                  <a class="dropdown-item " href="/admin/list-ze">View</a>
+                </div>
+              </li>
+            </ul>
+            <ul class="nav nav--no-borders flex-column">
+              <li class="nav-item dropdown  <%=(activeBar=='Payout') ? 'show active' : '' %> ">
+                <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                  aria-expanded="false">
+                  <i class="material-icons"></i>
+                  <span>Payouts</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-small  <%=(activeBar=='Payout') ? 'show d-block' : '' %>"
+                  x-placement="bottom-start"
+                  style="display:none;position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                  <a class="dropdown-item <%=title && (title == 'create-payout-list') ? 'active' : '' %>"
+                    href="/admin/create-payouts">Create Payouts</a>
+                  <a class="dropdown-item <%=title && (title == 'list-payout') ? 'active' : '' %>"
+                    href="/admin/list-payouts">MS Payouts</a>
+                  <a class="dropdown-item <%=title && (title == 'fe-payout-list') ? 'active' : '' %>"
+                    href="/admin/list-fe-payouts">FE Payouts</a>
+                  <a class="dropdown-item <%=title && (title == 'ze-payout-list') ? 'active' : '' %>"
+                    href="/admin/list-ze-payouts">ZE payouts</a>
+                  <a class="dropdown-item <%=title && (title == 'fe-own-payouts-list') ? 'active' : '' %>"
+                      href="/admin/fe-own-payouts-list">FE Own Payouts</a>
+                  <a class="dropdown-item <%=title && (title == 'fe-full-payouts') ? 'active' : '' %>" href="/admin/fe-full-payouts">FE Total Payouts</a>
+
+                </div>
+              </li>
+              <li class="nav-item dropdown"></li>
+            </ul>
+            <% } %>
+           
+            <% if(usrType === 'COMPANY') {%>
+              <ul class="nav nav--no-borders flex-column">
+                <li class="nav-item">
+                  <a class="nav-link " href="/admin/admin-dashboard">
+                    <i class="material-icons"></i>
+                    <span>Dashboard</span> 
+                  </a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/admin/admin-report-cards/UTTAR PRADESH">
+                  <i class="material-icons"></i>
+                  <span>Report Cards</span> 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="../../admin/bc-list-view/all">
+                  <i class="material-icons"></i>
+                  <span>MS List</span> 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="../../admin/fe-list-view/all">
+                  <i class="material-icons"></i>
+                  <span>FE List</span> 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="../../admin/admin-bima-reports/UTTAR PRADESH">
+                  <i class="material-icons"></i>
+                  <span>Fe Bima Report</span> 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="../../admin/bima-state-wise/">
+                  <i class="material-icons"></i>
+                  <span>FE State Wise Report</span> 
+                </a>
+              </li>
+              </ul>
+              <h6 class="main-sidebar__nav-title">Account</h6>
+              <ul class="nav nav--no-borders flex-column">
+                <li class="nav-item dropdown <%=(activeBar=='Manage User') ? 'show active' : '' %> ">
+                  <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="material-icons"></i>
+                    <span>Manage User</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small <%=(activeBar=='Manage User') ? 'show d-block' : '' %>" x-placement="bottom-start" style="display:none;position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                    <!-- <a class="dropdown-item " href="user-profile.html">Create</a> -->
+                    <a class="dropdown-item <%=title && (title == 'Success Payments') ? 'active' : '' %>" href="/admin/list">Pending</a>
+                    <a class="dropdown-item <%=title && (title == 'Failed Payments') ? 'active' : '' %>" href="/admin/list-bca">Mitrsewak (MS)</a>
+                    <a class="dropdown-item <%=title && (title == 'List EWS') ? 'active' : '' %>" href="/admin/list-ews">EWS</a>
+                    <a class="dropdown-item <%=title && (title == 'Success Payments') ? 'active' : '' %>" href="/admin/listAgent">Field Executive</a>
+                    <!-- <a class="dropdown-item <%=title && (title == 'Success Payments') ? 'active' : '' %>" href="/admin/boughtdevice">Bought Device</a> -->
+                
+                  </div>
+                </li>
+            
+
+                <li class="nav-item dropdown <%=(activeBar=='Payments') ? 'show active' : '' %>">
+                  <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="material-icons"></i>
+                    <span>Payments</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small <%= (activeBar=='Payments') ? 'show' : '' %>"  x-placement="bottom-start" 
+                    style="display: <%=(activeBar=='Payments') ? 'block' : 'none' %>; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                    <!-- <a class="dropdown-item " href="user-profile.html">Create</a> -->
+                    <!-- <a class="dropdown-item <%=title && (title == 'Success Payments') ? 'active' : '' %>" href="/admin/success-payment">Success Payments</a> -->
+                    <a class="dropdown-item <%=title && (title == 'Failed Payments') ? 'active' : '' %>" href="/admin/failed-payment">Failed Payments</a>
+                    
+                  </div>
+                </li>
+              
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="material-icons">view_module</i>
+                    <span>Manage ZE</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small" x-placement="bottom-start" style="display: none; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                    <a class="dropdown-item " href="/admin/list-ze">View</a>
+                  </div>
+                </li>
+              </ul>
+              <ul class="nav nav--no-borders flex-column">
+                <li class="nav-item dropdown  <%=(activeBar=='Payout') ? 'show active' : '' %> ">
+                  <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                    aria-expanded="false">
+                    <i class="material-icons"></i>
+                    <span>Payouts</span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-small  <%=(activeBar=='Payout') ? 'show d-block' : '' %>"
+                    x-placement="bottom-start"
+                    style="display:none;position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(5px, 50px, 0px);">
+                    <a class="dropdown-item <%=title && (title == 'create-payout-list') ? 'active' : '' %>"
+                      href="/admin/create-payouts">Create Payouts</a>
+                    <a class="dropdown-item <%=title && (title == 'list-payout') ? 'active' : '' %>"
+                      href="/admin/list-payouts">MS Payouts</a>
+                    <a class="dropdown-item <%=title && (title == 'fe-payout-list') ? 'active' : '' %>"
+                      href="/admin/list-fe-payouts">FE Payouts</a>
+                    <a class="dropdown-item <%=title && (title == 'ze-payout-list') ? 'active' : '' %>"
+                      href="/admin/list-ze-payouts">ZE payouts</a>
+                    <a class="dropdown-item <%=title && (title == 'fe-own-payouts-list') ? 'active' : '' %>"
+                        href="/admin/fe-own-payouts-list">FE Own Payouts</a>
+                    <a class="dropdown-item <%=title && (title == 'fe-full-payouts') ? 'active' : '' %>" href="/admin/fe-full-payouts">FE Total Payouts</a>
+  
+                  </div>
+                </li>
+              </ul>
+              <% } %>
+         
+              <% if(usrType === 'AM') {%>   <!-- ------ AREA MANAGER ------ -->
+               
+                <ul class="nav nav--no-borders flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link " href="/admin/admin-dashboard">
+                      <i class="material-icons"></i>
+                      <span>Dashboard</span> 
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/admin/report-cards">
+                      <i class="material-icons"></i>
+                      <span>Report Cards</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/am/fe-details">
+                      <i class="material-icons"></i>
+                      <span>FE Sheet</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/am/bc-list-export">
+                      <i class="material-icons"></i>
+                      <span>MS Sheet</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="/am/inactive-users">
+                      <i class="material-icons"></i>
+                      <span>Pending Users</span>
+                    </a>
+                  </li>
+                </ul>
+              <% } %>
+          
+        </div>
+      </aside>
+      <!-- End Main Sidebar -->

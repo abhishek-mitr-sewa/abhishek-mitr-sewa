@@ -1,0 +1,100 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<style src="css/responsive.dataTables.min.css"></style>
+<%- include('./main') %>
+<style>
+.dataTables_wrapper table.dataTable tbody td {
+    padding: .35rem .25rem !important;
+    }
+
+</style>
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+        <span class="text-uppercase page-subtitle">Dashboard</span>
+        <h3 class="page-title">All Member List</h3>
+      </div>
+      
+    </div>
+
+    <!-- End Page Header -->
+    <!-- Transaction History Table -->
+  
+
+
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+      <!-- Button trigger modal -->
+      <table class="transaction-history d-none dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1152px;">
+      <thead class="py-2 bg-light text-semibold border-bottom">
+        <tr role="row">
+          <th class="sorting_asc">#</th>
+          <th class="sorting">Name</th>
+          <th class="sorting" >Mobile</th>
+          <th class="sorting" >District</th>
+          <th class="sorting">Payment</th>
+          <th class="sorting">Trans</th>
+          <th class="sorting">Amount</th>
+          <th class="sorting">Amount</th>
+          <th class="sorting">Amount</th>
+          <th class="sorting">Amount</th>
+          <th class="sorting">Amount</th>
+          <th class="sorting">Amount</th>
+          <th class="sorting">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(data.length > 0) {
+          let i =1;
+          data.forEach(function (row){ 
+            var date = '';
+            if(row.trans_date.toString().length > 0){
+              var dt = row.trans_date.toString();
+            dt = dt.substring(0, dt.length - 10);
+              
+            var dateObject = new Date(dt); 
+             date = new Date(dateObject).toLocaleDateString();
+            }else{
+              date = 'N/A';
+            }
+            
+        %>
+          <tr class="odd">
+            <td ><%= i %></td>
+            <!-- <td>October 31st 2017 <span class="text-sm">02:10 PM</span> -->
+            <td style="width: 450px;"><%= row.f_name+' '+row.m_name+' '+row.l_name %></td>
+            <td><%= row.mobile %></td>
+            <td style="width: 300px;"><%= (((row.city.toString()).length>0) ? row.city : 'N/A'); %></td>
+            
+            <td class="<%= ((row.payment_status != 'no') ? 'text-success' : 'text-danger'); %>" >
+              <%= ((row.payment_status != 'paid')? 'Pending' : 'Success'); %>
+            </td>
+            <!-- <td><%= ((row.user_type.toUpperCase() === 'agent') ? 'Feild Agent' : row.user_type.toUpperCase()); %></td> -->
+            <td>
+              <span class="<%= (((row.trans_date.toString()).length>0) ? 'text-success' : 'text-info') %>"><%= date; %></span>
+            </td>
+            <td><%= row.total_amount; %></td>
+            <td><%= row.total_amount; %></td>
+            <td><%= row.total_amount; %></td>
+            <td><%= row.total_amount; %></td>
+            <td><%= row.total_amount; %></td>
+            <td><%= row.total_amount; %></td>
+            <td><%= row.total_amount; %></td>
+          </tr>
+                  
+
+        <% i++; }); }  %>
+      </tbody>
+    </table>
+  </div>
+    <!-- End Transaction History Table -->
+  </div>
+
+</main>
+<script>
+$(document).ready(function() {
+
+});
+
+</script>
+<%- include('../layouts/footer') %> 

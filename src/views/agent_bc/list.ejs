@@ -1,0 +1,76 @@
+<%- include('../layouts/header') %>
+<%- include('../'+leftMenuType) %>
+<style src="../css/responsive.dataTables.min.css"></style>
+
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+        <span class="text-uppercase page-subtitle">Dashboard</span>
+        <h3 class="page-title">Member's List</h3>
+      </div>
+      
+    </div>
+    <!-- End Page Header -->
+    <!-- Transaction History Table -->
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+      <!-- Button trigger modal -->
+      <table class="transaction-history d-none dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1152px;">
+      <thead>
+        <tr role="row">
+          <th class="sorting_asc">#</th>
+          <th class="sorting">Full Name</th>
+          <th class="sorting" >Mobile</th>
+          <th class="sorting" >City</th>
+          <!-- <th class="sorting">KYC Status</th> -->
+          <th class="sorting">MS Code</th>
+          <th class="sorting">Join Date</th>
+          <th class="sorting">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(data.length > 0) {
+          var i=1;
+          data.forEach(function (row){
+            %>
+          <tr role="row" class="odd">
+            <td tabindex="0" class="sorting_1"><%= i; %></td>
+            <!-- <td>October 31st 2017 <span class="text-sm">02:10 PM</span> -->
+            <td><%= row.f_name +' '+ row.m_name+' '+ row.l_name %></td>
+            <td><%= row.mobile %></td>
+            <td><%= row.city %></td>
+            
+            <td><%= row.referrer_code; %></td>
+            <td>
+              <span class="text-success"><%= row.created_at.toDateString(); %></span>
+            </td>
+            <td><a class="btn btn-white" href="/agents/member-edit/<%= row._id;%>"><span class="text-light"><i class="material-icons">more_vert</i></span>Edit/View </a>
+            </button></td>
+            
+          </tr>       
+       
+         
+        <% i++; }); }  %>
+      </tbody>
+    </table>
+  </div>
+    <!-- End Transaction History Table -->
+  </div>
+
+<script>
+//$(document).ready(function() {
+//   $(".delsubmoit").click(function (e) {
+//     var mobile = $(this).attr('alt');
+//     var confText = $(".conf_val_"+mobile).val();
+//     if(confText != 'approve'){
+//       e.preventDefault();
+//       $(".conf_error_"+mobile).html('Please enter correct text.');
+//     }else{
+//       $(".conf_error_"+mobile).html('');
+//       return true;
+//     }
+//   });
+// });
+
+</script>
+<%- include('../layouts/footer') %> 

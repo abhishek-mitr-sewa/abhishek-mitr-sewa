@@ -1,0 +1,275 @@
+<%- include('../layouts/header') %>
+<%- include('../'+leftMenuType) %>
+
+<style>
+    .signature,
+    .title {
+      float: left;
+      border-top: 1px solid #000;
+      width: 200px;
+    }
+  
+    .inline-svg {
+      /* Doesn't work at all in IE */
+      border: 3px solid white;
+      border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><defs><linearGradient id='redgradient'><stop offset='0' stop-color='%23FFC14D'/><stop offset='0.362' stop-color='%23FF4834'/><stop offset='1' stop-color='%233B0300'/></linearGradient></defs><g id='Layer_1'><path d='M0,0 L50,0 L50,50 L0,50 L0,0 z' fill='url(%23redgradient)' width='100%' height='100%'/></g></svg>") 10% stretch;
+    }
+  
+    /* styling for Pen, unrelated to border-image */
+  
+    * {
+      box-sizing: border-box;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="float-right">
+          <button class="btn btn-success " type="button" id="pintbtn">print</button>
+        </div>
+      
+    </div>
+  
+</div>  
+<div class="inline-svg" style="width:910px; height:1600px; padding:30px; margin-left: inherit;">
+
+<div style="text-align: center;">
+    <img src="../../images/hdr.png" height="90" width="900" style="margin-bottom: 5px;margin-left: -27px;">
+</div>
+<div>
+    <span style="font-size:16; color:#e67c1f;margin-top: 2%;">
+    <center>CIN: U52399UP2021PTC140614</center>
+    </span>
+   
+    <div style="text-align:left; font-size:16px;margin-top: 5%;line-height: 1.2;">
+    <span>Name: <%= (userdetail.f_name+' '+ userdetail.m_name+' '+userdetail.l_name)%></span> <br />
+    <span>Village / Ward: <%=  userdetail.village_locality %> </span> <br />
+    <span>Post Office: <%= userdetail.post_office %></span> <br />
+    <span>Taluk:: <%= userdetail.city %> </span><br>
+    <span>Email ID: <%= usersess.user.email %></span><br>
+    <span>Mobile number: <%= usersess.user.mobile %> </span>
+
+    </div>
+    <div style="font-size:16px;margin-left: 73%;text-align: left; line-height: 1.2;    margin-top: -14%;">
+    <%
+        var dt = usersess.user.created_at.substring(0, usersess.user.created_at.length - 5);
+        var d = new Date(dt);
+        var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear();
+    %>
+    <span>Date:  <%= datestring%></span><br />
+    <span>Pin Code: <%=userdetail.pin_code%></span>
+    <br />
+    <span>District: <%=userdetail.city%></span><br>
+    <span>State: <%=userdetail.state%></span><br>
+    <span>FE Code: <%=usersess.user.referrer_code %></span>
+    </div>
+
+    <div style="font-size:16px;margin-top: 8%; text-align:justify;line-height: 1.3;">
+    <span><u>Subject: Zonal Executive Engagement for FY 2021-22</u></span>
+    <span></span><br><br>
+    <p>Mitr Sewa Private Limited, herein referred to as the Company, is pleased to inform you that you
+        have been selected and offered self-employment opportunity as a Zonal Executive for delivering
+        various services under banner of Mitr Sewa through the Field Executive (and Mitr Sewak engaged by
+        them) in the allocated area by the Company. Your engagement as a Zonal Executive is based on the
+        verification of your profile for self-employment opportunities as Zonal Executive, along with your
+        entrepreneurial credentials. The Company shall arrange offline/online training for various services to
+        be provided under banner of Mitr Sewa Kendra.
+    </p>
+    <p>You shall carry on the Zonal Executive activities in self-owned/rented premises as stated in the
+        profile to supervise and monitor Field Executive &amp; fixed point Mitr Sewa Kendra in the allocated
+        area. The Mitr Sewa Kendra under your supervision shall comply with the norms laid down by the
+        Company and Partner Bank. You should supervise the Mitr Sewak to maintain the devices and assets
+        provided by the Company and Partner Bank in good order. The Company, with your assistance, shall
+        provide necessary support (technical upkeep of machines and devices, and other associated
+        infrastructure and training on operations, compliances, products &amp; services) on demand and on
+        periodic basis for uninterrupted operations at Mitr Sewa Kendra.</p>
+
+    <p>The Service Charges / variable remunerations are intended to cover your return on investment apart
+        from infrastructure cost like rent for the Office, internet charges, travel expenses, administrative
+        expenses, mobile charges, etc. The service charges / variable remuneration you are entitled to will
+        be advised to you and changes, if any, shall be advised from time to time. Payment of remuneration
+        shall be remitted to your account as provided by you during registration. Please note that the
+        threshold level and service charges / fee structure can be changed by the Company / Partner Bank
+        without assigning any reasons or prior notice. Further, any tax and levies applicable to the services
+        you provide as Zonal Executive of the Company shall be borne by you and the company shall deduct
+        any applicable taxes at source from payments to you. </p>
+
+    <p>Your engagement as a Zonal Executive by the company is on a principal-to-principal basis. You are
+        free to carry on other business / occupations as stated by you in the profile. You are also free to
+        carry on any other business / occupation that does not conflict with the interests of the company /
+        partner bank. As an entrepreneur, you invest time and capital of your own free will and are aware of
+        the business risks involved, including possible losses. Your status is self-employed with the additional
+        role of business correspondent. No work under this engagement can be transferred or assigned to
+        any other person without the prior written consent of the company / partner bank.</p>
+
+    <p>This engagement is valid for a period of 1 (one) year from the date of acceptance of this letter and
+        shall be deemed to be extended beyond this period unless explicitly discontinued by either party.
+        However, the engagement shall be deemed to be terminated if a) the partner bank terminated its
+        relationship with the company; b) the business generation level as defined by the company / partner
+        bank fall below expectations consistently without valid justifications; c) any breach on your part of
+        the basic trust / terms / values of the company / partner bank; d) any misrepresentation / fraudulent
+        activities on your part at any point of time.</p>
+    <p>This engagement supersedes all prior agreements on the subject matter whether oral or written
+        between the company and yourself. Any disputes shall be referred to the Courts at Lucknow, Uttar
+        Pradesh, India.</p>
+    <p style="margin-bottom:5%;">Kindly communicate your acceptance of the above-mentioned terms by countersigning the
+        enclosed
+        duplicate copy of this engagement letter and returning the same to the company by a) emailing a
+        scanned copy to <a href="javascript:void(0);">info@mitrsewa.in</a> cc to <a
+        href="javascript:void(0);">zubair.alam@mitrsewa.in</a>; and b) delivering the physical
+        copy by post / hand.</p>
+    <p style="margin-bottom: 4%;"><b>For Mitr Sewa Private Limited</b></p>
+
+    <p>
+        <div><img src="../../images/head_sir_sign.png" height="70" width="140"></div><br>
+        Director, Mitr Sewa Pvt. Ltd<br>
+        
+        Date: <%
+                    tdate = new Date();
+               %>
+            <%= tdate.toDateString()%>
+    </div>
+    <br />
+
+</div>
+</div>
+
+<div class="print_div" style="display:none;">
+    <style>
+        .signature,
+        .title {
+          float: left;
+          border-top: 1px solid #000;
+          width: 200px;
+        }
+      
+        .inline-svg {
+          /* Doesn't work at all in IE */
+          border: 3px solid white;
+          border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><defs><linearGradient id='redgradient'><stop offset='0' stop-color='%23FFC14D'/><stop offset='0.362' stop-color='%23FF4834'/><stop offset='1' stop-color='%233B0300'/></linearGradient></defs><g id='Layer_1'><path d='M0,0 L50,0 L50,50 L0,50 L0,0 z' fill='url(%23redgradient)' width='100%' height='100%'/></g></svg>") 10% stretch;
+        }
+      
+        /* styling for Pen, unrelated to border-image */
+      
+        * {
+          box-sizing: border-box;
+        }
+    </style>
+      
+      <div class="inline-svg" style="width:910px; height:1200px; padding:30px; margin-left: inherit;">
+
+        <div style="text-align: center;">
+            <img src="../../images/hdr.png" height="90" width="900" style="margin-bottom: 5px;margin-left: -27px;">
+        </div>
+        <div>
+            <span style="font-size:16; color:#e67c1f;margin-top: 2%;">
+            <center>CIN: U52399UP2021PTC140614</center>
+            </span>
+           
+            <div style="text-align:left; font-size:15px;margin-top: 5%;line-height: 1.1;">
+            <span>Name: <%= (userdetail.f_name+' '+ userdetail.m_name+' '+userdetail.l_name)%></span> <br />
+            <span>Village / Ward: <%=  userdetail.village_locality %> </span> <br />
+            <span>Post Office: <%= userdetail.post_office %></span> <br />
+            <span>Taluk:: <%= userdetail.city %> </span><br>
+            <span>Email ID: <%= usersess.user.email %></span><br>
+            <span>Mobile number: <%= usersess.user.mobile %> </span>
+        
+            </div>
+            <div style="font-size:15px;margin-left: 73%;text-align: left; line-height: 1.1;    margin-top: -14%;">
+            <%
+                var dt = usersess.user.created_at.substring(0, usersess.user.created_at.length - 5);
+                var d = new Date(dt);
+                var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear();
+            %>
+            <span>Date:  <%= datestring%></span><br />
+            <span>Pin Code: <%=userdetail.pin_code%></span>
+            <br />
+            <span>District: <%=userdetail.city%></span><br>
+            <span>State: <%=userdetail.state%></span><br>
+            <span>FE Code: <%=usersess.user.referrer_code %></span>
+            </div>
+        
+            <div style="font-size:15px;margin-top: 8%; text-align:justify;line-height: 1.1;">
+            <span><u>Subject: Zonal Executive Engagement for FY 2021-22</u></span>
+            <span></span><br><br>
+            <p>Mitr Sewa Private Limited, herein referred to as the Company, is pleased to inform you that you
+                have been selected and offered self-employment opportunity as a Zonal Executive for delivering
+                various services under banner of Mitr Sewa through the Field Executive (and Mitr Sewak engaged by
+                them) in the allocated area by the Company. Your engagement as a Zonal Executive is based on the
+                verification of your profile for self-employment opportunities as Zonal Executive, along with your
+                entrepreneurial credentials. The Company shall arrange offline/online training for various services to
+                be provided under banner of Mitr Sewa Kendra.
+            </p>
+            <p>You shall carry on the Zonal Executive activities in self-owned/rented premises as stated in the
+                profile to supervise and monitor Field Executive &amp; fixed point Mitr Sewa Kendra in the allocated
+                area. The Mitr Sewa Kendra under your supervision shall comply with the norms laid down by the
+                Company and Partner Bank. You should supervise the Mitr Sewak to maintain the devices and assets
+                provided by the Company and Partner Bank in good order. The Company, with your assistance, shall
+                provide necessary support (technical upkeep of machines and devices, and other associated
+                infrastructure and training on operations, compliances, products &amp; services) on demand and on
+                periodic basis for uninterrupted operations at Mitr Sewa Kendra.</p>
+        
+            <p>The Service Charges / variable remunerations are intended to cover your return on investment apart
+                from infrastructure cost like rent for the Office, internet charges, travel expenses, administrative
+                expenses, mobile charges, etc. The service charges / variable remuneration you are entitled to will
+                be advised to you and changes, if any, shall be advised from time to time. Payment of remuneration
+                shall be remitted to your account as provided by you during registration. Please note that the
+                threshold level and service charges / fee structure can be changed by the Company / Partner Bank
+                without assigning any reasons or prior notice. Further, any tax and levies applicable to the services
+                you provide as Zonal Executive of the Company shall be borne by you and the company shall deduct
+                any applicable taxes at source from payments to you. </p>
+        
+            <p>Your engagement as a Zonal Executive by the company is on a principal-to-principal basis. You are
+                free to carry on other business / occupations as stated by you in the profile. You are also free to
+                carry on any other business / occupation that does not conflict with the interests of the company /
+                partner bank. As an entrepreneur, you invest time and capital of your own free will and are aware of
+                the business risks involved, including possible losses. Your status is self-employed with the additional
+                role of business correspondent. No work under this engagement can be transferred or assigned to
+                any other person without the prior written consent of the company / partner bank.</p>
+        
+            <p>This engagement is valid for a period of 1 (one) year from the date of acceptance of this letter and
+                shall be deemed to be extended beyond this period unless explicitly discontinued by either party.
+                However, the engagement shall be deemed to be terminated if a) the partner bank terminated its
+                relationship with the company; b) the business generation level as defined by the company / partner
+                bank fall below expectations consistently without valid justifications; c) any breach on your part of
+                the basic trust / terms / values of the company / partner bank; d) any misrepresentation / fraudulent
+                activities on your part at any point of time.</p>
+            <p>This engagement supersedes all prior agreements on the subject matter whether oral or written
+                between the company and yourself. Any disputes shall be referred to the Courts at Lucknow, Uttar
+                Pradesh, India.</p>
+            <p style="margin-bottom:5%;">Kindly communicate your acceptance of the above-mentioned terms by countersigning the
+                enclosed
+                duplicate copy of this engagement letter and returning the same to the company by a) emailing a
+                scanned copy to <a href="javascript:void(0);">info@mitrsewa.in</a> cc to <a
+                href="javascript:void(0);">zubair.alam@mitrsewa.in</a>; and b) delivering the physical
+                copy by post / hand.</p>
+            <p style="margin-bottom: 4%;"><b>For Mitr Sewa Private Limited</b></p>
+        
+            <p>
+                <div><img src="../../images/head_sir_sign.png" height="70" width="140"></div><br>
+                Director, Mitr Sewa Pvt. Ltd<br>
+                
+                Date: <%
+                            tdate = new Date();
+                       %>
+                    <%= tdate.toDateString()%>
+            </div>
+            <br />
+        
+        </div>
+        </div>
+</div>
+
+<script>
+    $(document).on("click","#pintbtn",(data)=>{
+        //console.log($(".print_div").html());
+
+        var newWin=window.open('','Print-Window');
+        newWin.document.open();
+        newWin.document.write('<html><body onload="window.print()">'+$(".print_div").html()+'</body></html>');
+        newWin.document.close();
+        //setTimeout(function(){newWin.close();},10);
+
+    });
+</script>
+
+<%- include('../layouts/footer') %> 

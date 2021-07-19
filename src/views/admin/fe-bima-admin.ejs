@@ -1,0 +1,190 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<%- include('./main') %>
+    <style>
+      .tr-bcColor-red{
+        background-color: #fae7ee;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .td-min-orange{
+        background-color:#fdf5e6; 
+      }
+      .tr-min-orange{
+        background-color:#fdf5e6; 
+      }
+      .tr-bcColor-green{
+        background-color: #e7f7f0;
+      
+      }
+      .lo-stats .card-body {
+        min-height: 33rem;
+      }
+
+      .container-fluid-model {
+        position: absolute;
+        height: 21%;
+        min-width: 30rem;
+        padding-right: 1px;
+        padding-left: 1px;
+      }
+      .arrow-red{
+        font-size: 18px !important;
+        color: red;
+      }
+      .arrow-green{
+        font-size: 18px !important;
+        color:green;
+      }
+      .div-bg-color{
+        background-color: rgba(86, 61, 124, .15);
+        /* border: 1px solid rgba(86, 61, 124, .2); */
+      }
+      .text-middle{
+        align-self: center;
+      }
+      .list-group-small .list-group-item {padding: .625rem .1rem;}
+      .plr-0{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+      .btn-group-sm>.btn, .btn-sm {
+        padding: .3286rem .575rem;
+        font-size: .5875rem;
+      }
+    </style>
+    <div class="main-content-container container-fluid px-4">
+      <!-- Page Header -->
+      <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-6 text-center text-sm-left mb-0">
+          <span class="text-uppercase page-subtitle">Dashboard</span>
+          <h3 class="page-title">FE Bima Report Overview </h3>
+        </div>
+      </div>
+      <!-- ----------  FOR COMPANY ADMIN STATS CODE START HERE ----------------- -->
+     
+     <!-- <div class="row">
+        
+        <div class="col col-lg-12 col-md-12 col-sm-12 mb-4">
+            <div class="card card-small h-100">
+                <div class="card-header border-bottom d-flex">
+                    <div class="btn-group btn-group-sm">
+
+                        <ul class="navbar-nav flex-row ml-4">
+                  
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle text-nowrap px-3 page-title" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= state %></span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-small" style="display: none;">
+                                    </div>
+                            </li>
+                        </ul>
+                
+                    </div>
+               
+                </div>
+            </div>
+        </div> -->
+            <div class="card card-small mb-4">
+            <div class="card-header border-bottom">
+                <div class="btn-group btn-group-sm">
+                    <ul class="navbar-nav flex-row ml-4">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-nowrap px-3 page-title" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= state %></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-small" style="display: none;">
+                              <a href="/admin/admin-bima-reports/ANDHRA PRADESH" class="dropdown-item"> ANDHRA PRADESH </a>
+                              <a href="/admin/admin-bima-reports/ARUNACHAL PRADESH" class="dropdown-item"> ARUNACHAL PRADESH </a>
+                              <a href="/admin/admin-bima-reports/ASSAM" class="dropdown-item"> ASSAM </a>
+                              <a href="/admin/admin-bima-reports/BIHAR" class="dropdown-item"> BIHAR </a>
+                              <a href="/admin/admin-bima-reports/CHANDIGARH" class="dropdown-item"> CHANDIGARH </a>
+                              <a href="/admin/admin-bima-reports/CHHATTISGARH" class="dropdown-item"> CHHATTISGARH </a>
+                              <a href="/admin/admin-bima-reports/DELHI" class="dropdown-item"> DELHI </a>
+                              <a href="/admin/admin-bima-reports/GUJARAT" class="dropdown-item"> GUJARAT </a>
+                              <a href="/admin/admin-bima-reports/HARYANA" class="dropdown-item">HARYANA </a>
+                              <a href="/admin/admin-bima-reports/HIMACHAL PRADESH" class="dropdown-item"> HIMACHAL PRADESH </a>
+                              <a href="/admin/admin-bima-reports/JHARKHAND" class="dropdown-item"> JHARKHAND </a>
+                              <a href="/admin/admin-bima-reports/KARNATAKA" class="dropdown-item"> KARNATAKA </a>
+                              <a href="/admin/admin-bima-reports/KERALA" class="dropdown-item"> KERALA </a>
+                              <a href="/admin/admin-bima-reports/MADHYA PRADESH" class="dropdown-item"> MADHYA PRADESH </a>
+                              <a href="/admin/admin-bima-reports/MAHARASHTRA" class="dropdown-item"> MAHARASHTRA </a>
+                              <a href="/admin/admin-bima-reports/MANIPUR" class="dropdown-item"> MANIPUR </a>
+                              <a href="/admin/admin-bima-reports/ODISHA" class="dropdown-item"> ODISHA </a>
+                              <a href="/admin/admin-bima-reports/PUNJAB" class="dropdown-item"> PUNJAB </a>
+                              <a href="/admin/admin-bima-reports/RAJASTHAN" class="dropdown-item"> RAJASTHAN </a>
+                              <a href="/admin/admin-bima-reports/TRIPURA" class="dropdown-item"> TRIPURA </a>
+                              <a href="/admin/admin-bima-reports/TAMIL NADU" class="dropdown-item"> TAMIL NADU </a>
+                              <a href="/admin/admin-bima-reports/UTTAR PRADESH" class="dropdown-item"> UTTAR PRADESH </a>
+                              <a href="/admin/admin-bima-reports/UTTARAKHAND" class="dropdown-item"> UTTARAKHAND </a>
+                              <a href="/admin/admin-bima-reports/WEST BENGAL" class="dropdown-item"> WEST BENGAL </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="float-right" >
+                  <a class="btn btn-primary btm-sm" href="../cron-for-bima/state">Refresh from live</a>
+                  <a class="btn btn-success btm-sm" href="../admin-bima-reports-csv/<%=state %>">Export CSV</a>
+                </div>
+                
+            </div>
+            <div class="card-body p-0 pb-3 text-left">
+                <table class="table mb-0" id="example">
+                <thead class="bg-light">
+                    <tr>
+                        <th >#</th>
+                        <th >Name</th>
+                        <th >Mobile</th>
+                        <th >State</th>
+                        <th >Yesterday Policy</th>
+                        <th >This Month Policy</th>
+                        <th >Total Policy</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <% if(data.length > 0) {
+                            let i =1;
+                            
+                            
+
+                            data.forEach(function (row,index){ 
+                            var date = '';
+
+                            let thisMonthData = [];
+                            let yesterdayData = [];
+
+
+                            row.clientdata.forEach((result,index)=>{
+
+                              const policy_date = new Date(result.policy_date);
+                              const policy_exact_date = `${policy_date.getFullYear()}-${policy_date.getMonth()}-${policy_date.getDate()}`;
+
+                            });
+                            
+                        %>
+                          <tr>
+                            <td><%= i %></td>
+                            <td><%= (((row.name.toString()).length>0) ? row.name : 'N/A'); %></td>
+                            <td><%= (((row.mobile.toString()).length>0) ? row.mobile : 'N/A'); %></td>
+                            <td><%= (((row.state.toString()).length>0) ? row.state : 'N/A'); %></td>
+                            <td><%= row.yesterday_clients %></td>
+                            <td><%= row.previous_month_clients %></td>
+                            <td><%= (((row.clients.toString()).length>0) ? row.clients : 'N/A'); %></td>
+                          </tr>
+                        <% i++; }); }  %>
+                    </tbody>
+                </table>
+            </div>
+        </div>    
+    </div>      
+  </main>
+        
+
+<script >
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+
+<%- include('../layouts/footer') %>        

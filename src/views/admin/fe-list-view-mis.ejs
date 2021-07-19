@@ -1,0 +1,252 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<style src="css/responsive.dataTables.min.css"></style>
+<%- include('./main') %>
+<style>
+.dataTables_wrapper table.dataTable tbody td {
+    padding: .35rem .25rem !important;
+    }
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: white;
+   color: white;
+   text-align: center;
+}
+.border-right {
+    border-right: 1px solid #a6a8aa!important;
+}
+</style>
+  <div class="main-content-container container-fluid px-4 mb-4">
+    <!-- Page Header -->
+    <div class="page-header row no-gutters py-4">
+      <div class="col-12 col-sm-4 text-center text-sm-left mb-4 mb-sm-0">
+        <span class="text-uppercase page-subtitle">Dashboard</span>
+        <h3 class="page-title">FE List for <%= (((state.toString()).length>0) ? `(${state})` : '');%></h3>
+      </div>
+      
+    </div>
+    <div class="col-md-12 text-right"> <a href="../../admin/fe-list-export/<%=state%>" class="btn btn-success mb-2">Download FE CSV</a></div>
+    
+    <!-- End Page Header -->
+    <!-- Transaction History Table -->
+  
+
+
+    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+      <!-- Button trigger modal -->
+      <table id="example" class="display nowrap" style="width:100%">
+        <thead>
+            <tr>
+              <th >#</th>
+            <th >Name</th>
+            <th >Email</th>
+            <th  >Mobile</th>
+            <th  >District</th>
+            <th >Pincode</th>
+            <!-- <th >State</th> -->
+            <th >Pan No</th>
+            <th >Aadhar</th>
+            <!-- <th >Payment</th> -->
+            <th >Trans</th>     
+            <th >Referrer Code</th>
+            <!-- <th >Referral Code</th>
+            <th >FE Name</th> -->
+            <th >FE Mobile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(data.length > 0) {
+            let i =1;
+            data.forEach(function (row){ 
+              var date = '';
+              if(row.trans_date.toString().length > 0){
+                var dt = row.trans_date.toString();
+              dt = dt.substring(0, dt.length - 10);
+                
+              var dateObject = new Date(dt); 
+               date = new Date(dateObject).toLocaleDateString();
+              }else{
+                date = 'N/A';
+              }
+              
+          %>
+            <tr >
+              <td style="cursor: pointer;"><%= i %></td>
+              <!-- <td>October 31st 2017 <span class="text-sm">02:10 PM</span> -->
+              <td ><%= row.f_name+' '+row.m_name+' '+row.l_name %></td>
+              <td width="50px"><%= (((row.email.toString()).length>0) ? row.email : 'N/A'); %></td>
+              <td><%= row.mobile %></td>
+              <td ><%= (((row.city.toString()).length>0) ? row.city : 'N/A'); %></td>
+              <td>
+                <%= (((row.pincode.toString()).length>0) ? row.pincode : 'N/A'); %>
+              </td>
+              <!-- <td>
+                <%= (((row.state.toString()).length>0) ? row.state : 'N/A'); %>
+              </td> -->
+              <td>
+                <%= (((row.pan_no.toString()).length>0) ? row.pan_no : 'N/A'); %>
+              </td>
+              <td>
+                <%= (((row.aadhar_no.toString()).length>0) ? row.aadhar_no : 'N/A'); %>
+              </td>
+              <!-- <td class="<%= ((row.payment_status != 'no') ? 'text-success' : 'text-danger'); %>" >
+                <%= ((row.payment_status != 'paid')? 'Pending' : 'Success'); %>
+              </td> -->
+              <!-- <td><%= ((row.user_type.toUpperCase() === 'agent') ? 'Feild Agent' : row.user_type.toUpperCase()); %></td> -->
+              <td>
+                <span class="<%= (((row.trans_date.toString()).length>0) ? 'text-success' : 'text-info') %>"><%= date; %></span>
+              </td>
+              <td>
+                <%= (((row.referrer_code.toString()).length>0) ? row.referrer_code : 'N/A'); %>
+              </td>
+              <!-- <td>
+                <%= (((row.referl_code.toString()).length>0) ? row.referl_code : 'N/A'); %>
+              </td> -->
+              <!-- <td>
+                <%= (((row.fe_fullname.toString()).length>0) ? row.fe_fullname : 'N/A'); %>
+              </td> -->
+              <td>
+                <%= (((row.fe_mobile.toString()).length>0) ? row.fe_mobile : 'N/A'); %>
+              </td>
+            </tr>
+                    
+  
+          <% i++; }); }  %>
+        </tbody>  
+    </table>
+    </div>
+    <!-- End Transaction History Table -->
+    
+  </div>
+  <!-- <div class="footer">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Blog</a>
+      </li>
+    </ul>
+  </div> -->
+  <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+    <ul class="nav">
+        <li class="nav-item border-right">
+            <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/all">All</a>
+        </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/ANDHRA PRADESH">ANDHRA PRADESH</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/ARUNACHAL PRADESH">ARUNACHAL PRADESH</a>
+      </li> -->
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/ASSAM">ASSAM</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/CHANDIGARH">CHANDIGARH</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/CHHATTISGARH">CHHATTISGARH</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/DELHI">DELHI</a>
+      </li> -->
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/GUJARAT">GUJARAT</a>
+      </li>
+       <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/HARYANA">HARYANA</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/HIMACHAL PRADESH">HIMACHAL PRADESH</a>
+      </li> -->
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/JHARKHAND">JHARKHAND</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/KARNATAKA">KARNATAKA</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/KERALA">KERALA</a>
+      </li> -->
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/MADHYA PRADESH">MADHYA PRADESH</a>
+      </li>
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/MAHARASHTRA">MAHARASHTRA</a>
+      </li>
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/MANIPUR">MANIPUR</a>
+      </li>
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/ODISHA">ODISHA</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/PUNJAB">PUNJAB</a>
+      </li> -->
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/RAJASTHAN">RAJASTHAN</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/TRIPURA">TRIPURA</a>
+      </li> -->
+      <!-- <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/TAMIL NADU">TAMIL NADU</a>
+      </li> -->
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/UTTAR PRADESH">UTTAR PRADESH</a>
+      </li>
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/UTTARAKHAND">UTTARAKHAND</a>
+      </li>
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/WEST BENGAL">WEST BENGAL</a>
+      </li>
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/BIHAR">BIHAR</a>
+      </li>
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/NAGALAND">NAGALAND</a>
+      </li>
+      
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/MEGHALAYA">MEGHALAYA</a>
+      </li>
+      <li class="nav-item border-right">
+        <a class="nav-link" style="font-size:0.6rem;" href="/admin/fe-list-view/ARUNACHAL PRADESH">ARUNACHAL PRADESH</a>
+      </li>
+      
+    </ul>
+    <!-- <span class="copyright ml-auto my-auto mr-2">Copyright © 2021 <a href="https://designrevision.com" rel="nofollow">DesignRevision</a></span> -->
+  </footer>
+
+</main>
+ 
+<script>
+/* $(document).ready(function() {
+    $('#example').dataTable({
+      'iDisplayLength': 100
+    });
+}); */
+$(document).ready(function() {
+    var table = $('#example').DataTable( {
+        responsive: true,
+        'iDisplayLength': 50
+    } );
+ 
+    new $.fn.dataTable.FixedHeader( table );
+} );
+</script>
+<%- include('../layouts/footer') %> 

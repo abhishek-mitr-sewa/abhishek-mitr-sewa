@@ -1,0 +1,205 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/leftmenu') %>
+<%- include('./main') %>
+
+
+
+    <div class="main-content-container container-fluid px-4">
+      <!-- Page Header -->
+      <div class="page-header row no-gutters py-4">
+        <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+          <span class="text-uppercase page-subtitle">Dashboard</span>
+          <h3 class="page-title"> Payouts</h3>
+        </div>
+      </div>
+      <!-- End Page Header -->
+        <hr>
+      <div class="col">
+        <div>
+            <h4>Upload BC Payout Sheet</h4>
+        </div>
+        <form action="/admin/create-payouts" class="py-4" method="POST" name="frm" enctype="multipart/form-data">
+          <%  if((message || message.length>0) && status == 0) { %>
+            <div class="alert alert-danger">
+              <h4 class="text-white">Alert!</h4>
+              <%   message.forEach(function (row){    %>
+                  <div class="text-white border-bottom mb-2">Message: <%=row.pan_number %> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Value: <%=row.amount %> </div>
+              <% });  %>
+            </div>
+          <% } %>
+
+          <%  if((message || message.length>0) && status == 1) { %>
+            <div class="alert alert-success">
+              <h4 class="text-white">Success!</h4>
+            
+                  <div class="text-white border-bottom mb-2">Message: <%=message %></div>
+            
+            </div>
+          <% } %>
+        
+            <div class="form-row mx-4">
+              <div class="col-lg-10 d-flex">
+                <div class="form-group col-md-2">
+                  <select id="" name="year" class="form-control" required>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2023">2026</option>
+                    <option value="2024">2027</option>
+                    <option value="2025">2028</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <select id="" name="month" class="form-control" required>
+                    <option value="">Select Month</option>
+                    <option value="jan">Jan</option>
+                    <option value="feb">Feb</option>
+                    <option value="mar">Mar</option>
+                    <option value="apr">Apr</option>
+                    <option value="may">May</option>
+                    <option value="jun">Jun</option>
+                    <option value="jul">Jul</option>
+                    <option value="aug">Aug</option>
+                    <option value="sep">Sep</option>
+                    <option value="oct">Oct</option>
+                    <option value="nov">Nov</option>
+                    <option value="dec">Dec</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                <select id="" name="type" class="form-control" required>
+                  <option value="">Select Type</option>
+                  <option value="banking" >Banking</option>
+                  <option value="insurance" >Insurance</option>
+                  <option value="amazon" >Amazon</option>
+                  <option value="ecom" >E- Commerce</option>
+                  <option value="digipay" >Digi Pay</option>
+                </select>
+              </div>
+              
+              <div class="form-row form-group mx-4 col-md-3">
+                <div class="custom-file "> 
+                  <input type="file" name="csv_file" class="custom-file-input" id="csv_file">
+                  <label class="custom-file-label" for="customFile2">Choose file...</label>
+                </div>
+              </div>
+
+                <div class="col-md-3 text-center">
+                  <input type="submit" class="col-md-7 btn btn-primary mb-2" value="Upload Payout">
+                </div>
+              </div>
+          </div>
+        </form>
+        <hr>
+        <!-- --------generate Payouts -->
+        <div>
+          <h4>Generate Payouts</h4>
+        </div>
+        <form action="/admin/generate-payouts" class="py-4" method="post" name="form" enctype="multipart/form-data">
+            <div class="form-row mx-4">
+              <div class="col-lg-10 d-flex">
+                <div class="form-group col-md-2">
+                  <select id="" name="year" class="form-control" required>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2023">2026</option>
+                    <option value="2024">2027</option>
+                    <option value="2025">2028</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <select id="" name="month" class="form-control" required>
+                    <option value="">Select Month</option>
+                    <option value="jan">Jan</option>
+                    <option value="feb">Feb</option>
+                    <option value="mar">Mar</option>
+                    <option value="apr">Apr</option>
+                    <option value="may">May</option>
+                    <option value="jun">Jun</option>
+                    <option value="jul">Jul</option>
+                    <option value="aug">Aug</option>
+                    <option value="sep">Sep</option>
+                    <option value="oct">Oct</option>
+                    <option value="nov">Nov</option>
+                    <option value="dec">Dec</option>
+                  </select>
+                </div>
+                <div class="col-md-3 text-center">
+                  <input type="submit" class="col-md-10 btn btn-primary mb-2" value="Generate Payout">
+                </div>
+              </div>
+          </div>
+        </form>
+        <hr>
+        <!-- --------Insert FE Payouts -->
+        <div>
+          <h4>Upload FE Payout Sheet</h4>
+        </div>
+        <form action="/admin/fe-payouts" class="py-4" method="post" name="form" enctype="multipart/form-data">
+          <div class="form-row mx-4">
+            <div class="col-lg-10 d-flex">
+              <div class="form-group col-md-2">
+                <select id="" name="year" class="form-control" required>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2023">2026</option>
+                  <option value="2024">2027</option>
+                  <option value="2025">2028</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-2">
+                <select id="" name="month" class="form-control" required>
+                  <option value="">Select Month</option>
+                  <option value="jan">Jan</option>
+                  <option value="feb">Feb</option>
+                  <option value="mar">Mar</option>
+                  <option value="apr">Apr</option>
+                  <option value="may">May</option>
+                  <option value="jun">Jun</option>
+                  <option value="jul">Jul</option>
+                  <option value="aug">Aug</option>
+                  <option value="sep">Sep</option>
+                  <option value="oct">Oct</option>
+                  <option value="nov">Nov</option>
+                  <option value="dec">Dec</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-3">
+                <select id="" name="type" class="form-control" required>
+                  <option value="">Select Type</option>
+                  <option value="banking" >Banking</option>
+                  <option value="insurance" >Insurance</option>
+                  <option value="amazon" >Amazon</option>
+                  <option value="ecom" >E- Commerce</option>
+                  <option value="digipay" >Digi Pay</option>
+                </select>
+              </div>
+
+              <div class="form-row form-group mx-4 col-md-3">
+                <div class="custom-file "> 
+                  <input type="file" name="csv_file" class="custom-file-input" id="csv_file">
+                  <label class="custom-file-label" for="customFile2">Choose file...</label>
+                </div>
+              </div>
+              
+              <div class="col-md-3 text-center">
+                <input type="submit" class="col-md-10 btn btn-primary mb-2" value="Upload FE Payouts">
+              </div>
+            </div>
+          </div>
+        </form>
+        <hr>
+      </div>
+  </main>
+        
+<%- include('../layouts/footer') %>        
