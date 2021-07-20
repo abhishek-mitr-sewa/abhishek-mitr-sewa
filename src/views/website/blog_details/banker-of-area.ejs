@@ -1,0 +1,212 @@
+<%- include('../web-layouts/header') %>
+  <style>
+    body {
+      color: #211d2b;
+      font-size: 1.1rem;
+    }
+
+    .bg-default {
+      background-color: #ffffff !important;
+    }
+
+    .header_link {
+      color: #3c3c3b !important;
+      text-decoration: none !important;
+      font-size: 15px;
+      position: relative;
+      top: 2px;
+    }
+
+    .background_gradient {
+      background: linear-gradient(#ee5735, #261f44);
+      height: 590px;
+    }
+
+    .banner_light_bg {
+      background-color: #f6f6f6;
+    }
+
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+      width: 100%;
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+
+    .logo_name {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 0;
+      font-weight: 800;
+      font-style: italic;
+
+    }
+
+    .tagline_name {
+      color: #fff;
+      font-size: .8rem;
+      margin-left: 30%;
+      margin-top: -26px;
+      font-weight: 700;
+      letter-spacing: 2.1px;
+
+    }
+
+    .header .navbar-default.navbar {
+      padding: 10px 0;
+    }
+
+    .slick-slide img {
+      display: block;
+    }
+
+    .u-clients {
+      width: 190px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .rounded-bottom {
+      text-align: justify;
+    }
+
+    .border-1:hover {
+      position: relative;
+      z-index: 1;
+      -webkit-box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+      box-shadow: 0 0 40px 0 rgb(0 0 0 / 20%);
+      border: 0;
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+    }
+
+    h4.heading {
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    span.sprite-image {
+      width: 90px;
+      background: url(assets/images/advantages-sprite.webp) no-repeat;
+      height: 90px;
+      display: inline-block;
+      background-size: 105%;
+      margin: 20px 0 0 10px;
+    }
+
+    span.sprite-image.lowest-price {
+      background-position: 0 -315px;
+    }
+
+    span.sprite-image.reliable {
+      background-position: 0 -102px;
+    }
+
+    span.sprite-image.claim-support {
+      background-position: 0 0;
+    }
+
+    span.sprite-image.happy-help {
+      background-position: 0 -206px;
+    }
+
+    .bgclr {
+      background: #f7f9ff;
+    }
+
+    .bg-shape:after {
+      position: absolute;
+      background: none;
+      background-size: none;
+      bottom: 0px;
+      height: 0px;
+    }
+  </style>
+
+  <!-- hero section -->
+  <div class="bg-cover bg-shape" style=" background-image:linear-gradient(180deg, rgb(30 24 53 / 68%) 0%, rgb(30 24 53 / 76%) 90.16%),
+    url(../frontend/assets/images/post-hero-img.jpeg); ">
+    <div class="container">
+      <div class="row">
+        <div class="offset-lg-3 col-lg-6 col-md-12 col-12">
+          <div class="py-lg-15 py-12 text-white text-center">
+            <h1 class=" text-white mb-3 display-4">
+              <%= title%>
+            </h1>
+            <!-- <p class="mb-0 lead text-light">
+                      Mitr sewa team blogs contents are here. Its very nice and good presentation for you all. Thanks for visiting here... Stay tuned here and get updates.
+                     </p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- about  -->
+  <div class="pt-12 pb-12 ">
+    <div class="container">
+      <div class="row">
+        <div class="offset-xl-1 col-xl-10 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="mb-4">
+            <img src="../frontend/assets/images/areabankerimg.jpeg" alt="" class="img-fluid rounded mb-2 mt-3 w-100">
+            <br>
+            <br>
+            
+            <h3 class="mb-3">Banker of your Area: Bank Mitr</h3>
+            <p>
+                Suppose you are interested in becoming Bank Mitr and have queries regarding it. In that case,
+                you are at the right place because, in this article, we will try to answer various questions related to Bank Mitr and the services they cater to. We will also draw your attention to some other essential factors like eligibility criteria and the best way to become a Bank Mitr.
+            </p>
+            <p>So, without wasting time. Let’s get started.</p>
+
+            <h3 class="mb-3">Who is a Bank Mitr?</h3>
+            <p>Bank Mitr is a person who is attached to a particular bank and performs various activities associated with the bank. Some of the main activities performed by the Bank Mitr include opening an account, withdrawing money from the account, depositing money into the bank account, providing a loan,printing of checkbook, and so on.
+            </p>
+            <p>In a nutshell, we can say that a Bank Mitr is a person we can consider as the banker of his area. 
+                A bank Mitr is also sometimes known as Bank Correspondance.
+            </p>
+
+          </div>
+          <div class="mb-4" >
+              <h3  class="mb-3">Is there any Salary for the Bank Mitr?</h3>
+              <p>Yes, all Bank Mitr draws a fixed salary that may vary from the 2000-5000 INR. The amount is   almost the same for all types of banks, irrespective of the location.
+            </p>
+            <p>But bank mitr also earns huge income through various commissions by providing multiple services to its customers.</p>
+          </div>
+          <div class="mb-5">
+            <h3 class="mb-3">Requirement for Bank Mitr</h3>
+            <p>To become a bank Mitr, the first and foremost requirement is to be a citizen of India. Apart from this, you must also have literacy in computers and equipment like computer/laptop, scanner, printer, and internet connections; apart from this, you must also have a shop of at least 100 sq. feet.
+            </p>
+          </div>
+          <!-- list unstyled -->
+           <div class="mb-5">
+            <h3 class="mb-3">Documents Required</h3>
+            <ul>
+                <li>For becoming the Bank Mitr, you will have to submit the following documents</li>
+                <li>One photo Id proof like Aadhar Card, Pan Card, or Voter ID Card.</li>
+                <li>You must be at least 10th pass and have a mark sheet and character certificate.</li>
+                <li>For address proof, you will have to submit an electricity bill, telephone bill, ration card, or
+                    passport.</li>
+                <li>Two colored passport size recent photographs.</li>
+            </ul>
+            
+          </div>
+          <div class="mb-5">
+              <h3 class="mb-3">How to apply:</h3>
+              <p>
+                There are various bank portals from where you can apply for Bank Mitr, but if you want to earn some
+                good commission, then Mitr Sewa is the best option for you. The registration process for becoming the
+                Bank Mitr is straightforward. All you have to do is visit the official web page www. Mitrsewa.in. Then,go to the contact us page and leave your contact information. Our representative will soon get in touch
+                with you, and then he will explain the rest of the process. You can also visit your nearest branch or office
+                for more detail.
+              </p>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('../web-layouts/footer') %>

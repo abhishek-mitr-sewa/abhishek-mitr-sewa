@@ -71,14 +71,34 @@ async contactPost (req,res,next){
     }); 
   }
 
+  //First  Blog 
   async mitr_sewa_kendra (req, res, next) {
     try{
-      console.log('hello');
-      res.render('website/blog_details/how-to-open-mitr-sewa-kendra', {title: 'How to open mitr Sewa Kendra', status: 1, message: null })
+      //console.log('hello');
+      res.render('website/blog_details/how-to-open-mitr-sewa-kendra', {title: 'How to open mitr Sewa Kendra ?', status: 1, message: null })
     }catch(error){
       console.log(error);
     }
   }
+//Second Blog
+  async blog_start_own_business(req, res, next){
+    try{
+      res.render('website/blog_details/start-own-business', {title: ' Want to start your own business ?', status: 1, message: null })
+    
+    }catch (error){
+      console.log(error);
+    }
+  }
+  
+  //Third Blog
+  async blog_banker_of_area(req, res, next){
+    try{
+      res.render('website/blog_details/banker-of-area', {title: 'Banker of your Area: Bank Mitr', status: 1, message: null })
+    
+    }catch (error){
+      console.log(error);
+    }
+  } 
   
 }
 

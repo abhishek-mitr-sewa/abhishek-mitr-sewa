@@ -28,3 +28,5 @@ export default Router()
 
 
     .get('/blog-mitr-sewa-kendra', webController.mitr_sewa_kendra.bind(webController))
+    .get('/blog-start-own-business', webController.blog_start_own_business.bind(webController))
+    .get('/blog-banker-of-area', webController.blog_banker_of_area.bind(webController))
